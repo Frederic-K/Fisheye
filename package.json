@@ -1,0 +1,28 @@
+{
+  "name": "front-end-fisheye",
+  "version": "1.0.0",
+  "description": "OC-DA JS REACT-Projet 6 : Site Fisheye - Créez un site accessible pour une plateforme de photographes",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frederic-K/Front-End-Fisheye.git"
+  },
+  "keywords": [
+    "OC",
+    "DA",
+    "JavaScript",
+    "P6",
+    "Fisheye"
+  ],
+  "author": "Frédéric KREUDER",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/Frederic-K/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/Frederic-K/Front-End-Fisheye#readme"
+}
