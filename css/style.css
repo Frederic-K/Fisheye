@@ -2,7 +2,6 @@
   max-width: 1440px;
   margin: 0px auto;
   box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
 }
 
 h1 {
@@ -11,6 +10,22 @@ h1 {
 
 * {
   font-family: "DM Sans", sans-serif;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  margin-left: 50px;
+}
+.header__logo--img {
+  height: 50px;
+}
+.header h1 {
+  margin-right: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
