@@ -36,7 +36,6 @@ h1 {
 }
 
 .photographer__section {
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
@@ -56,6 +55,12 @@ h1 {
 .photographer__section .photographer__article--img {
   height: 200px;
   width: 200px;
+}
+@media screen and (max-width: 768px) {
+  .photographer__section {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

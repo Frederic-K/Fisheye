@@ -1,5 +1,4 @@
 .photographer__section {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
@@ -17,7 +16,10 @@
         &--img {
             height: 200px;
             width: 200px;
-        }
-        
+        }        
+    }
+    @media screen and (max-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
     }
 };
