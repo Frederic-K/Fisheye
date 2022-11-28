@@ -2,10 +2,20 @@ function photographerFactory(data) {
     const { portrait, name, city, country } = data;
 
     const picture = `assets/photographers/${portrait}`;
+    const link = "www.google.com";
 
     function getUserCardDOM() {
+
+        const photographerLink = document.createElement( 'a' );
+        photographerLink.classList.add("photographerLink");
+        photographerLink.setAttribute("href", link);
+
+
         const article = document.createElement( 'article' );
         article.classList.add("photographer__article");
+        
+        const photographerArticleCaption = document.createElement( 'div' );
+        photographerArticleCaption.classList.add("photographer__article--caption");
 
         const photographerArticleImg = document.createElement( 'div' );
         photographerArticleImg.classList.add("photographer__article--captionImg");
@@ -13,9 +23,6 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.classList.add("photographer__article--img");
         img.setAttribute("src", picture);
-
-        const photographerArticleCaption = document.createElement( 'div' );
-        photographerArticleCaption.classList.add("photographer__article--caption");
 
         const h2 = document.createElement( 'h2' );
         h2.classList.add("photographer__article--captionTitle");
@@ -32,6 +39,7 @@ function photographerFactory(data) {
         photographerlocationCountry.classList.add("photographer__article--captionCountry");
         photographerlocationCountry.textContent = country;
 
+        photographerLink.appendChild(article);
         article.appendChild(photographerArticleCaption);
         photographerArticleCaption.appendChild(photographerArticleImg);
         photographerArticleImg.appendChild(img);
@@ -40,7 +48,7 @@ function photographerFactory(data) {
         photographerlocation.appendChild(photographerlocationCity);
         photographerlocation.appendChild(photographerlocationCountry);
 
-        return (article);
+        return (photographerLink);
     }
     return { picture, name, getUserCardDOM }
 };
