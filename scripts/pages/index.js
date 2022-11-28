@@ -19,6 +19,15 @@
                 "price": 250,
                 "portrait": "EllieRoseWilkens.jpg"
             },
+            {
+                "name": "Tracy Galindo",
+                "id": 82,
+                "city": "Montreal",
+                "country": "Canada",
+                "tagline": "Photographe freelance",
+                "price": 500,
+                "portrait": "TracyGalindo.jpg"
+            },
         ]
         // et bien retourner le tableau photographers seulement une fois
         return ({
