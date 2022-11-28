@@ -29,14 +29,17 @@ function photographerFactory(data) {
 
         const photographerlocation = document.createElement("div");
         photographerlocation.classList.add("photographer__article--captionLocation");
+        photographerlocation.textContent = `${city}, ${country}`;
 
-        const photographerlocationCity = document.createElement("p");
+        /*const photographerlocationCity = document.createElement("p");
         photographerlocationCity.classList.add("photographer__article--captionCity");
         photographerlocationCity.textContent = city;
 
         const photographerlocationCountry = document.createElement("p");
         photographerlocationCountry.classList.add("photographer__article--captionCountry");
-        photographerlocationCountry.textContent = country;
+        photographerlocationCountry.textContent = country;*/
+
+
 
         const photographTagLine = document.createElement("p");
         photographTagLine.classList.add("photographer__article--captionTagLine");
@@ -44,7 +47,8 @@ function photographerFactory(data) {
 
         const photographerPrice = document.createElement("p");
         photographerPrice.classList.add("photographer__article--captionPrice");
-        photographerPrice.textContent = price;
+        //photographerPrice.innerHTML = `${price} €/jour`;
+        photographerPrice.textContent = `${price} €/jour`;
 
         photographerArticleCard.appendChild(photographerLink);
         photographerLink.appendChild(photographerImgLinkCard)
@@ -52,8 +56,8 @@ function photographerFactory(data) {
         photographerLink.appendChild(photographerNameCard);
         photographerArticleCard.appendChild(photographerArticleCaption)
         photographerArticleCaption.appendChild(photographerlocation);
-        photographerlocation.appendChild(photographerlocationCity);
-        photographerlocation.appendChild(photographerlocationCountry);
+        /*photographerlocation.appendChild(photographerlocationCity);
+        photographerlocation.appendChild(photographerlocationCountry);*/
         photographerArticleCaption.appendChild(photographTagLine);
         photographerArticleCaption.appendChild(photographerPrice);
 

@@ -137,6 +137,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
 }
 .photographer__section .photographer__article--linkImg {
   width: 200px;
@@ -154,6 +155,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 .photographer__section .photographer__article--captionLocation {
   display: flex;
