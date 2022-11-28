@@ -7,6 +7,9 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         article.classList.add("photographer__article");
 
+        const photographerArticleImg = document.createElement( 'div' );
+        photographerArticleImg.classList.add("photographer__article--captionImg");
+
         const img = document.createElement( 'img' );
         img.classList.add("photographer__article--img");
         img.setAttribute("src", picture);
@@ -30,7 +33,8 @@ function photographerFactory(data) {
         photographerlocationCountry.textContent = country;
 
         article.appendChild(photographerArticleCaption);
-        photographerArticleCaption.appendChild(img);
+        photographerArticleCaption.appendChild(photographerArticleImg);
+        photographerArticleImg.appendChild(img);
         photographerArticleCaption.appendChild(h2);
         photographerArticleCaption.appendChild(photographerlocation);
         photographerlocation.appendChild(photographerlocationCity);
