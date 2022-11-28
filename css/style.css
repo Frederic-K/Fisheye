@@ -93,12 +93,17 @@ h1 {
   flex-direction: column;
   color: #D3573C;
 }
-.photographer__section .photographer__article--img {
+.photographer__section .photographer__article--captionImg {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  object-fit: cover;
   overflow: hidden;
+}
+.photographer__section .photographer__article--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
 }
 .photographer__section .photographer__article--captionTitle {
   font-size: 36px;
