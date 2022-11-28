@@ -2,6 +2,7 @@
   max-width: 1440px;
   margin: 0px auto;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .hidden {
@@ -10,7 +11,11 @@
 
 h1 {
   color: #901C1C;
-  font-size: 2rem;
+}
+
+h2 {
+  color: #D3573C;
+  font-size: 36px;
 }
 
 * {
@@ -79,21 +84,61 @@ h1 {
             flex-wrap: wrap;
     }
 };*/
+/*.photographer__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    .photographer__article {
+        &--caption {
+            justify-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #D3573C;
+        }
+        &--captionImg {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        &--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+        }
+        &--captionTitle {
+            font-size: 36px;
+        }
+        &--captionLocation {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+    }
+}*/
 .photographer__section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
 }
-.photographer__section .photographer__article--caption {
-  justify-self: center;
+.photographer__section .photographer__article {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #D3573C;
 }
-.photographer__section .photographer__article--captionImg {
+.photographer__section .photographer__article--link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photographer__section .photographer__article--linkImg {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -105,13 +150,22 @@ h1 {
   object-fit: cover;
   transform: scale(1.2);
 }
-.photographer__section .photographer__article--captionTitle {
-  font-size: 36px;
+.photographer__section .photographer__article--caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .photographer__section .photographer__article--captionLocation {
   display: flex;
   flex-direction: row;
   gap: 5px;
+  color: #901C1C;
+}
+.photographer__section .photographer__article--captionTagLine {
+  color: black;
+}
+.photographer__section .photographer__article--captionPrice {
+  color: #525252;
 }
 
 /*# sourceMappingURL=style.css.map */
