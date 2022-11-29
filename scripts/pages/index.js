@@ -1,6 +1,6 @@
-    async function getPhotographers() {
+    //async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
-        const photographers = [
+       /* const photographers = [
             {
                 "name": "Mimi Keel",
                 "id": 243,
@@ -28,11 +28,41 @@
                 "price": 500,
                 "portrait": "TracyGalindo.jpg"
             },
-        ]
-        // et bien retourner le tableau photographers seulement une fois
+        ]*/ 
+        /* et bien retourner le tableau photographers seulement une fois
         return ({
             photographers: [...photographers, ...photographers, ...photographers]})
+    };*/
+
+    async function getPhotographers () {
+        const photographersData = fetch('data/photographers.json')
+        .then(function(response) {
+            if (response.ok) {
+                return response.json()
+            }
+            else {
+                console.log("Une erreur réseau est survenue")
+            }
+        })
+        .then(function(photographersData) {
+            return photographersData
+        })
+        .catch(function(error) {
+            console.log("Une erreur est survenue avec l'opération fetch")
+        })
+        return photographersData
     };
+
+    /*async function getPhotographers () {
+        const photographersData = fetch('data/photographers.json')
+        .then(function(response) {
+                return response.json()
+        })
+        /*.then(function(photographersData) {
+            return photographersData
+        })
+        return photographersData
+    };*/
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer__section");
@@ -49,6 +79,5 @@
         const { photographers } = await getPhotographers();
         displayData(photographers);
     };
-    
+
     init();
-    

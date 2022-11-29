@@ -39,8 +39,6 @@ function photographerFactory(data) {
         photographerlocationCountry.classList.add("photographer__article--captionCountry");
         photographerlocationCountry.textContent = country;*/
 
-
-
         const photographTagLine = document.createElement("p");
         photographTagLine.classList.add("photographer__article--captionTagLine");
         photographTagLine.textContent = tagline;
