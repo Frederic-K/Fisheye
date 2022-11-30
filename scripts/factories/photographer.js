@@ -1,15 +1,18 @@
 
-function photographerCardFactory(data) {
+function getPhotographerCardDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
+    
+    const picture = `assets/photographers/${portrait}`;
+
     const photographerPageLink = `Lien vers la page du photographe ${name}`;
     const photographerProfilePicture = `Photo du profil du photographe ${name}`;
     const link = `./photographer.html?id=${id}`;
     const location = `${city}, ${country}`;
+    const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`;
     const photographerMessage = `Message du photographe ${name}`;
-    const photographerPricePerDay = `Tarif journalier du photographe ${name}`;
+    const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
     const pricePerDay = `${price} €/jour`;
-    const picture = `assets/photographers/${portrait}`;
 
     // Card
     const photographerArticleCard = document.createElement("article");
@@ -46,6 +49,7 @@ function photographerCardFactory(data) {
     const photographerlocation = document.createElement("p");
     photographerlocation.classList.add("photographer__article--captionLocation");
     photographerlocation.textContent = location;
+    photographerlocation.setAttribute("arial-label", photographerHome);
 
     // Tagline
     const photographTagLine = document.createElement("p");
