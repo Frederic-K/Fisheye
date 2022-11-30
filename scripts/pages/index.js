@@ -75,6 +75,19 @@
         }
     };*/
 
+
+    /*async function getPhotographers () {
+        const photographersData = fetch('data/photographers.json')
+        .then(function(response) {
+                return response.json()
+        })
+        /*.then(function(photographersData) {
+            return photographersData
+        })
+        return photographersData
+    };*/
+
+    
     async function getPhotographers() {
         const photographersData = await fetch("data/photographers.json")
         .then ((response) => {
@@ -88,23 +101,11 @@
         return photographersData
     };
 
-    /*async function getPhotographers () {
-        const photographersData = fetch('data/photographers.json')
-        .then(function(response) {
-                return response.json()
-        })
-        /*.then(function(photographersData) {
-            return photographersData
-        })
-        return photographersData
-    };*/
-
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer__section");
 
         photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
+            const userCardDOM = getUserCardDOM(photographer);
             photographersSection.appendChild(userCardDOM);
         });
     };
