@@ -105,7 +105,7 @@
         const photographersSection = document.querySelector(".photographer__section");
 
         photographers.forEach((photographer) => {
-            const userCardDOM = getUserCardDOM(photographer);
+            const userCardDOM = photographerCardFactory(photographer);
             photographersSection.appendChild(userCardDOM);
         });
     };
