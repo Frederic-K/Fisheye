@@ -2,8 +2,12 @@
 function photographerCardFactory(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
+    const photographerPageLink = `Lien vers la page du photographe ${name}`;
+    const photographerProfilePicture = `Photo du profil du photographe ${name}`;
     const link = `./photographer.html?id=${id}`;
     const location = `${city}, ${country}`;
+    const photographerMessage = `Message du photographe ${name}`;
+    const photographerPricePerDay = `Tarif journalier du photographe ${name}`;
     const pricePerDay = `${price} €/jour`;
     const picture = `assets/photographers/${portrait}`;
 
@@ -15,15 +19,19 @@ function photographerCardFactory(data) {
     const photographerLink = document.createElement("a");
     photographerLink.classList.add("photographer__article--link");
     photographerLink.setAttribute("href", link);
+    photographerLink.setAttribute("role", "link");
+    photographerLink.setAttribute("arial-label", photographerPageLink);
 
     // Img link 
     const photographerImgLinkCard = document.createElement("div");
-    photographerImgLinkCard.classList.add("photographer__article--linkImg")
+    photographerImgLinkCard.classList.add("photographer__article--linkImg");
 
     // Img 
     const photographerImgCard = document.createElement("img");
     photographerImgCard.classList.add("photographer__article--img");
     photographerImgCard.setAttribute("src", picture);
+    photographerImgCard.setAttribute("alt", photographerProfilePicture);
+    photographerImgCard.setAttribute("arial-label", photographerProfilePicture);
 
     // Name 
     const photographerNameCard = document.createElement("h2");
@@ -42,12 +50,13 @@ function photographerCardFactory(data) {
     // Tagline
     const photographTagLine = document.createElement("p");
     photographTagLine.classList.add("photographer__article--captionTagLine");
+    photographTagLine.setAttribute("arial-label", photographerMessage);
     photographTagLine.textContent = tagline;
 
     // Price per day
     const photographerPrice = document.createElement("p");
     photographerPrice.classList.add("photographer__article--captionPrice");
-    //photographerPrice.innerHTML = `${price} €/jour`;
+    photographerPrice.setAttribute("arial-label", photographerPricePerDay);
     photographerPrice.textContent = pricePerDay;
 
     // Indent
