@@ -1,13 +1,17 @@
+
 function photographerFactory(data) {
-    const { portrait, name, city, country, tagline, price } = data;
+    const { portrait, id, name, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/${portrait}`;
-    const link = "#";
+    const link = `./photographer.html?id=${id}`;
+    const location = `${city}, ${country}`;
+    const pricePerDay = `${price} €/jour`;
 
     function getUserCardDOM() {
 
         const photographerArticleCard = document.createElement("article");
         photographerArticleCard.classList.add("photographer__article");
+
         
         const photographerLink = document.createElement("a");
         photographerLink.classList.add("photographer__article--link");
@@ -27,9 +31,10 @@ function photographerFactory(data) {
         const photographerArticleCaption = document.createElement("div");
         photographerArticleCaption.classList.add("photographer__article--caption");
 
-        const photographerlocation = document.createElement("div");
+        const photographerlocation = document.createElement("p");
         photographerlocation.classList.add("photographer__article--captionLocation");
-        photographerlocation.textContent = `${city}, ${country}`;
+        //photographerlocation.textContent = `${city}, ${country}`;
+        photographerlocation.textContent = location;
 
         /*const photographerlocationCity = document.createElement("p");
         photographerlocationCity.classList.add("photographer__article--captionCity");
@@ -46,7 +51,8 @@ function photographerFactory(data) {
         const photographerPrice = document.createElement("p");
         photographerPrice.classList.add("photographer__article--captionPrice");
         //photographerPrice.innerHTML = `${price} €/jour`;
-        photographerPrice.textContent = `${price} €/jour`;
+        //photographerPrice.textContent = `${price} €/jour`;
+        photographerPrice.textContent = pricePerDay;
 
         photographerArticleCard.appendChild(photographerLink);
         photographerLink.appendChild(photographerImgLinkCard)

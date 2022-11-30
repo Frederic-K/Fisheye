@@ -33,9 +33,21 @@
         return ({
             photographers: [...photographers, ...photographers, ...photographers]})
     };*/
-
-    async function getPhotographers () {
+    
+    /*async function getPhotographers () {
         const photographersData = fetch('data/photographers.json')
+        .then(function(response) {
+                return response.json()
+        })
+        /*.then(function(photographersData) {
+            return photographersData
+        })
+        return photographersData
+    };*/
+
+    // Fonction Fetch 
+   /* async function getPhotographers() {
+        const photographersData = await fetch("data/photographers.json")
         .then(function(response) {
             if (response.ok) {
                 return response.json()
@@ -49,6 +61,29 @@
         })
         .catch(function(error) {
             console.log("Une erreur est survenue avec l'opération fetch")
+        })
+        return photographersData
+    };*/
+
+    /*async function getPhotographers() {
+        const photographersData = await fetch("data/photographers.json")
+        if (photographersData) {
+            return photographersData.json()
+        }
+        else {
+            return console.log("Une erreur est survenue avec l'opération fetch")
+        }
+    };*/
+
+    async function getPhotographers() {
+        const photographersData = await fetch("data/photographers.json")
+        .then ((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                console.log("Une erreur réseau est survenue");
+            }
         })
         return photographersData
     };
