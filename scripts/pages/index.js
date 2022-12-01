@@ -23,8 +23,8 @@
         const photographersSection = document.querySelector(".photographer__section");
 
         photographers.forEach((photographer) => {
-            const userCardDOM = getPhotographerCardDOM(photographer);
-            photographersSection.appendChild(userCardDOM);
+            const photographerCardDOM = getPhotographerCardDOM(photographer);
+            photographersSection.appendChild(photographerCardDOM);
         });
     };
 
@@ -36,7 +36,15 @@
     init();
 
 
+    /*async function displayData(photographers) {
+        const photographersSection = document.querySelector(".photographer__section");
 
+        photographers.forEach((photographer) => {
+            const photographerCard = new photographerCardTemplate(photographer);
+            const photographerCardDOM = photographerCard.getPhotographerCardDOM();
+            photographersSection.appendChild(photographerCardDOM);
+        });
+    };*/
 
         // Fonction Fetch 
    /* async function getPhotographers() {
