@@ -98,6 +98,9 @@
                 console.log("Une erreur réseau est survenue");
             }
         })
+        .catch(function(error) {
+            console.log("Une erreur est survenue avec l'opération fetch")
+        })
         return photographersData
     };
 
