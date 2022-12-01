@@ -1,6 +1,6 @@
 
 // Fonction Fetch 
-   async function getPhotographersData() {
+   /*async function getPhotographersData() {
         const photographersData = await fetch("data/photographers.json")
         .then(function(response) {
             if (response.ok) {
@@ -17,7 +17,7 @@
             console.log("Une erreur est survenue avec l'opération fetch")
         })
         return photographersData
-    };
+    };*/
     
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer__section");
