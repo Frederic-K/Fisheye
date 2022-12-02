@@ -84,19 +84,24 @@ async function getSelectedPhotographer() {
 
 async function displayData() {
     const selectedPhotographer = await getSelectedPhotographer();
-    const photographersSection = document.querySelector(".header__photographer");
+    console.log("selectedPhotographer", selectedPhotographer);
+
+    
     const photographerPageDOM = getPhotographerPageDOM(selectedPhotographer);
+    console.log("photographerPageDOM", photographerPageDOM);
+    
+    const photographersSection = document.querySelector(".header__photographer");
     photographersSection.appendChild(photographerPageDOM);
 };
 
-/*displayData();
-getSelectedPhotographer();*/
+displayData();
+//getSelectedPhotographer();
 
-async function init() {
+/*async function init() {
     const selectedPhotographer = await getSelectedPhotographer();
     displayData(selectedPhotographer);
 };
 
-init();
+init();*/
 
 // Montre bien les élément du DOM mais vide ....
