@@ -2,8 +2,9 @@
 function getPhotographerCardDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
+    console.log("cardData", data);
     
-    const picture = `assets/photographers/${portrait}`;
+    const picture = `../assets/photographers/${portrait}`;
 
     const photographerPageLink = `Lien vers la page du photographe ${name}`;
     const photographerProfilePicture = `Photo du profil du photographe ${name}`;
@@ -73,5 +74,5 @@ function getPhotographerCardDOM(data) {
     photographerArticleCaption.appendChild(photographTagLine);
     photographerArticleCaption.appendChild(photographerPrice);
 
-    return (picture, photographerArticleCard);
+    return (photographerArticleCard);
 };
