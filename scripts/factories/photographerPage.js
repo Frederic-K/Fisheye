@@ -1,7 +1,9 @@
+
 function getPhotographerPageDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
     console.log("photographerPageData", data);
+    console.log("name", name);
 
     const picture = `../assets/photographers/${portrait}`;
 
@@ -9,7 +11,7 @@ function getPhotographerPageDOM(data) {
     const location = `${city}, ${country}`;
     const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`;
     const photographerMessage = `Message du photographe ${name}`;
-    const photographercontactBtn = `Cliquer pour contacter ${name}`
+    const photographerContactMsg = `Cliquer pour contacter ${name}`
 
     // Photographer header
     const photographerHeader = document.createElement("section");
@@ -40,11 +42,12 @@ function getPhotographerPageDOM(data) {
     // Photographer contact
     /*const photographerContactBtn = document.createElement("button");
     photographerContactBtn.classList.add("header__photographerPage--contactBtn");
-    photographerContactBtn.setAttribute("arial-label", photographercontactBtn);
+    photographerContactBtn.setAttribute("arial-label", photographerContactMsg);
     photographerContactBtn.textContent = `Contactez-moi`;
     photographerContactBtn.setAttribute("onclick", displayModal());*/
     //const photographerContactBtn = document.getElementsByClassName("contact__button")[0]; 
     const photographerContactBtn = document.querySelector(".contact__button");
+    photographerContactBtn.setAttribute("arial-label", photographerContactMsg);
 
     // Photographer Img header
     const photographerImgHeader = document.createElement("div");

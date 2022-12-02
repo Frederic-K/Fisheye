@@ -87,14 +87,16 @@ async function displayData() {
     console.log("selectedPhotographer", selectedPhotographer);
 
     
-    const photographerPageDOM = getPhotographerPageDOM(selectedPhotographer);
+    const photographerPageDOM = getPhotographerPageDOM(selectedPhotographer[0]);
     console.log("photographerPageDOM", photographerPageDOM);
-    
+
     const photographersSection = document.querySelector(".header__photographer");
     photographersSection.appendChild(photographerPageDOM);
 };
 
 displayData();
+
+
 //getSelectedPhotographer();
 
 /*async function init() {
