@@ -23,7 +23,7 @@ function getPhotographerPageDOM(data) {
     photographerInformations.classList.add("header__photographerPage--info");
 
     // Photographer name
-    const photographerName = document.createElement("p");
+    const photographerName = document.createElement("h1");
     photographerName.classList.add("header__photographerPage--name");
     photographerName.textContent = name;
 
@@ -35,7 +35,7 @@ function getPhotographerPageDOM(data) {
 
     // Photographer tagline
     const photographerTagline = document.createElement("p");
-    photographerTagline.classList.add("header__photographerPage--name"); 
+    photographerTagline.classList.add("header__photographerPage--tagline"); 
     photographerTagline.setAttribute("arial-label", photographerMessage);
     photographerTagline.textContent = tagline;
 

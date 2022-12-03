@@ -59,6 +59,31 @@ h2 {
   }
 }
 
+.header__photographerPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.header__photographerPage--info {
+  display: flex;
+  flex-direction: column;
+}
+.header__photographerPage--name {
+  font-size: 4rem;
+  color: #d3573c;
+}
+.header__photographerPage--img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.header__photographerPage--imgProfile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+}
+
 .photographer__section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

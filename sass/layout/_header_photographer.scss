@@ -1,0 +1,21 @@
+.header__photographerPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    &--info {
+        display: flex;
+        flex-direction: column;
+    }
+    &--name {
+        font-size: 4rem;
+        color: $coulour-font-primary;
+    }
+    &--img {
+        width: 200px;
+        height: 200px;
+        border-radius: $border-circle;
+        overflow: hidden;
+    }
+    &--imgProfile {
+        @include profile-img;
+    }
+};
