@@ -8,7 +8,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: #D3573C;
+        color: $coulour-bg-secondary;
         &--link {
             display: flex;
             flex-direction: column;
@@ -18,14 +18,11 @@
         &--linkImg {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
+            border-radius: $border-circle;
             overflow: hidden;
         }
         &--img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.2);
+            @include profile-img;
         }
         &--caption {
             display: flex;
@@ -37,13 +34,13 @@
             display: flex;
             flex-direction: row;
             gap: 5px;
-            color: #901C1C;
+            color: $colour-bg-primary;
         }
         &--captionTagLine {
             color: black;
         }
         &--captionPrice {
-            color: #525252;
+            color: $coulour-font-tertiary;
         }
     }   
 };
