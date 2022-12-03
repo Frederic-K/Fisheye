@@ -1,19 +1,41 @@
 .header__photographerPage {
+    //max-width: 1200px;
+    width: 100%;
+    height: 300px;
+    margin: 0 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: $colour-bg-tertiary;
     &--info {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 30px;
     }
     &--name {
-        font-size: 4rem;
+        font-size: 55px;
         color: $coulour-font-primary;
+        margin: 0px 0px 10px 0px;
+    }
+    &--location {
+        font-size: 20px;
+        color: $coulour-font-secondary;
+        margin: 0px 0px 15px 0px;
+    }
+    &--tagline {
+        font-size: 15px;
+        margin: 0px;
+    }
+    &--contactBtn {
+        @include self-align;
     }
     &--img {
         width: 200px;
         height: 200px;
         border-radius: $border-circle;
         overflow: hidden;
+        @include self-align;
     }
     &--imgProfile {
         @include profile-img;

@@ -5,3 +5,7 @@
     transform: scale(1.2);
 }; 
 
+@mixin self-align {
+    align-self: center;
+    justify-self: center;    
+}
