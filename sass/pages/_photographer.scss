@@ -1,0 +1,39 @@
+.photographer__media {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    .mediaCard {
+        display: flex; 
+        flex-direction: column;
+        gap: 15px;
+        &__sample {
+            width: 300px;
+            height: 300px;
+            border-radius: $boder-rad;
+            overflow: hidden;
+            &--img {
+                @include sample-img;
+            }
+        }
+        &__caption {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0px;
+            &--title {
+                margin: 0px;
+                color: $colour-font-secondary;
+                font-size: 20px
+            }
+            &--likes {
+                margin: 0px;
+                color: $colour-font-secondary;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+};

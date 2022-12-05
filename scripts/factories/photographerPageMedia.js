@@ -34,7 +34,7 @@ function setPhotographerMediaType() {
     }
 };*/
 
-function setPhotographerMediaType(data) {
+/*function setPhotographerMediaType(data) {
     const { image, video } = data;
     console.log("getPhotographersData2", )
     if (image) {
@@ -50,16 +50,18 @@ function setPhotographerMediaType(data) {
     } else {
         return console.log("Le type de media n'est pas reconnu")
     }
-};
+};*/
 
 
 function getPhotographerMediaDOM(data) {
     const {id, photographerId, title, image, video, likes, date, price} = data;
     console.log("photographerMediaData", data);
 
-    const mediaFileType = setPhotographerMediaType();
+    //const mediaFileType = setPhotographerMediaType();
 
+    const picture = `../assets/sample/${image}`;
     const mediaTitle = `Le titre du media est ${title}`;
+
 
     // Photographer media card
 
@@ -72,15 +74,15 @@ function getPhotographerMediaDOM(data) {
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
 
-    /*const mediaCardImg = document.createElement("img");
+    const mediaCardImg = document.createElement("img");
     mediaCardImg.classList.add("mediaCard__sample--img");
-    mediaCardImg.setAttribute("src", );
+    mediaCardImg.setAttribute("src", picture);
 
     const mediaCardVideo = document.createElement("video");
     mediaCardVideo.classList.add("mediaCard__sample--video");
-    mediaCardVideo.setAttribute("src", );
+    mediaCardVideo.setAttribute("src", picture);
     mediaCardVideo.setAttribute("autoplay", "");
-    mediaCardVideo.setAttribute("controls", "");*/
+    mediaCardVideo.setAttribute("controls", "");
 
     // Caption
 
@@ -96,18 +98,18 @@ function getPhotographerMediaDOM(data) {
 
     // Caption like
 
-    const mediaCardLikeBtn = document.createElement("button");
-    mediaCardLikeBtn.classList.add("mediaCard__caption--likeBtn");
-    mediaCardLikeBtn.setAttribute("arial-label", `Like`);
+    const mediaCardLikeBtn = document.createElement("p");
+    mediaCardLikeBtn.classList.add("mediaCard__caption--likes");
+    mediaCardLikeBtn.setAttribute("arial-label", `Likes`);
     mediaCardLikeBtn.textContent = likes;
 
     // Indent
 
     mediaCard.appendChild(mediaCardSample);
-    //mediaCardSample.appendChild(mediaCardImg);
+    mediaCardSample.appendChild(mediaCardImg);
     //mediaCardSample.appendChild(mediaCardVideo);
-    mediaCardSample.appendChild(mediaFileType);
-    mediaCardSample.appendChild(mediaCardCaption);
+    //mediaCardSample.appendChild(mediaFileType);
+    mediaCard.appendChild(mediaCardCaption);
     mediaCardCaption.appendChild(mediaCardTitle);
     mediaCardCaption.appendChild(mediaCardLikeBtn);
 

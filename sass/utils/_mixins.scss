@@ -8,4 +8,10 @@
 @mixin self-align {
     align-self: center;
     justify-self: center;    
-}
+};
+
+@mixin sample-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+};

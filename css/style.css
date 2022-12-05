@@ -170,4 +170,46 @@ h2 {
   color: #525252;
 }
 
+.photographer__media {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+.photographer__media .mediaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.photographer__media .mediaCard__sample {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.photographer__media .mediaCard__sample--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photographer__media .mediaCard__caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px;
+}
+.photographer__media .mediaCard__caption--title {
+  margin: 0px;
+  color: #901c1c;
+  font-size: 20px;
+}
+.photographer__media .mediaCard__caption--likes {
+  margin: 0px;
+  color: #901c1c;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map */
