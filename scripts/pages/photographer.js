@@ -85,7 +85,6 @@ async function displayPhotographerHeaderData() {
     const selectedPhotographer = await getSelectedPhotographer();
     console.log("selectedPhotographer", selectedPhotographer);
 
-    
     const photographerPageDOM = getPhotographerPageDOM(selectedPhotographer[0]);
     console.log("photographerPageDOM", photographerPageDOM);
 
@@ -97,33 +96,36 @@ displayPhotographerHeaderData();
 
 // Media
 
-async function displayData(media) {
+async function getSelectedPhotographerMedia() {
+    const {media} = await getPhotographersData();
+    console.log("media2", media);
+
+    const photographerId = await getPhotographerId();
+    console.log("photographerID2", photographerId);
+
+    const choosenPhotographerMedia = media.filter(photographer => photographer.photographerId == photographerId);
+    console.log("choosenPhotographerMedia", choosenPhotographerMedia);
+
+    return (choosenPhotographerMedia);
+};
+
+async function displayphotographerMediaData() {
     const photographersMediaSection = document.querySelector(".photographer__media");
 
-    media.forEach((sample) => {
+    const selectedPhotographerMedias = await getSelectedPhotographerMedia();
+
+    selectedPhotographerMedias.forEach((sample) => {
         const photographerMediaDOM = getPhotographerMediaDOM(sample);
-        console.log("photographerMediaDOM", photographerMediaDOM);
+        //console.log("photographerMediaDOM", photographerMediaDOM);
         
         photographersMediaSection.appendChild(photographerMediaDOM);
-        console.log("sample", sample);
+        //console.log("sample", sample);
     });
 };
 
-async function init() {
+async function displayphotogapherMedia() {
     const { media } = await getPhotographersData();
-    displayData(media);
+    displayphotographerMediaData(media);
 };
 
-init();
-
-
-//getSelectedPhotographer();
-
-/*async function init() {
-    const selectedPhotographer = await getSelectedPhotographer();
-    displayData(selectedPhotographer);
-};
-
-init();*/
-
-// Montre bien les élément du DOM mais vide ....
+displayphotogapherMedia();

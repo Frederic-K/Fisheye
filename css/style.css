@@ -194,6 +194,10 @@ h2 {
   height: 100%;
   object-fit: cover;
 }
+.photographer__media .mediaCard__sample--video {
+  width: 100%;
+  height: 100%;
+}
 .photographer__media .mediaCard__caption {
   display: flex;
   flex-direction: row;

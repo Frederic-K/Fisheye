@@ -1,18 +1,21 @@
 // Media
 
 // Check media file type
-/*function getPhotographerMediaFileType(image, video) {
-    const {image, video} = getPhotographersData();
-    if (image) {
+/*function getPhotographerMediaFileType() {
+    const {media} =  getPhotographersData();
+    console.log("media3", media);
+    if (media === "image") {
         return "picture"
-    } else if (video) {
+    } else if (media === "video") {
         return "movie"
     } else {
         return console.log("Le type de media n'est pas reconnu")
     }
-}; 
+}; */
 
-function setPhotographerMediaType() {
+//getPhotographerMediaFileType();
+
+/*function setPhotographerMediaType() {
     const name = getPhotographersData();
     console.log("name2", name);
 
@@ -34,32 +37,32 @@ function setPhotographerMediaType() {
     }
 };*/
 
-/*function setPhotographerMediaType(data) {
-    const { image, video } = data;
-    console.log("getPhotographersData2", )
-    if (image) {
-        const mediaCardImg = document.createElement("img");
-        mediaCardImg.classList.add("mediaCard__sample--img");
-        mediaCardImg.setAttribute("src", `../assets/photographer_media/${name}/${image}`);
-    } else if (video) {
-        const mediaCardVideo = document.createElement("video");
-        mediaCardVideo.classList.add("mediaCard__sample--video");
-        mediaCardVideo.setAttribute("src", `../assets/photographer_media/${name}/${video}`);
-        mediaCardVideo.setAttribute("autoplay", "");
-        mediaCardVideo.setAttribute("controls", "");
+/*function setPhotographerMediaType() {
+    const { media } = getPhotographersData();
+    console.log("media3", media);
+
+    if (media === "image") {
+        console.log("image")
+    } else if (media === "video") {
+        console.log("video")
     } else {
         return console.log("Le type de media n'est pas reconnu")
     }
-};*/
+    return (media);
+};
+setPhotographerMediaType();*/
+
 
 
 function getPhotographerMediaDOM(data) {
     const {id, photographerId, title, image, video, likes, date, price} = data;
-    console.log("photographerMediaData", data);
-
+    //console.log("title", title);
+    console.log("video", video);
+    
     //const mediaFileType = setPhotographerMediaType();
 
     const picture = `../assets/sample/${image}`;
+    const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
 
 
@@ -77,12 +80,13 @@ function getPhotographerMediaDOM(data) {
     const mediaCardImg = document.createElement("img");
     mediaCardImg.classList.add("mediaCard__sample--img");
     mediaCardImg.setAttribute("src", picture);
+    mediaCardImg.setAttribute("alt", mediaTitle);
 
     const mediaCardVideo = document.createElement("video");
     mediaCardVideo.classList.add("mediaCard__sample--video");
-    mediaCardVideo.setAttribute("src", picture);
-    mediaCardVideo.setAttribute("autoplay", "");
-    mediaCardVideo.setAttribute("controls", "");
+    mediaCardVideo.setAttribute("src", movie);
+    //mediaCardVideo.setAttribute("autoplay", "");
+    //mediaCardVideo.setAttribute("controls", "");
 
     // Caption
 
