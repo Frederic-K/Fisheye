@@ -73,9 +73,15 @@ function getPhotographerPageDOM(data) {
 }; 
 
 function getPhotographerMediaDOM(data) {
-    const {id, photographerId, title, likes, date, price, image} = data;
+    const {id, photographerId, title, image, video, likes, date, price, name} = data;
     console.log("photographerMediaData", data);
 
-    const image = `../assets/FishEye_Photos/${name}/${title}`;
+    const photo = `../assets/photographer_media/${name}/${image}`;
+    const movie = `../assets/photographer_media/${name}/${video}`;
+
+    // Photographer media card
+
     
+
+
 }
