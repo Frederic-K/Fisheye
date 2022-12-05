@@ -71,3 +71,11 @@ function getPhotographerPageDOM(data) {
 
     return (photographerHeader);
 }; 
+
+function getPhotographerMediaDOM(data) {
+    const {id, photographerId, title, likes, date, price, image} = data;
+    console.log("photographerMediaData", data);
+
+    const image = `../assets/FishEye_Photos/${name}/${title}`;
+    
+}

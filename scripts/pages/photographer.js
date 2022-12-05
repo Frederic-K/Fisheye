@@ -63,7 +63,7 @@ async function getPhotographerId() {
     let params = (new URL(document.location)).searchParams;
     let id = params.get("id");
 
-    console.log("ID", id);
+    console.log("photographerID", id);
 
     return (id);
 };
@@ -80,7 +80,6 @@ async function getSelectedPhotographer() {
 
     return (choosenPhotographer);
 };
-// Jusqu'ici tout va bien ...
 
 async function displayData() {
     const selectedPhotographer = await getSelectedPhotographer();
