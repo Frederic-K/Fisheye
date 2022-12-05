@@ -81,7 +81,7 @@ async function getSelectedPhotographer() {
     return (choosenPhotographer);
 };
 
-async function displayData() {
+async function displayPhotographerHeaderData() {
     const selectedPhotographer = await getSelectedPhotographer();
     console.log("selectedPhotographer", selectedPhotographer);
 
@@ -93,7 +93,28 @@ async function displayData() {
     photographersSection.appendChild(photographerPageDOM);
 };
 
-displayData();
+displayPhotographerHeaderData();
+
+// Media
+
+async function displayData(media) {
+    const photographersMediaSection = document.querySelector(".photographer__media");
+
+    media.forEach((sample) => {
+        const photographerMediaDOM = getPhotographerMediaDOM(sample);
+        console.log("photographerMediaDOM", photographerMediaDOM);
+        
+        photographersMediaSection.appendChild(photographerMediaDOM);
+        console.log("sample", sample);
+    });
+};
+
+async function init() {
+    const { media } = await getPhotographersData();
+    displayData(media);
+};
+
+init();
 
 
 //getSelectedPhotographer();

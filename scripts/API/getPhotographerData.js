@@ -18,7 +18,7 @@ async function getPhotographersData() {
     return photographersData
 };
 
-async function getPhotographersMediaData() {
+/*async function getPhotographersMediaData() {
     const photographersMediaData = await fetch("../data/media.json")
     .then(function(response) {
         if (response.ok) {
@@ -35,4 +35,4 @@ async function getPhotographersMediaData() {
         console.log("Une erreur est survenue avec l'opération fetch")
     })
     return photographersMediaData
-};
+};*/

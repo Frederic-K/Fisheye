@@ -1,4 +1,6 @@
 
+// Header
+
 function getPhotographerPageDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
@@ -71,17 +73,3 @@ function getPhotographerPageDOM(data) {
 
     return (photographerHeader);
 }; 
-
-function getPhotographerMediaDOM(data) {
-    const {id, photographerId, title, image, video, likes, date, price, name} = data;
-    console.log("photographerMediaData", data);
-
-    const photo = `../assets/photographer_media/${name}/${image}`;
-    const movie = `../assets/photographer_media/${name}/${video}`;
-
-    // Photographer media card
-
-    
-
-
-}
