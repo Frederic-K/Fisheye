@@ -12,7 +12,7 @@
         &__sample {
             width: 300px;
             height: 300px;
-            border-radius: $boder-rad;
+            border-radius: $border-rad;
             overflow: hidden;
             &--img {
                 @include sample-img;

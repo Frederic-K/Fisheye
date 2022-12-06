@@ -96,7 +96,7 @@ function getPhotographerMediaDOM(data) {
 
     const mediaCard = document.createElement("article"); 
     mediaCard.classList.add("mediaCard");
-    mediaCard.setAttribute("arial-label", mediaTitle);
+    mediaCard.setAttribute("aria-label", mediaTitle);
 
     // Picture - video
 
@@ -140,14 +140,14 @@ function getPhotographerMediaDOM(data) {
 
     const mediaCardTitle = document.createElement("h3");
     mediaCardTitle.classList.add("mediaCard__caption--title");
-    mediaCardTitle.setAttribute("arial-label", mediaTitle);
+    mediaCardTitle.setAttribute("aria-label", mediaTitle);
     mediaCardTitle.textContent = title;
 
     // Caption like
 
     const mediaCardLikeBtn = document.createElement("p");
     mediaCardLikeBtn.classList.add("mediaCard__caption--likes");
-    mediaCardLikeBtn.setAttribute("arial-label", `Likes`);
+    mediaCardLikeBtn.setAttribute("aria-label", `Likes`);
     mediaCardLikeBtn.textContent = likes;
 
     // Indent
@@ -162,3 +162,4 @@ function getPhotographerMediaDOM(data) {
 
     return (mediaCard);
 };
+

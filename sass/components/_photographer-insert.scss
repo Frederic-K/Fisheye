@@ -1,0 +1,17 @@
+.photographerPage {
+    &__insert {
+        width: 300px;
+        height: 50px;
+        background-color: $colour-bg-secondary;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        //justify-content: space-between;
+        border-top-right-radius: $border-rad;
+        border-top-left-radius: $border-rad; 
+        &--price {
+            font-size: 20px;
+           
+        }
+    }
+};

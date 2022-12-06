@@ -24,7 +24,7 @@ function getPhotographerCardDOM(data) {
     photographerLink.classList.add("photographer__article--link");
     photographerLink.setAttribute("href", link);
     photographerLink.setAttribute("role", "link");
-    photographerLink.setAttribute("arial-label", photographerPageLink);
+    photographerLink.setAttribute("aria-label", photographerPageLink);
 
     // Img link 
     const photographerImgLinkCard = document.createElement("div");
@@ -35,7 +35,7 @@ function getPhotographerCardDOM(data) {
     photographerImgCard.classList.add("photographer__article--img");
     photographerImgCard.setAttribute("src", picture);
     photographerImgCard.setAttribute("alt", photographerProfilePicture);
-    photographerImgCard.setAttribute("arial-label", photographerProfilePicture);
+    photographerImgCard.setAttribute("aria-label", photographerProfilePicture);
 
     // Name 
     const photographerNameCard = document.createElement("h2");
@@ -50,18 +50,18 @@ function getPhotographerCardDOM(data) {
     const photographerlocation = document.createElement("p");
     photographerlocation.classList.add("photographer__article--captionLocation");
     photographerlocation.textContent = location;
-    photographerlocation.setAttribute("arial-label", photographerHome);
+    photographerlocation.setAttribute("aria-label", photographerHome);
 
     // Tagline
     const photographTagLine = document.createElement("p");
     photographTagLine.classList.add("photographer__article--captionTagLine");
-    photographTagLine.setAttribute("arial-label", photographerMessage);
+    photographTagLine.setAttribute("aria-label", photographerMessage);
     photographTagLine.textContent = tagline;
 
     // Price per day
     const photographerPrice = document.createElement("p");
     photographerPrice.classList.add("photographer__article--captionPrice");
-    photographerPrice.setAttribute("arial-label", photographerPricePerDay);
+    photographerPrice.setAttribute("aria-label", photographerPricePerDay);
     photographerPrice.textContent = pricePerDay;
 
     // Indent

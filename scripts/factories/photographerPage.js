@@ -17,6 +17,10 @@ function getPhotographerPageDOM(data) {
     const pricePerDay = `${price} €/jour`;
     const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
 
+    // Photographer page main
+
+    const photographerageMain = document.querySelector(".main"); 
+
     // Photographer page
 
     const photographerPage = document.createElement("section");
@@ -38,19 +42,19 @@ function getPhotographerPageDOM(data) {
     // Photographer location
     const photographerLocation = document.createElement("p");
     photographerLocation.classList.add("header__photographerPage--location");
-    photographerLocation.setAttribute("arial-label", photographerHome);
+    photographerLocation.setAttribute("aria-label", photographerHome);
     photographerLocation.textContent = location;
 
     // Photographer tagline
     const photographerTagline = document.createElement("p");
     photographerTagline.classList.add("header__photographerPage--tagline"); 
-    photographerTagline.setAttribute("arial-label", photographerMessage);
+    photographerTagline.setAttribute("aria-label", photographerMessage);
     photographerTagline.textContent = tagline;
 
     // Photographer contact
     const photographerContactBtn = document.createElement("button");
     photographerContactBtn.classList.add("header__photographerPage--contactBtn");
-    photographerContactBtn.setAttribute("arial-label", photographerContactMsg);
+    photographerContactBtn.setAttribute("aria-label", photographerContactMsg);
     photographerContactBtn.textContent = `Contactez-moi`;
     //photographerContactBtn.setAttribute("onclick", displayModal());
     //const photographerContactBtn = document.getElementsByClassName("contact__button")[0]; 
@@ -67,19 +71,27 @@ function getPhotographerPageDOM(data) {
     photographerPortrait.classList.add("header__photographerPage--imgProfile")
     photographerPortrait.setAttribute("src", picture);
     photographerPortrait.setAttribute("alt", photographerProfilePicture);
-    photographerPortrait.setAttribute("arial-label", photographerProfilePicture);
+    photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
 
     // Insert
 
     const photographerInsert = document.createElement("article");
-    photographerInsert.classList.add("phorographerPage__insert");
+    photographerInsert.classList.add("photographerPage__insert");
 
-    // Insert Likes
+    // Insert Likes total
+
+    const photographerTotalLikes = document.createElement("div");
+    photographerTotalLikes.classList.add("photographerpage__insert--likes");
+
+    // Insert likes icon
+
+    const photographerFullHeart = document.createElement("div");
+    photographerFullHeart.innerHTML = `<i class="fa-solid fa-heart" aria-hidden="true"></i>`;
 
     // Insert Price
 
-    const photographerPrice = document.createElement("p");
-    photographerPrice.classList.add("photographerPage___insert--price");
+    const photographerPrice = document.createElement("div");
+    photographerPrice.classList.add("photographerPage__insert--price");
     photographerPrice.setAttribute("arial-label", photographerPricePerDay);
     photographerPrice.textContent = pricePerDay;
 
@@ -93,7 +105,9 @@ function getPhotographerPageDOM(data) {
     photographerPageHeader.appendChild(photographerContactBtn);
     photographerPageHeader.appendChild(photographerImgHeader);
     photographerImgHeader.appendChild(photographerPortrait);
-    photographerPage.appendChild(photographerInsert);
+    photographerageMain.appendChild(photographerInsert);
+    photographerInsert.appendChild(photographerTotalLikes);
+    photographerInsert.appendChild(photographerFullHeart);
     photographerInsert.appendChild(photographerPrice);
 
     return (photographerPage);
