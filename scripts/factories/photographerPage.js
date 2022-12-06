@@ -19,7 +19,7 @@ function getPhotographerPageDOM(data) {
 
     // Photographer page main
 
-    const photographerageMain = document.querySelector(".main"); 
+    const photographerageMain = document.getElementById("main"); 
 
     // Photographer page
 
