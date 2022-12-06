@@ -91,6 +91,8 @@ function getPhotographerMediaDOM(data) {
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
 
+    const eachLikes = likes;
+    console.log("eachLikes", eachLikes);
 
     // Photographer media card
 

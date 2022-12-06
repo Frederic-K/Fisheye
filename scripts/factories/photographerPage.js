@@ -73,9 +73,16 @@ function getPhotographerPageDOM(data) {
     photographerPortrait.setAttribute("alt", photographerProfilePicture);
     photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
 
-    // Insert
+    // Insert : total likes nd price/day
 
-    const photographerInsert = document.createElement("article");
+    // Insert container
+
+    const photographerInsertContainer = document.createElement("aside");
+    photographerInsertContainer.classList.add("photographerPage__aside");
+
+    // Insert 
+
+    const photographerInsert = document.createElement("div");
     photographerInsert.classList.add("photographerPage__insert");
 
     // Insert Likes total
@@ -105,7 +112,8 @@ function getPhotographerPageDOM(data) {
     photographerPageHeader.appendChild(photographerContactBtn);
     photographerPageHeader.appendChild(photographerImgHeader);
     photographerImgHeader.appendChild(photographerPortrait);
-    photographerageMain.appendChild(photographerInsert);
+    photographerageMain.appendChild(photographerInsertContainer);
+    photographerInsertContainer.appendChild(photographerInsert);
     photographerInsert.appendChild(photographerTotalLikes);
     photographerInsert.appendChild(photographerFullHeart);
     photographerInsert.appendChild(photographerPrice);

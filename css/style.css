@@ -11,9 +11,15 @@
   cursor: pointer;
 }
 
-.photographerPage__insert {
+.photographerPage__aside {
+  max-width: 1220px;
+}
+.photographerPage__aside .photographerPage__insert {
   width: 300px;
   height: 50px;
+  position: fixed;
+  right: 10%;
+  bottom: 0;
   background-color: #D3573C;
   display: flex;
   flex-direction: row;
@@ -21,15 +27,17 @@
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-.photographerPage__insert--price {
-  font-size: 20px;
-}
 
 * {
   max-width: 1440px;
   margin: 0px auto;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+#main {
+  width: 100%;
+  padding-bottom: 60px;
 }
 
 .hidden {
