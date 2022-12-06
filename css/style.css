@@ -72,54 +72,6 @@ h2 {
   }
 }
 
-.header__photographerPage {
-  max-width: 1200px;
-  width: 100%;
-  height: 300px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #FAFAFA;
-}
-.header__photographerPage--info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 100px;
-}
-.header__photographerPage--name {
-  font-size: 55px;
-  color: #d3573c;
-  margin: 0px 0px 10px 0px;
-}
-.header__photographerPage--location {
-  font-size: 20px;
-  color: #901c1c;
-  margin: 0px 0px 15px 0px;
-}
-.header__photographerPage--tagline {
-  font-size: 15px;
-  margin: 0px;
-}
-.header__photographerPage--contactBtn {
-  align-self: center;
-  justify-self: center;
-}
-.header__photographerPage--img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  align-self: center;
-  justify-self: center;
-}
-.header__photographerPage--imgProfile {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.2);
-}
-
 .photographer__section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -214,6 +166,54 @@ h2 {
   color: #901c1c;
   font-size: 20px;
   font-weight: bold;
+}
+
+.header__photographerPage {
+  max-width: 1200px;
+  width: 100%;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #FAFAFA;
+}
+.header__photographerPage--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+.header__photographerPage--name {
+  font-size: 55px;
+  color: #d3573c;
+  margin: 0px 0px 10px 0px;
+}
+.header__photographerPage--location {
+  font-size: 20px;
+  color: #901c1c;
+  margin: 0px 0px 15px 0px;
+}
+.header__photographerPage--tagline {
+  font-size: 15px;
+  margin: 0px;
+}
+.header__photographerPage--contactBtn {
+  align-self: center;
+  justify-self: center;
+}
+.header__photographerPage--img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-self: center;
+  justify-self: center;
+}
+.header__photographerPage--imgProfile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=style.css.map */

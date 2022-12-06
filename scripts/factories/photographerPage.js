@@ -13,12 +13,18 @@ function getPhotographerPageDOM(data) {
     const location = `${city}, ${country}`;
     const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`;
     const photographerMessage = `Message du photographe ${name}`;
-    const photographerContactMsg = `Cliquer pour contacter ${name}`
+    const photographerContactMsg = `Cliquer pour contacter ${name}`;
+    const pricePerDay = `${price} €/jour`;
+    const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
+
+    // Photographer page
+
+    const photographerPage = document.createElement("section");
+    photographerPage.classList.add("photgrapherPage");
 
     // Photographer header
-    const photographerHeader = document.createElement("section");
-    photographerHeader.classList.add("header__photographerPage");
-
+    const photographerPageHeader = document.createElement("section");
+    photographerPageHeader.classList.add("header__photographerPage");
 
     // Photographer header info
     const photographerInformations = document.createElement("article");
@@ -63,13 +69,32 @@ function getPhotographerPageDOM(data) {
     photographerPortrait.setAttribute("alt", photographerProfilePicture);
     photographerPortrait.setAttribute("arial-label", photographerProfilePicture);
 
-    photographerHeader.appendChild(photographerInformations);
+    // Insert
+
+    const photographerInsert = document.createElement("article");
+    photographerInsert.classList.add("phorographerPage__insert");
+
+    // Insert Likes
+
+    // Insert Price
+
+    const photographerPrice = document.createElement("p");
+    photographerPrice.classList.add("photographerPage___insert--price");
+    photographerPrice.setAttribute("arial-label", photographerPricePerDay);
+    photographerPrice.textContent = pricePerDay;
+
+    // indent
+
+    photographerPage.appendChild(photographerPageHeader);
+    photographerPageHeader.appendChild(photographerInformations);
     photographerInformations.appendChild(photographerName); 
     photographerInformations.appendChild(photographerLocation);
     photographerInformations.appendChild(photographerTagline);
-    photographerHeader.appendChild(photographerContactBtn);
-    photographerHeader.appendChild(photographerImgHeader);
+    photographerPageHeader.appendChild(photographerContactBtn);
+    photographerPageHeader.appendChild(photographerImgHeader);
     photographerImgHeader.appendChild(photographerPortrait);
+    photographerPage.appendChild(photographerInsert);
+    photographerInsert.appendChild(photographerPrice);
 
-    return (photographerHeader);
+    return (photographerPage);
 }; 
