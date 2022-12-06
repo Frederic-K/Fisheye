@@ -52,14 +52,40 @@
 };
 setPhotographerMediaType();*/
 
+/*async function getMediaFileType(data) {
+    const {title, image, video} = data;
+    console.log("data4filetypefilter", data);
+    const picture = `../assets/sample/${image}`;
+    const movie = `../assets/sample/${video}`;
+    const mediaTitle = `Le titre du media est ${title}`;
+    if (image) {
+        const mediaCardImg = document.createElement("img");
+        mediaCardImg.classList.add("mediaCard__sample--img");
+        mediaCardImg.setAttribute("src", picture);
+        mediaCardImg.setAttribute("alt", mediaTitle);
+        mediaCardSample.appendChild(mediaCardImg);
+    } else if (video) {
+        const mediaCardVideo = document.createElement("video");
+        mediaCardVideo.classList.add("mediaCard__sample--video");
+        mediaCardVideo.setAttribute("src", movie);
+        mediaCardVideo.setAttribute("autoplay", "");
+        mediaCardVideo.setAttribute("controls", "");
+        mediaCardSample.appendChild(mediaCardVideo);
+    } else {
+        console.log("le type de fichier n'est pas reconnu")
+    }
+}; 
+
+async function displayMediaByFileType() {
+    const { media } = getSelectedPhotographer();
+    console.log("media3", media);
+    getMediaFileType(media);
+};
+displayMediaByFileType();*/
 
 
 function getPhotographerMediaDOM(data) {
-    const {id, photographerId, title, image, video, likes, date, price} = data;
-    //console.log("title", title);
-    console.log("video", video);
-    
-    //const mediaFileType = setPhotographerMediaType();
+    const {id, photographerId, title, image, video, likes, date, price} = data
 
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
@@ -72,12 +98,29 @@ function getPhotographerMediaDOM(data) {
     mediaCard.classList.add("mediaCard");
     mediaCard.setAttribute("arial-label", mediaTitle);
 
-    // Picture
+    // Picture - video
 
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
 
-    const mediaCardImg = document.createElement("img");
+    if (image) {
+        const mediaCardImg = document.createElement("img");
+        mediaCardImg.classList.add("mediaCard__sample--img");
+        mediaCardImg.setAttribute("src", picture);
+        mediaCardImg.setAttribute("alt", mediaTitle);
+        mediaCardSample.appendChild(mediaCardImg);
+    } else if (video) {
+        const mediaCardVideo = document.createElement("video");
+        mediaCardVideo.classList.add("mediaCard__sample--video");
+        mediaCardVideo.setAttribute("src", movie);
+        //mediaCardVideo.setAttribute("autoplay", "mute");
+        mediaCardVideo.setAttribute("controls", "");
+        mediaCardSample.appendChild(mediaCardVideo);
+    } else {
+        console.log("le type de fichier n'est pas reconnu")
+    }
+
+    /*const mediaCardImg = document.createElement("img");
     mediaCardImg.classList.add("mediaCard__sample--img");
     mediaCardImg.setAttribute("src", picture);
     mediaCardImg.setAttribute("alt", mediaTitle);
@@ -85,8 +128,8 @@ function getPhotographerMediaDOM(data) {
     const mediaCardVideo = document.createElement("video");
     mediaCardVideo.classList.add("mediaCard__sample--video");
     mediaCardVideo.setAttribute("src", movie);
-    //mediaCardVideo.setAttribute("autoplay", "");
-    //mediaCardVideo.setAttribute("controls", "");
+    mediaCardVideo.setAttribute("autoplay", "");
+    mediaCardVideo.setAttribute("controls", "");*/
 
     // Caption
 
@@ -110,7 +153,7 @@ function getPhotographerMediaDOM(data) {
     // Indent
 
     mediaCard.appendChild(mediaCardSample);
-    mediaCardSample.appendChild(mediaCardImg);
+    //mediaCardSample.appendChild(mediaCardImg);
     //mediaCardSample.appendChild(mediaCardVideo);
     //mediaCardSample.appendChild(mediaFileType);
     mediaCard.appendChild(mediaCardCaption);
