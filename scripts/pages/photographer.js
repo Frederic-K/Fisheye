@@ -103,10 +103,10 @@ async function getSelectedPhotographerMedia() {
     const photographerId = await getPhotographerId();
     console.log("photographerID2", photographerId);
 
-    const choosenPhotographerMedia = media.filter(photographer => photographer.photographerId == photographerId);
+    const choosenPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
     
-    console.log("choosenPhotographerMedia", choosenPhotographerMedia);
-    return (choosenPhotographerMedia);
+    console.log("choosenPhotographerMedia", choosenPhotographerMedias);
+    return (choosenPhotographerMedias);
 };
 
 async function displayphotographerMediaData() {
