@@ -1,89 +1,5 @@
 // Media
 
-// Check media file type
-/*function getPhotographerMediaFileType() {
-    const {media} =  getPhotographersData();
-    console.log("media3", media);
-    if (media === "image") {
-        return "picture"
-    } else if (media === "video") {
-        return "movie"
-    } else {
-        return console.log("Le type de media n'est pas reconnu")
-    }
-}; */
-
-//getPhotographerMediaFileType();
-
-/*function setPhotographerMediaType() {
-    const name = getPhotographersData();
-    console.log("name2", name);
-
-    const fileType = getPhotographerMediaFileType();
-    console.log("fileType", fileType);
-
-    if (fileType === picture) {
-        const mediaCardImg = document.createElement("img");
-        mediaCardImg.classList.add("mediaCard__sample--img");
-        mediaCardImg.setAttribute("src", `../assets/photographer_media/${name}/${image}`);
-    } else if (fileType === movie) {
-        const mediaCardVideo = document.createElement("video");
-        mediaCardVideo.classList.add("mediaCard__sample--video");
-        mediaCardVideo.setAttribute("src", `../assets/photographer_media/${name}/${video}`);
-        mediaCardVideo.setAttribute("autoplay", "");
-        mediaCardVideo.setAttribute("controls", "");
-    } else {
-        return console.log("Le type de media n'est pas reconnu")
-    }
-};*/
-
-/*function setPhotographerMediaType() {
-    const { media } = getPhotographersData();
-    console.log("media3", media);
-
-    if (media === "image") {
-        console.log("image")
-    } else if (media === "video") {
-        console.log("video")
-    } else {
-        return console.log("Le type de media n'est pas reconnu")
-    }
-    return (media);
-};
-setPhotographerMediaType();*/
-
-/*async function getMediaFileType(data) {
-    const {title, image, video} = data;
-    console.log("data4filetypefilter", data);
-    const picture = `../assets/sample/${image}`;
-    const movie = `../assets/sample/${video}`;
-    const mediaTitle = `Le titre du media est ${title}`;
-    if (image) {
-        const mediaCardImg = document.createElement("img");
-        mediaCardImg.classList.add("mediaCard__sample--img");
-        mediaCardImg.setAttribute("src", picture);
-        mediaCardImg.setAttribute("alt", mediaTitle);
-        mediaCardSample.appendChild(mediaCardImg);
-    } else if (video) {
-        const mediaCardVideo = document.createElement("video");
-        mediaCardVideo.classList.add("mediaCard__sample--video");
-        mediaCardVideo.setAttribute("src", movie);
-        mediaCardVideo.setAttribute("autoplay", "");
-        mediaCardVideo.setAttribute("controls", "");
-        mediaCardSample.appendChild(mediaCardVideo);
-    } else {
-        console.log("le type de fichier n'est pas reconnu")
-    }
-}; 
-
-async function displayMediaByFileType() {
-    const { media } = getSelectedPhotographer();
-    console.log("media3", media);
-    getMediaFileType(media);
-};
-displayMediaByFileType();*/
-
-
 function getPhotographerMediaDOM(data) {
     const {id, photographerId, title, image, video, likes, date, price} = data
 
@@ -91,8 +7,11 @@ function getPhotographerMediaDOM(data) {
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
 
-    const eachLikes = likes;
-    console.log("eachLikes", eachLikes);
+    const totalLike = document.getElementsByClassName("likeNumber")[0].textContent;
+    const TITI = parseInt(totalLike);
+    let SumLike = TITI + likes;
+    document.getElementsByClassName("likeNumber")[0].textContent = SumLike;
+    console.log("SumLike", SumLike);
 
     // Photographer media card
 
@@ -122,17 +41,6 @@ function getPhotographerMediaDOM(data) {
         console.log("le type de fichier n'est pas reconnu")
     }
 
-    /*const mediaCardImg = document.createElement("img");
-    mediaCardImg.classList.add("mediaCard__sample--img");
-    mediaCardImg.setAttribute("src", picture);
-    mediaCardImg.setAttribute("alt", mediaTitle);
-
-    const mediaCardVideo = document.createElement("video");
-    mediaCardVideo.classList.add("mediaCard__sample--video");
-    mediaCardVideo.setAttribute("src", movie);
-    mediaCardVideo.setAttribute("autoplay", "");
-    mediaCardVideo.setAttribute("controls", "");*/
-
     // Caption
 
     const mediaCardCaption = document.createElement("div");
@@ -155,9 +63,6 @@ function getPhotographerMediaDOM(data) {
     // Indent
 
     mediaCard.appendChild(mediaCardSample);
-    //mediaCardSample.appendChild(mediaCardImg);
-    //mediaCardSample.appendChild(mediaCardVideo);
-    //mediaCardSample.appendChild(mediaFileType);
     mediaCard.appendChild(mediaCardCaption);
     mediaCardCaption.appendChild(mediaCardTitle);
     mediaCardCaption.appendChild(mediaCardLikeBtn);
