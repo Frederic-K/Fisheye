@@ -20,9 +20,10 @@
   bottom: 0;
   display: flex;
   justify-content: flex-end;
+  font-size: 23px;
 }
 .photographerPage__aside .photographerPage__insert {
-  width: 300px;
+  width: 350px;
   height: 50px;
   margin: 0px;
   background-color: #D3573C;
@@ -31,6 +32,15 @@
   align-items: center;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+}
+.photographerPage__aside .photographerPage__insert--likes {
+  margin: 0px 10px 0px 20px;
+}
+.photographerPage__aside .photographerPage__insert--icon {
+  margin: 0;
+}
+.photographerPage__aside .photographerPage__insert--price {
+  margin: 0px 20px 0px 50px;
 }
 
 * {

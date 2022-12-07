@@ -92,6 +92,7 @@ function getPhotographerPageDOM(data) {
     // Insert likes icon
 
     const photographerFullHeart = document.createElement("div");
+    photographerFullHeart.classList.add("photographerPage__insert--icon");
     photographerFullHeart.innerHTML = `<i class="fa-solid fa-heart" aria-hidden="true"></i>`;
 
     // Insert Price

@@ -8,8 +8,9 @@
     bottom: 0;
     display: flex;
     justify-content: flex-end;
+    font-size: 23px;
     .photographerPage__insert {
-        width: 300px;
+        width: 350px;
         height: 50px;
         margin: 0px;
         background-color: $colour-bg-secondary;
@@ -18,5 +19,14 @@
         align-items: center;
         border-top-right-radius: $border-rad;
         border-top-left-radius: $border-rad;
+        &--likes {
+            margin: 0px 10px 0px 20px;
+        }
+        &--icon {
+            margin: 0;
+        }
+        &--price {
+            margin: 0px 20px 0px 50px;
+        }
     }
 };
