@@ -85,11 +85,10 @@ function getPhotographerPageDOM(data) {
     const photographerInsert = document.createElement("div");
     photographerInsert.classList.add("photographerPage__insert");
 
-    // Insert Likes total
+    // Insert likes total
 
-    const photographerTotalLikes = document.createElement("div");
-    photographerTotalLikes.classList.add("photographerpage__insert--likes");
-
+    const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--likes")[0];
+    
     // Insert likes icon
 
     const photographerFullHeart = document.createElement("div");

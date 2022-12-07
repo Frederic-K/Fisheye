@@ -7,12 +7,6 @@ function getPhotographerMediaDOM(data) {
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
 
-    const totalLike = document.getElementsByClassName("likeNumber")[0].textContent;
-    const TITI = parseInt(totalLike);
-    let SumLike = TITI + likes;
-    document.getElementsByClassName("likeNumber")[0].textContent = SumLike;
-    console.log("SumLike", SumLike);
-
     // Photographer media card
 
     const mediaCard = document.createElement("article"); 
@@ -66,6 +60,14 @@ function getPhotographerMediaDOM(data) {
     mediaCard.appendChild(mediaCardCaption);
     mediaCardCaption.appendChild(mediaCardTitle);
     mediaCardCaption.appendChild(mediaCardLikeBtn);
+
+    // Get likes from every media
+
+    let photographerLikes = document.getElementsByClassName("photographerPage__insert--likes")[0].textContent;
+    const photographerNumbLikes = parseInt(photographerLikes);
+    let photographerSumLikes = photographerNumbLikes + likes;
+    document.getElementsByClassName("photographerPage__insert--likes")[0].textContent = photographerSumLikes;
+    console.log("photographerPage__insert--likes", photographerSumLikes);
 
     return (mediaCard);
 };
