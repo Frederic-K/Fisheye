@@ -17,9 +17,17 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         border-top-right-radius: $border-rad;
         border-top-left-radius: $border-rad;
-        &--likes {
+        &--LikesContainer {
+            display: flex;
+            flex-direction: row;
+            margin: 0px;
+            gap: 5px;
+            justify-content: space-around;
+        }
+        &--SumLikes {
             margin: 0px 10px 0px 20px;
         }
         &--icon {

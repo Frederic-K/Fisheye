@@ -87,7 +87,10 @@ function getPhotographerPageDOM(data) {
 
     // Insert likes total
 
-    const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--likes")[0];
+    const photographerLikesContainer = document.createElement("div");
+    photographerLikesContainer.classList.add("photographerPage__insert--LikesContainer");
+
+    const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
     
     // Insert likes icon
 
@@ -114,8 +117,9 @@ function getPhotographerPageDOM(data) {
     photographerImgHeader.appendChild(photographerPortrait);
     photographerageMain.appendChild(photographerInsertContainer);
     photographerInsertContainer.appendChild(photographerInsert);
-    photographerInsert.appendChild(photographerTotalLikes);
-    photographerInsert.appendChild(photographerFullHeart);
+    photographerInsert.appendChild(photographerLikesContainer);
+    photographerLikesContainer.appendChild(photographerTotalLikes);
+    photographerLikesContainer.appendChild(photographerFullHeart);
     photographerInsert.appendChild(photographerPrice);
 
     return (photographerPage);

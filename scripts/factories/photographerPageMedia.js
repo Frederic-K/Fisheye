@@ -63,11 +63,11 @@ function getPhotographerMediaDOM(data) {
 
     // Get likes from every media
 
-    let photographerLikes = document.getElementsByClassName("photographerPage__insert--likes")[0].textContent;
+    let photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent;
     const photographerNumbLikes = parseInt(photographerLikes);
     let photographerSumLikes = photographerNumbLikes + likes;
-    document.getElementsByClassName("photographerPage__insert--likes")[0].textContent = photographerSumLikes;
-    console.log("photographerPage__insert--likes", photographerSumLikes);
+    document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent = photographerSumLikes;
+    console.log("photographerPage__insert--SumLikes", photographerSumLikes);
 
     return (mediaCard);
 };
