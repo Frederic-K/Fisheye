@@ -51,6 +51,42 @@
   margin: 0px 20px 0px 50px;
 }
 
+.mediaCard__caption--likeBtnIcon {
+  width: 35px;
+  height: 50px;
+  font-size: 25px;
+  color: #901c1c;
+  border: 0px solid transparent;
+  background-color: transparent;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+.mediaCard__caption--likeBtnIcon .empty-heart {
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  opacity: 1;
+  transition: opacity 1500ms;
+}
+.mediaCard__caption--likeBtnIcon .full-heart {
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 500ms;
+}
+.mediaCard__caption--likeBtnIcon:hover .empty-heart {
+  opacity: 0;
+}
+.mediaCard__caption--likeBtnIcon:hover .full-heart {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: bottom;
+}
+
 * {
   max-width: 1440px;
   margin: 0px auto;
@@ -196,15 +232,23 @@ h2 {
   height: 100%;
 }
 .photographer__media .mediaCard__caption {
+  width: 275px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 0px;
 }
 .photographer__media .mediaCard__caption--title {
   margin: 0px;
   color: #901c1c;
   font-size: 20px;
+}
+.photographer__media .mediaCard__caption--likeContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
 }
 .photographer__media .mediaCard__caption--likes {
   margin: 0px;

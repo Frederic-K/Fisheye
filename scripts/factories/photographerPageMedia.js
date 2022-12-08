@@ -47,19 +47,50 @@ function getPhotographerMediaDOM(data) {
     mediaCardTitle.setAttribute("aria-label", mediaTitle);
     mediaCardTitle.textContent = title;
 
+    // Caption like container
+
+    const mediaCardLikesContainer = document.createElement("div");
+    mediaCardLikesContainer.classList.add("mediaCard__caption--likeContainer");
+
     // Caption like
 
-    const mediaCardLikeBtn = document.createElement("p");
-    mediaCardLikeBtn.classList.add("mediaCard__caption--likes");
-    mediaCardLikeBtn.setAttribute("aria-label", `Likes`);
-    mediaCardLikeBtn.textContent = likes;
+    const mediaCardLikes = document.createElement("p");
+    mediaCardLikes.classList.add("mediaCard__caption--likes");
+    mediaCardLikes.setAttribute("aria-label", `Likes`);
+    mediaCardLikes.textContent = likes;
+
+    // Caption like heart button
+
+    const mediaCardLikeBtnContainer = document.createElement("div");
+    mediaCardLikeBtnContainer.classList.add("mediaCard__caption--likeBtnContainer");
+
+    const mediaCardLikeBtn = document.createElement("button");
+    mediaCardLikeBtn.classList.add("mediaCard__caption--likeBtnIcon");
+
+    const mediaCardLikeBtnEmptyHeart = document.createElement("i");
+    mediaCardLikeBtnEmptyHeart.classList.add("fa-regular");
+    mediaCardLikeBtnEmptyHeart.classList.add("fa-heart");
+    mediaCardLikeBtnEmptyHeart.classList.add("empty-heart");
+
+    const mediaCardLikeBtnFullHeart = document.createElement("i");
+    mediaCardLikeBtnFullHeart.classList.add("fa-sharp");
+    mediaCardLikeBtnFullHeart.classList.add("fa-solid");
+    mediaCardLikeBtnFullHeart.classList.add("fa-heart");
+    mediaCardLikeBtnFullHeart.classList.add("full-heart");
+    
+
 
     // Indent
 
     mediaCard.appendChild(mediaCardSample);
     mediaCard.appendChild(mediaCardCaption);
     mediaCardCaption.appendChild(mediaCardTitle);
-    mediaCardCaption.appendChild(mediaCardLikeBtn);
+    mediaCardCaption.appendChild(mediaCardLikesContainer);
+    mediaCardLikesContainer.appendChild(mediaCardLikes);    
+    mediaCardLikesContainer.appendChild(mediaCardLikeBtnContainer);
+    mediaCardLikeBtnContainer.appendChild(mediaCardLikeBtn);
+    mediaCardLikeBtn.appendChild(mediaCardLikeBtnEmptyHeart);
+    mediaCardLikeBtn.appendChild(mediaCardLikeBtnFullHeart);
 
     // Get likes from every media
 

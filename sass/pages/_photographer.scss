@@ -23,14 +23,22 @@
             }
         }
         &__caption {
+            width: 275px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             margin: 0px;
             &--title {
                 margin: 0px;
                 color: $colour-font-secondary;
                 font-size: 20px
+            }
+            &--likeContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin: 0;
             }
             &--likes {
                 margin: 0px;
