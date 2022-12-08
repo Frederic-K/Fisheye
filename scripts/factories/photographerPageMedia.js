@@ -73,12 +73,37 @@ function getPhotographerMediaDOM(data) {
     mediaCardLikeBtnEmptyHeart.classList.add("empty-heart");
 
     const mediaCardLikeBtnFullHeart = document.createElement("i");
-    mediaCardLikeBtnFullHeart.classList.add("fa-sharp");
-    mediaCardLikeBtnFullHeart.classList.add("fa-solid");
-    mediaCardLikeBtnFullHeart.classList.add("fa-heart");
-    mediaCardLikeBtnFullHeart.classList.add("full-heart");
-    
+    mediaCardLikeBtnFullHeart.classList.add("fa-sharp", "fa-solid", "fa-heart", "full-heart", "invisible");
+    //mediaCardLikeBtnFullHeart.classList.add("fa-solid");
+    //mediaCardLikeBtnFullHeart.classList.add("fa-heart");
+    //mediaCardLikeBtnFullHeart.classList.add("full-heart");
 
+    // Media likes
+
+    mediaCardLikeBtn.addEventListener("click", function(e) {
+        const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
+        if (likes == mediaCardLikes.textContent) {
+            mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) + 1;
+            photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) + 1;
+            mediaCardLikeBtnEmptyHeart.classList.add("invisible");
+            mediaCardLikeBtnFullHeart.classList.remove("invisible");
+            localStorage.setItem("mediaCardLikes", photographerTotalLikes);
+        } else {
+            mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) - 1;
+            photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) - 1;
+            mediaCardLikeBtnEmptyHeart.classList.remove("invisible");
+            mediaCardLikeBtnFullHeart.classList.add("invisible");
+            localStorage.setItem("mediaCardLikes", photographerTotalLikes);
+        }
+    });
+
+    // Get likes from every media
+
+    let photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent;
+    const photographerTotalNumbLikes = parseInt(photographerLikes);
+    let photographerSumLikes = photographerTotalNumbLikes + likes;
+    document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent = photographerSumLikes;
+    //console.log("photographerPage__insert--SumLikes", photographerSumLikes);
 
     // Indent
 
@@ -91,14 +116,6 @@ function getPhotographerMediaDOM(data) {
     mediaCardLikeBtnContainer.appendChild(mediaCardLikeBtn);
     mediaCardLikeBtn.appendChild(mediaCardLikeBtnEmptyHeart);
     mediaCardLikeBtn.appendChild(mediaCardLikeBtnFullHeart);
-
-    // Get likes from every media
-
-    let photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent;
-    const photographerNumbLikes = parseInt(photographerLikes);
-    let photographerSumLikes = photographerNumbLikes + likes;
-    document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent = photographerSumLikes;
-    console.log("photographerPage__insert--SumLikes", photographerSumLikes);
 
     return (mediaCard);
 };
