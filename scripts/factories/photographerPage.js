@@ -56,7 +56,7 @@ function getPhotographerPageDOM(data) {
     photographerContactBtn.classList.add("header__photographerPage--contactBtn");
     photographerContactBtn.setAttribute("aria-label", photographerContactMsg);
     photographerContactBtn.textContent = `Contactez-moi`;
-    //photographerContactBtn.setAttribute("onclick", displayModal());
+    photographerContactBtn.setAttribute("onclick", "displayModal()");
     //const photographerContactBtn = document.getElementsByClassName("contact__button")[0]; 
     //const photographerContactBtn = document.querySelector(".contact__button");
     //photographerContactBtn.setAttribute("arial-label", photographerContactMsg);

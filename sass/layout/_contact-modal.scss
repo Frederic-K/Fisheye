@@ -1,0 +1,62 @@
+
+
+#contact_modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: $colour-bg-tertiary;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    overflow: auto;
+};
+
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: 150px auto;
+    position: relative;
+    &__header {
+        width: 100%;
+        &--title {
+            font-size: 64px;
+            font-weight: normal;
+        }
+        &--img {
+            cursor: pointer;
+            position: absolute;
+            top: 35px;
+            right: 35px;
+        }
+    }
+};
+
+.modal__form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    &--container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: self-start;
+        margin-bottom: 26px;
+    }
+    &--label {
+        color: #312E2E;
+        font-size: 36px;
+    }
+    &--input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+    }
+};

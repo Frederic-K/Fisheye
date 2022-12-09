@@ -78,7 +78,15 @@ function getPhotographerMediaDOM(data) {
     //mediaCardLikeBtnFullHeart.classList.add("fa-heart");
     //mediaCardLikeBtnFullHeart.classList.add("full-heart");
 
-    // Media likes
+
+    // Get likes from medias
+
+    const photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
+    const photographerTotalNumbLikes = parseInt(photographerLikes.textContent);
+    let photographerSumLikes = photographerTotalNumbLikes + likes;
+    photographerLikes.textContent = photographerSumLikes;
+
+        // Media likes
 
     mediaCardLikeBtn.addEventListener("click", function(e) {
         const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
@@ -87,23 +95,13 @@ function getPhotographerMediaDOM(data) {
             photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) + 1;
             mediaCardLikeBtnEmptyHeart.classList.add("invisible");
             mediaCardLikeBtnFullHeart.classList.remove("invisible");
-            localStorage.setItem("mediaCardLikes", photographerTotalLikes);
         } else {
             mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) - 1;
             photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) - 1;
             mediaCardLikeBtnEmptyHeart.classList.remove("invisible");
             mediaCardLikeBtnFullHeart.classList.add("invisible");
-            localStorage.setItem("mediaCardLikes", photographerTotalLikes);
         }
     });
-
-    // Get likes from every media
-
-    let photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent;
-    const photographerTotalNumbLikes = parseInt(photographerLikes);
-    let photographerSumLikes = photographerTotalNumbLikes + likes;
-    document.getElementsByClassName("photographerPage__insert--SumLikes")[0].textContent = photographerSumLikes;
-    //console.log("photographerPage__insert--SumLikes", photographerSumLikes);
 
     // Indent
 

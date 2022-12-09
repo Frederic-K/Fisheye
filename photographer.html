@@ -6,7 +6,7 @@
     <!--Import CSS Prefixer : compatibilité navigateur-->
     <link rel="stylesheet" href="./css/prefixed/style.css">
     <!--TODO Mettre Sass en place pour cette feuille de style-->
-    <link rel="stylesheet" href="css/photographer.css">
+    <!--link rel="stylesheet" href="css/photographer.css">-->
     <!-- Import CSS de sortie Sass-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -33,16 +33,16 @@
     </main>
     <div class="hidden" id="contact_modal">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<header class="modal__header">
+          <div class="modal__header--title">Contactez-moi</div>
+          <img class="modal__header--img" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+				<form class="modal__form">
+					<div class="modal__form--container">
+						<label class="modal__form--label">Prénom</label>
+						<input class="modal__form--input" />
 					</div>
-          <button class="contact__button">Envoyer</button>
+          <button class="modal__form--sendBtn">Envoyer</button>
 				</form>
 			</div>
 		</div>
