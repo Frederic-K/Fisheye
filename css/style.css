@@ -178,7 +178,6 @@ h2 {
   padding: 35px;
   margin: 100px auto;
   position: relative;
-  z-index: 2;
 }
 .modal__header {
   width: 100%;
@@ -202,7 +201,6 @@ h2 {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  z-index: 3;
 }
 .modal__form--container {
   display: flex;

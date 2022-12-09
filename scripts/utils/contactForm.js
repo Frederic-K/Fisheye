@@ -18,6 +18,7 @@ function displayModal() {
 
     const modalHeaderImgESC = document.getElementsByClassName("modal__header--imgESC")[0];
     modalHeaderImgESC.setAttribute("alt", "Bouton de fermeture du formulaire de contact");
+    modalHeaderImgESC.setAttribute("aria-label", "Bouton de fermeture du formulaire de contact")
     modalHeaderImgESC.setAttribute("tabindex", "6");
 
     const modalFormContainer = document.getElementsByClassName("modal__form--container")[0];
@@ -30,9 +31,9 @@ function displayModal() {
 
     const modalFormInputPrenom = document.createElement("input");
     modalFormInputPrenom.classList.add("modal__form--input");
-    modalFormInputPrenom.setAttribute("name", "firstname");
+    modalFormInputPrenom.setAttribute("id", "firstname");
     modalFormInputPrenom.setAttribute("type", "text");
-    modalFormInputPrenom.setAttribute("aria-label", "votre prénom");
+    modalFormInputPrenom.setAttribute("aria-label", "Votre prénom");
     //modalFormInputPrenom.setAttribute("tabindex", "0");
     modalFormContainer.appendChild(modalFormInputPrenom);
 
@@ -44,9 +45,9 @@ function displayModal() {
 
     const modalFormInputNom = document.createElement("input");
     modalFormInputNom.classList.add("modal__form--input");
-    modalFormInputNom.setAttribute("name", "name");
+    modalFormInputNom.setAttribute("id", "name");
     modalFormInputNom.setAttribute("type", "text");
-    modalFormInputNom.setAttribute("aria-label", "votre nom");
+    modalFormInputNom.setAttribute("aria-label", "Votre nom");
     //modalFormInputNom.setAttribute("tabindex", "1");
     modalFormContainer.appendChild(modalFormInputNom);
 
@@ -59,8 +60,8 @@ function displayModal() {
     const modalFormInputEmail = document.createElement("input");
     modalFormInputEmail.classList.add("modal__form--input");
     modalFormInputEmail.setAttribute("type", "email");
-    modalFormInputEmail.setAttribute("name", "email");
-    modalFormInputEmail.setAttribute("aria-label", "votre email");
+    modalFormInputEmail.setAttribute("id", "email");
+    modalFormInputEmail.setAttribute("aria-label", "Votre email");
     //modalFormInputEmail.setAttribute("tabindex", "2");
     modalFormContainer.appendChild(modalFormInputEmail);
 
@@ -73,8 +74,8 @@ function displayModal() {
 
     const modalFormInputMsg = document.createElement("input");
     modalFormInputMsg.classList.add("modal__form--inputMsg");
-    modalFormInputMsg.setAttribute("name", "message");
-    modalFormInputMsg.setAttribute("aria-label", "votre message");
+    modalFormInputMsg.setAttribute("id", "message");
+    modalFormInputMsg.setAttribute("aria-label", "Votre message");
     //modalFormInputMsg.setAttribute("tabindex", "3");
     modalFormContainer.appendChild(modalFormInputMsg);
 
@@ -96,7 +97,6 @@ function displayModal() {
         console.log(modalFormInputMsg.value);
         closeModal();
     });
-
 };
 
 function closeModal() {
