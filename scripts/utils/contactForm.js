@@ -90,29 +90,10 @@ function displayModal() {
 
     modalFormSendBtn.addEventListener("click", function(e) {
         e.preventDefault();
-        /*if ((!modalFormInputPrenom.value === '') || (modalFormInputPrenom.value === null)) {
-            console.log("modalFormInputMsg", modalFormInputPrenom.value)
-        } else {
-            console.log("une erreur est survenue à l'envoie du formulaire")
-        };*/
-        /*
-        if ((!modalFormInputNom.value === '') || (modalFormInputNom.value === null)) {
-            console.log("modalFormInputMsg", modalFormInputNom.value)
-        } else {
-            console.log("une erreur est survenue à l'envoie du formulaire")
-        };
-
-        if ((!modalFormInputEmail.value === '') || (modalFormInputEmail.value === null)) {
-            console.log("modalFormInputMsg", modalFormInputEmail.value)
-        } else {
-            console.log("une erreur est survenue à l'envoie du formulaire")
-        };
-        */
-        if ((!modalFormInputMsg.value === '') || (modalFormInputMsg.value === null)) {
-            console.log("modalFormInputMsg", modalFormInputMsg.value)
-        } else {
-            console.log("une erreur est survenue à l'envoie du formulaire")
-        };
+        console.log(modalFormInputPrenom.value);
+        console.log(modalFormInputNom.value);
+        console.log(modalFormInputEmail.value);
+        console.log(modalFormInputMsg.value);
         closeModal();
     });
 
