@@ -15,3 +15,16 @@
     height: 100%;
     object-fit: cover;
 };
+
+@mixin contact-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $colour-font-secondary;
+    border-radius: $border-rad;
+    cursor: pointer;
+}

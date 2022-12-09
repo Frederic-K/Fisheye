@@ -66,6 +66,8 @@ function getPhotographerMediaDOM(data) {
 
     const mediaCardLikeBtn = document.createElement("button");
     mediaCardLikeBtn.classList.add("mediaCard__caption--likeBtnIcon");
+    mediaCardLikeBtn.setAttribute("type", "button");
+    mediaCardLikeBtn.setAttribute("role", "button");
 
     const mediaCardLikeBtnEmptyHeart = document.createElement("i");
     mediaCardLikeBtnEmptyHeart.classList.add("fa-regular");
@@ -80,6 +82,7 @@ function getPhotographerMediaDOM(data) {
 
 
     // Get likes from medias
+
 
     const photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
     const photographerTotalNumbLikes = parseInt(photographerLikes.textContent);

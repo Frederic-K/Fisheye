@@ -23,7 +23,7 @@
         <img src="assets/images/logo.png" class="header__logo--img" alt="Logo du site"/>
       </a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <section class="photographer__page">
         <!--<button class="contact__button" onclick="displayModal()">Contactez-moi</button>-->
       </section>
@@ -31,18 +31,18 @@
       </section>
       <div class="photographerPage__insert--SumLikes">0</div>
     </main>
-    <div class="hidden" id="contact_modal">
+    <div id="contact_modal" aria-hidden="true">
 			<div class="modal">
 				<header class="modal__header">
-          <div class="modal__header--title">Contactez-moi</div>
-          <img class="modal__header--img" src="assets/icons/close.svg" onclick="closeModal()" />
+          <div class="modal__header--title"></div>
+          <img class="modal__header--imgESC" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form class="modal__form">
 					<div class="modal__form--container">
-						<label class="modal__form--label">Prénom</label>
-						<input class="modal__form--input" />
+						<!--<label></label>-->
+						<!--modal__form--input" />-->
 					</div>
-          <button class="modal__form--sendBtn">Envoyer</button>
+          <!--<button class="modal__form--sendBtn">Envoyer</button>-->
 				</form>
 			</div>
 		</div>

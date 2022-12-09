@@ -54,13 +54,13 @@ function getPhotographerPageDOM(data) {
     // Photographer contact
     const photographerContactBtn = document.createElement("button");
     photographerContactBtn.classList.add("header__photographerPage--contactBtn");
+    photographerContactBtn.setAttribute("type", "button");
+    photographerContactBtn.setAttribute("role", "button");
     photographerContactBtn.setAttribute("aria-label", photographerContactMsg);
+    photographerContactBtn.setAttribute("aria-haspopup", "dialog");
+    photographerContactBtn.setAttribute("aria-controls", "dialog");
     photographerContactBtn.textContent = `Contactez-moi`;
     photographerContactBtn.setAttribute("onclick", "displayModal()");
-    //const photographerContactBtn = document.getElementsByClassName("contact__button")[0]; 
-    //const photographerContactBtn = document.querySelector(".contact__button");
-    //photographerContactBtn.setAttribute("arial-label", photographerContactMsg);
-    //photographerContactBtn.textContent = `Contactez-moi`;
 
     // Photographer Img header
     const photographerImgHeader = document.createElement("div");

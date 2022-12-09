@@ -9,6 +9,8 @@ async function getPhotographerId() {
     return (id);
 };
 
+// Photographer (header)
+
 async function getSelectedPhotographer() {
     const {photographers} = await getPhotographersData();
     console.log("photographers", photographers);
@@ -68,6 +70,7 @@ async function displayphotogapherMedia() {
     const { media } = await getPhotographersData();
     displayphotographerMediaData(media);
 };
+
 displayphotogapherMedia();
 
 // 

@@ -163,7 +163,7 @@ h2 {
   background-color: #FAFAFA;
   position: fixed;
   top: 0;
-  z-index: 9;
+  z-index: 1;
   overflow: auto;
 }
 
@@ -176,17 +176,21 @@ h2 {
   align-items: center;
   justify-content: space-between;
   padding: 35px;
-  margin: 150px auto;
+  margin: 100px auto;
   position: relative;
+  z-index: 2;
 }
 .modal__header {
   width: 100%;
+  margin-bottom: 30px;
 }
 .modal__header--title {
-  font-size: 64px;
+  width: 80%;
+  margin: 0px;
+  font-size: 50px;
   font-weight: normal;
 }
-.modal__header--img {
+.modal__header--imgESC {
   cursor: pointer;
   position: absolute;
   top: 35px;
@@ -198,6 +202,7 @@ h2 {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 3;
 }
 .modal__form--container {
   display: flex;
@@ -209,12 +214,38 @@ h2 {
 .modal__form--label {
   color: #312E2E;
   font-size: 36px;
+  margin: 0;
 }
 .modal__form--input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 30px;
+}
+.modal__form--inputMsg {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.modal__form--sendBtn {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .photographer__section {
