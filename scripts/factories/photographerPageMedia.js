@@ -35,6 +35,10 @@ function getPhotographerMediaDOM(data) {
         console.log("le type de fichier n'est pas reconnu")
     }
 
+    mediaCardSample.addEventListener("click", () => {
+        displayLightbox();
+    })
+
     // Caption
 
     const mediaCardCaption = document.createElement("div");
@@ -82,7 +86,6 @@ function getPhotographerMediaDOM(data) {
 
 
     // Get likes from medias
-
 
     const photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
     const photographerTotalNumbLikes = parseInt(photographerLikes.textContent);
