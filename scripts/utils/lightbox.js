@@ -3,6 +3,7 @@ function displayLightbox() {
 
     const lightboxBg = document.getElementById("lightbox__bg");
     lightboxBg.style.display = "block";
+    lightboxBg.setAttribute("aria-hidden", "false");
 
     /*const lightboxModal = document.getElementsByClassName("lightbox__modal")[0];
     lightboxBg.appendChild.apply(lightboxModal);

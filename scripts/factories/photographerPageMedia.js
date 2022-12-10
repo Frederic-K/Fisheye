@@ -33,11 +33,9 @@ function getPhotographerMediaDOM(data) {
         mediaCardSample.appendChild(mediaCardVideo);
     } else {
         console.log("le type de fichier n'est pas reconnu")
-    }
+    };
 
-    mediaCardSample.addEventListener("click", () => {
-        displayLightbox();
-    })
+    mediaCard.setAttribute("onclick", "displayLightbox()");
 
     // Caption
 
