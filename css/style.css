@@ -280,6 +280,15 @@ h2 {
 .lightbox__modal--PrevIconBtn {
   font-size: 50px;
 }
+.lightbox__modal--card {
+  width: 90%;
+}
+.lightbox__modal--img {
+  width: 100%;
+}
+.lightbox__modal--NextIconBtn {
+  font-size: 50px;
+}
 
 .photographer__section {
   display: grid;

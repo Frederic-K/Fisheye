@@ -33,5 +33,16 @@
     &--PrevIconBtn {
         font-size: 50px;
     }
+    &--card {
+        width: 90%;
+        //overflow: hidden;
+    }
+    &--img {
+        width: 100%;
+        //object-fit: cover;
+    }
+    &--NextIconBtn {
+        font-size: 50px;
+    }
 };
 

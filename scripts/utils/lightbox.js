@@ -39,10 +39,10 @@ function displayLightbox() {
     lightboxMediaCard.appendChild(lightboxCardCaption);
 
     const lightboxNextMedia = document.createElement("div");
-    lightboxNextMedia.classList.add("lightbox__modal--PrevIconBtn");
+    lightboxNextMedia.classList.add("lightbox__modal--NextIconBtn");
     lightboxNextMedia.setAttribute("role", "button");
     lightboxNextMedia.setAttribute("type", "button");
-    lightboxNextMedia.setAttribute("aria-lable", "Bouton pour afficher le media précedent");
+    lightboxNextMedia.setAttribute("aria-lable", "Bouton pour afficher le media suivant");
     lightboxModal.appendChild(lightboxNextMedia);
 
     const lightboxArrowRight = document.createElement("i"); 
@@ -79,4 +79,8 @@ function closeLightbox() {
     const lightboxBg = document.getElementById("lightbox__bg");
     lightboxBg.style.display = "none";
     lightboxBg.setAttribute("aria-hidden", "true");
+    const lightboxCardImg = document.getElementsByClassName("mediaCard__sample--img")[0];
+    lightboxCardImg.classList.remove("lightbox__modal--img");
+    const lightboxCardCaption = document.getElementsByClassName("mediaCard__caption--title")[0];
+    lightboxCardCaption.classList.remove("lightbox__modal--caption");
 };
