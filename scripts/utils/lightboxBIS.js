@@ -1,31 +1,34 @@
+// https://grafikart.fr/tutoriels/lightbox-javascript-1224
+
 class Lightbox {
 
     static init() {
-        const sources = document.querySelectorAll('img[src$".jpg"], video[src$".mp4"]')
-        console.log("sources", sources)
-            .forEach(source => source.addEventListener("click", e => {
+        //const links = document.querySelectorAll('img[href$=".jpg"]');
+        const links = document.querySelectorAll('img[href]');
+        console.log("links", links)
+            .forEach(link => link.addEventListener('click', e => 
+            {
                 e.preventDefault()
-                new Lightbox(e.currentTarget.getAttribute('src')
-                )
+                new Lightbox(e.currentTarget.getAttribute('href'))
             }))
     }
 
     /**
      * 
-     * @param {string} src URL du media
+     * @param {string} url du media
      */
 
-    constructor (src) {
-        const element = this.buildDOM(src)
-        document.main.appendChild(element)
+    constructor (url) {
+        const element = this.buildDOM(url)
+        document.body.appendChild(element)
     }
 
     /**
-     * @param {string} src URL du media
+     * @param {string} url du media
      * @return {HTMLElement}
      */
 
-    buildDOM (src) {
+    buildDOM (url) {
         const dom = document.createElement("div")
         dom.classList.add("lightbox__bg")
         dom.innerHTML = 
@@ -36,30 +39,13 @@ class Lightbox {
                 <i class="fa-solid fa-chevron-left"></i>
             </div>
             <div class="lightbox__modal--imgContainer">
-                <img src="${src}" alt="" airia-label="">
+                <img href="${url}" src="${url}" alt="" airia-label="">
             </div>
             <div>
                 <i class="fa-solid fa-chevron-right"></i>
             </div>`
         return dom
     }
-}
+};
 
-/**
- *     <div id="lightbox__bg" aria-hidden="true">
-      <div class="lightbox__modal">
-        <img class="lightbox__modal--imgESC" src="assets/icons/close.svg" onclick="closeLightbox()"/>
-      </div>
-      <div class="lightbox__modal--PrevIconBtn">
-        <i class="fa-solid fa-chevron-left"></i>
-      </div>
-      <div class="lightbox__modal--imgContainer">
-        <img src="" alt="" airia-label="">
-      </div>
-      <div>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
-    </div>
- */
-
-Lightbox.init()
+Lightbox.init();

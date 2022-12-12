@@ -1,5 +1,6 @@
 
 function displayModal() {
+
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
     modal.setAttribute("role", "dialog")
@@ -9,6 +10,10 @@ function displayModal() {
 
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "true");
+
+    const contactModalBg = document.getElementsByClassName("contact__modal--bg")[0];
+    contactModalBg.style.display = "block";
+    modal.appendChild(contactModalBg);
 
     const name = document.getElementsByClassName("header__photographerPage--name")[0].textContent;
     console.log("modal name", name);
@@ -20,6 +25,7 @@ function displayModal() {
     modalHeaderImgESC.setAttribute("alt", "Bouton de fermeture du formulaire de contact");
     modalHeaderImgESC.setAttribute("aria-label", "Bouton de fermeture du formulaire de contact")
     modalHeaderImgESC.setAttribute("tabindex", "6");
+    modalHeaderImgESC.addEventListener("click", () => closeModal());
 
     const modalFormContainer = document.getElementsByClassName("modal__form--container")[0];
 

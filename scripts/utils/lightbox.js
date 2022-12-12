@@ -1,4 +1,18 @@
 
+
+function lightboxThumbnail() {
+    //const lightboxModal = document.getElementById("lightbox__bg");
+    const links = document.querySelectorAll('img[href$=".jpg]');
+    console.log("links", links);
+    /*links.forEach((link) => {
+        const link = displayLightbox(link);
+        //lightboxModal.appendChild(link);
+        //console.log("link", link);
+    });*/
+};
+lightboxThumbnail();
+
+
 function displayLightbox() {
 
     const lightboxBg = document.getElementById("lightbox__bg");
@@ -12,6 +26,7 @@ function displayLightbox() {
     lightboxBtnESC.textContent = `Fermer`;
     lightboxBtnESC.setAttribute("alt", "Bouton de fermeture de la vue");
     lightboxBtnESC.setAttribute("aria-label", "Bouton de fermeture de la vue");
+    lightboxBtnESC.addEventListener("click", () => closeLightbox());
     lightboxModal.appendChild(lightboxBtnESC);
 
     const lightboxPreviousMedia = document.createElement("div");
@@ -32,7 +47,7 @@ function displayLightbox() {
 
 
     const lightboxCardImg = document.createElement("img");
-    lightboxCardImg.classList.add("mySlides");
+    //lightboxCardImg.classList.add("mySlides");
     lightboxMediaCard.appendChild(lightboxCardImg);
     
     const lightboxCaptionContainer = document.createElement("div");
@@ -54,59 +69,11 @@ function displayLightbox() {
     const lightboxArrowRight = document.createElement("i"); 
     lightboxArrowRight.classList.add("fa-solid", "fa-chevron-right");
     lightboxNextMedia.appendChild(lightboxArrowRight);
-
-
-    /*function selectMediaSrc(image, video) {
-        if (image) {
-            const lightboxCardImg = document.createElement("img");
-            lightboxCardImg.classList.add("lightbox__modal--img");
-            lightboxCardImg.setAttribute("src", picture);
-            lightboxCardImg.setAttribute("alt", lightboxMediaTitle);
-            lightboxMediaCard.appendChild(lightboxCardImg);
-        } else if (video) {
-            const lightboxCardVideo = document.createElement("video");
-            lightboxCardVideo.classList.add("lightbox__modal--video");
-            lightboxCardVideo.setAttribute("src", movie);
-            //mediaCardVideo.setAttribute("autoplay", "mute");
-            lightboxCardVideo.setAttribute("controls", "");
-            lightboxMediaCard.appendChild(lightboxCardVideo);
-        } else {
-            console.log("le type de fichier n'est pas reconnu")
-        };
-    };*/
-
-    const mediaCard = document.getElementsByClassName("mediaCard");
-    console.log("lightbox meddiaCard", mediaCard);
-
-    let slideIndex = 1;
-
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    };
-    
-   function currentSlide(n) {
-        showSlides(slideIndex = n);
-    };
-    
-    function showSlides(n) {
-        let i; 
-        let slides = document.getElementsByClassName("mySlides");
-        console.log("slides", slides);
-        let captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex-1].style.display = "block";
-    };
 };
 
 
-
-/*let slideIndex = 1;
+/*
+let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
@@ -127,7 +94,7 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    //slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.display = "block";
 };*/
 
 function closeLightbox() {

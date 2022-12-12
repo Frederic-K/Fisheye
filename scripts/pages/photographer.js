@@ -57,8 +57,8 @@ async function displayphotographerMediaData() {
 
     const selectedPhotographerMedias = await getSelectedPhotographerMedia();
 
-    selectedPhotographerMedias.forEach((sample) => {
-        const photographerMediaDOM = getPhotographerMediaDOM(sample);
+    selectedPhotographerMedias.forEach((media) => {
+        const photographerMediaDOM = getPhotographerMediaDOM(media);
         //console.log("photographerMediaDOM", photographerMediaDOM);
         
         photographersMediaSection.appendChild(photographerMediaDOM);
