@@ -1,7 +1,7 @@
 // Media
 
 function getPhotographerMediaDOM(data) {
-    const {id, photographerId, title, image, video, likes, date, price} = data
+    const {id, photographerId, title, image, video, likes, date, price, position} = data
 
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
@@ -21,6 +21,7 @@ function getPhotographerMediaDOM(data) {
     if (image) {
         const mediaCardImg = document.createElement("img");
         mediaCardImg.classList.add("mediaCard__sample--img");
+        //mediaCardImg.setAttribute("id", "testImgSrc");
         mediaCardImg.setAttribute("src", picture);
         mediaCardImg.setAttribute("alt", mediaTitle);
         mediaCardSample.appendChild(mediaCardImg);
@@ -35,7 +36,8 @@ function getPhotographerMediaDOM(data) {
         console.log("le type de fichier n'est pas reconnu")
     };
 
-    mediaCard.setAttribute("onclick", "displayLightbox()");
+   // mediaCard.setAttribute("onclick", "displayLightbox()");
+   // mediaCard.setAttribute("onclick", "currentSlide()");
 
     // Caption
 

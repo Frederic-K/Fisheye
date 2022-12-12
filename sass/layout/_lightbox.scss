@@ -8,16 +8,10 @@
     z-index: 1;
     overflow: auto;
 };
-
-/*<style type="text/css">
-    .xcross-red{fill-rule:evenodd;clip-rule:evenodd;fill: #901C1C;}
-    .xcross-white{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-</style>*/
-
-
 .lightbox__modal {
     width: 75%;
-    height: 50%;
+    //height: 50%;
+    padding-top: 50px;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -32,6 +26,16 @@
     }
     &--PrevIconBtn {
         font-size: 50px;
+        cursor: pointer;
+    }
+    .lightbox__modal--card {
+        width: 80%;
+        .mediaCard__sample--img {
+            width: 100%;
+        }
+        .mediaCard__caption--title {
+            font-size: 40px;
+        }
     }
     &--card {
         width: 90%;
@@ -43,6 +47,7 @@
     }
     &--NextIconBtn {
         font-size: 50px;
+        cursor: pointer;
     }
 };
 

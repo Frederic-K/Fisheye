@@ -16,10 +16,12 @@
             overflow: hidden;
             &--img {
                 @include sample-img;
+                cursor: pointer;
             }
             &--video {
                 width: 100%;
                 height: 100%;
+                cursor: pointer;
             }
         }
         &__caption {
