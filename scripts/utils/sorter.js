@@ -1,23 +1,28 @@
     
 async function sorterDropdownDOM() {    
-    const photographerMainPage = document.getElementById("main");
+    //const photographerMainPage = document.getElementById("main");
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
-    photographerMainPage.appendChild(sorterDropdown);
+    //photographerMainPage.appendChild(sorterDropdown);
 
     const sorterDropdowTitle = document.createElement("div");
+    sorterDropdowTitle.classList.add("dropdown__title");
     sorterDropdowTitle.textContent = "Trier par";
     sorterDropdown.appendChild(sorterDropdowTitle);
 
+    const sorterDropdownMenu = document.createElement("div");
+    sorterDropdownMenu.classList.add("dropdown__menu");
+    sorterDropdown.appendChild(sorterDropdownMenu);
+
     const sorterDropdownBtn = document.createElement("div");
-    sorterDropdownBtn.classList.add("dorpdown__button");
+    sorterDropdownBtn.classList.add("dropdown__button");
     sorterDropdownBtn.setAttribute("role", "button");
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sorterDropdownBtn.textContent = "Popularité";
-    sorterDropdown.appendChild(sorterDropdownBtn);
+    sorterDropdownMenu.appendChild(sorterDropdownBtn);
 
     const sorterDropdownBtnIcon = document.createElement("div");
-    sorterDropdownBtnIcon.classList.add("dorpdown__button--icon");
+    sorterDropdownBtnIcon.classList.add("dropdown__button--icon");
     sorterDropdownBtn.appendChild(sorterDropdownBtnIcon);
 
     const sorterDropdownIconChevron = document.createElement("i");
@@ -25,8 +30,8 @@ async function sorterDropdownDOM() {
     sorterDropdownBtnIcon.appendChild(sorterDropdownIconChevron);
 
     const sorterDropdownContent = document.createElement("ul");
-    sorterDropdownContent.classList.add("dopdown__content");
-    sorterDropdown.appendChild(sorterDropdownContent);
+    sorterDropdownContent.classList.add("dropdown__content");
+    sorterDropdownMenu.appendChild(sorterDropdownContent);
 
     const dropdownSortByFamous = document.createElement("li");
     dropdownSortByFamous.classList.add("selected");
@@ -42,8 +47,6 @@ async function sorterDropdownDOM() {
     sorterDropdownContent.appendChild(dropdownSortByTitle);
 
     console.log(photographerMainPage);
-
-    //return (photographerMainPage);
 };
 sorterDropdownDOM();
 

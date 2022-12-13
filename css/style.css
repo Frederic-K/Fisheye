@@ -258,6 +258,48 @@ h2 {
   cursor: pointer;
 }
 
+.dropdown {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  font-size: 25px;
+  margin-top: 25px;
+}
+.dropdown__title {
+  width: 200px;
+  margin: 0;
+}
+.dropdown__menu {
+  width: 200px;
+  position: absolute;
+  left: 200px;
+  flex-direction: column;
+  color: white;
+  background-color: #901C1C;
+  border-radius: 5px;
+}
+.dropdown__button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 10px 0px 15px;
+  cursor: pointer;
+}
+.dropdown__content {
+  display: none;
+}
+.dropdown__content li {
+  height: 40px;
+  list-style-type: none;
+}
+.dropdown__content li:hover {
+  border: 2px solid white;
+}
+
 #lightbox__bg {
   display: none;
   width: 100%;
