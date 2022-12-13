@@ -1,105 +1,176 @@
 
+let currentIndex = "";
 
-function lightboxThumbnail() {
-    //const lightboxModal = document.getElementById("lightbox__bg");
-    const links = document.querySelectorAll('img[href$=".jpg]');
-    console.log("links", links);
-    /*links.forEach((link) => {
-        const link = displayLightbox(link);
-        //lightboxModal.appendChild(link);
-        //console.log("link", link);
-    });*/
-};
-lightboxThumbnail();
+const lightboxBg = document.getElementsByClassName("lightbox__bg")[0];
+const lightboxCurrentImg = document.getElementsByClassName("lightbox__modal--cardIMG")[0];
+const lightboxCurrentImgCaption = document.getElementsByClassName("lightbox__modal--caption")[0];
+const lightboxEscBtn = document.getElementsByClassName("lightbox__modal--imgESC")[0];
+const lightboxPrevMedia = document.getElementsByClassName("lightbox__modal--PrevIconBtn")[0];
+const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--NextIconBtn")[0];
 
+function openLightbox(data) {
 
-function displayLightbox() {
+    console.log("data", data);
 
-    const lightboxBg = document.getElementById("lightbox__bg");
-    lightboxBg.style.display = "block";
-    lightboxBg.setAttribute("aria-hidden", "false");
+    lightboxBg.classList.remove("hidden");
 
-    const lightboxModal = document.getElementsByClassName("lightbox__modal")[0];
+    const lightboxMediaSource = data.src;
+    console.log("lightboxMediaSource", lightboxMediaSource);
 
-    const lightboxBtnESC = document.getElementsByClassName("lightbox__modal--imgESC")[0];
-    lightboxBtnESC.setAttribute("role", "button");
-    lightboxBtnESC.textContent = `Fermer`;
-    lightboxBtnESC.setAttribute("alt", "Bouton de fermeture de la vue");
-    lightboxBtnESC.setAttribute("aria-label", "Bouton de fermeture de la vue");
-    lightboxBtnESC.addEventListener("click", () => closeLightbox());
-    lightboxModal.appendChild(lightboxBtnESC);
+    lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
 
-    const lightboxPreviousMedia = document.createElement("div");
-    lightboxPreviousMedia.classList.add("lightbox__modal--PrevIconBtn");
-    lightboxPreviousMedia.setAttribute("role", "button");
-    lightboxPreviousMedia.setAttribute("type", "button");
-    lightboxPreviousMedia.setAttribute("aria-lable", "Bouton pour afficher le media précedent");
-    lightboxPreviousMedia.setAttribute("onclick", "plusSlides(-1)")
-    lightboxModal.appendChild(lightboxPreviousMedia);
+    // Alternative : récupérer le titre à partir du "alt=" de l'img
+    const lightboxCurrentImgTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
 
-    const lightboxArrowLeft = document.createElement("i"); 
-    lightboxArrowLeft.classList.add("fa-solid", "fa-chevron-left");
-    lightboxPreviousMedia.appendChild(lightboxArrowLeft);
+    lightboxCurrentImgCaption.textContent = lightboxCurrentImgTitleSource.textContent;
 
-    const lightboxMediaCard = document.createElement("div");
-    //lightboxMediaCard.classList.add("mySlides");
-    lightboxModal.appendChild(lightboxMediaCard);
-
-
-    const lightboxCardImg = document.createElement("img");
-    //lightboxCardImg.classList.add("mySlides");
-    lightboxMediaCard.appendChild(lightboxCardImg);
+    lightboxPrevMedia.addEventListener("click", () => {
+        moveLightboxSlide(-1);
+        currentIndex = currentIndex - 1;
+        console.log("newCurrentIndex1", currentIndex);
+    });
     
-    const lightboxCaptionContainer = document.createElement("div");
-    lightboxCaptionContainer.classList.add("caption__container");
-    lightboxModal.appendChild(lightboxCaptionContainer);
+    lightboxNextMedia.addEventListener("click", () => {
+        moveLightboxSlide(1);
+        currentIndex = currentIndex + 1;
+        console.log("newCurrentIndex2", currentIndex);
+    });
+    
+    
+    function moveLightboxSlide(direction) {
+        console.log("direction", direction);
 
-    const lightboxCardCaption = document.createElement("p");
-    lightboxCardCaption.setAttribute("id", "caption");
-    lightboxCaptionContainer.appendChild(lightboxCardCaption);
+        currentIndex = parseInt(data.dataset.index);
+        console.log("currentIndex", currentIndex);
+     
+        const mediaArrayOrigin = localStorage.getItem("mediaArray");
+        const mediaArray = JSON.parse(mediaArrayOrigin);
+        const newLightboxSlideIndex = mediaArray[currentIndex + direction];
 
-    const lightboxNextMedia = document.createElement("div");
-    lightboxNextMedia.classList.add("lightbox__modal--NextIconBtn");
-    lightboxNextMedia.setAttribute("role", "button");
-    lightboxNextMedia.setAttribute("type", "button");
-    lightboxNextMedia.setAttribute("aria-lable", "Bouton pour afficher le media suivant");
-    lightboxNextMedia.setAttribute("onclick", "plusSlides(1)")
-    lightboxModal.appendChild(lightboxNextMedia);
+        console.log("mediaArray", mediaArray);    
+        console.log("newLightboxSlideIndex", newLightboxSlideIndex); 
 
-    const lightboxArrowRight = document.createElement("i"); 
-    lightboxArrowRight.classList.add("fa-solid", "fa-chevron-right");
-    lightboxNextMedia.appendChild(lightboxArrowRight);
+        const newlightboxSlidePicture = newLightboxSlideIndex.image;
+        console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
+
+        const newlightboxSlideTitle = newLightboxSlideIndex.title;
+
+        console.log("newlightboxSlideTitle", newlightboxSlideTitle);
+
+        const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
+        console.log("newLightboxSlideSource", newLightboxSlideSource);
+
+        //lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+
+        lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
+        console.log("lightboxCurrentImg", lightboxCurrentImg);
+
+        lightboxCurrentImgCaption.textContent = newlightboxSlideTitle; 
+    };
+
+    /*function moveLightboxSlide(direction) {
+        console.log("direction", direction);
+
+        currentIndex = parseInt(data.dataset.index);
+        console.log("currentIndex", currentIndex);
+     
+        const mediaArrayOrigin = localStorage.getItem("mediaArray");
+        const mediaArray = JSON.parse(mediaArrayOrigin);
+        const newLightboxSlideIndex = mediaArray[currentIndex + direction];
+
+        console.log("mediaArray", mediaArray);    
+        console.log("newLightboxSlideIndex", newLightboxSlideIndex); 
+
+        let newCurrentIndex = currentIndex + direction;
+        console.log("newCurrentIndex", newCurrentIndex);
+
+        if (!currentIndex === newCurrentIndex) {
+
+        const newlightboxSlidePicture = newLightboxSlideIndex.image;
+        console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
+
+        const newlightboxSlideTitle = newLightboxSlideIndex.title;
+        console.log("newlightboxSlideTitle", newlightboxSlideTitle);
+
+        const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
+        console.log("newLightboxSlideSource", newLightboxSlideSource);
+
+        lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+
+        lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
+        console.log("lightboxCurrentImg", lightboxCurrentImg);
+
+        lightboxCurrentImgCaption.textContent = newlightboxSlideTitle;
+
+        currentIndex = newCurrentIndex;
+
+        } else { 
+            
+        }     
+    
+    };*/
+
 };
 
+    
+    // data est le e.target
 
-/*
-let slideIndex = 1;
-showSlides(slideIndex);
+    //retier class hidden de la modal
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+    // remplire src de l'image de la modal avec data.src
+
+    /*const mediaArray = localStorage.getItem("mediaArray");
+    const mediaArrayFinal = JSON.parse(mediaArray);
+
+    console.log("mediaArrayFinal", mediaArrayFinal);
+
+    currentIndex = parseInt(data.dataset.index);
+
+    console.log("currentIndex", currentIndex);
+
+    console.log("mediarrayF", mediaArrayFinal[currentIndex + (-1)]);*/
+
+lightboxPrevMedia.addEventListener("click", () => {
+    moveLightboxSlide(-1);
+});
+
+lightboxNextMedia.addEventListener("click", () => {
+    moveLightboxSlide(1);
+});
+
+
+function moveLightboxSlide(direction) {
+    console.log("direction", direction);
+ 
+    const mediaArray = localStorage.getItem("mediaArray");
+    const mediaArrayFinal = JSON.parse(mediaArray);
+
+    console.log("mediaArrayFinal", mediaArrayFinal);
+
+    //currentIndex = parseInt(data.dataset.index);
+
+    console.log("currentIndex", currentIndex);
+
+    console.log("mediarrayF", mediaArrayFinal[currentIndex + direction]);
+
+
 };
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-};
-
-function showSlides(n) {
-    let i; 
-    let slides = document.getElementsByClassName("mySlides");
-    console.log("slides", slides);
-    let captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex-1].style.display = "block";
-};*/
+lightboxEscBtn.addEventListener("click", () => {
+    closeLightbox();
+});
 
 function closeLightbox() {
-    const lightboxBg = document.getElementById("lightbox__bg");
-    lightboxBg.style.display = "none";
+
+    lightboxBg.classList.add("hidden");
+    lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+
+    // add src="" a vide
+    // add titre a vide
+
+    // add class hidden
+
+
     /*lightboxBg.setAttribute("aria-hidden", "true");
     const lightboxCardImg = document.getElementsByClassName("mediaCard__sample--img")[0];
     lightboxCardImg.classList.remove("lightbox__modal--img");

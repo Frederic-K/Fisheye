@@ -1,7 +1,10 @@
 // Media
 
-function getPhotographerMediaDOM(data) {
-    const {id, photographerId, title, image, video, likes, date, price, position} = data
+function getPhotographerMediaDOM(data, i) {
+    const {id, photographerId, title, image, video, likes, date, price} = data
+    const index = i
+
+    console.log
 
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
@@ -27,6 +30,7 @@ function getPhotographerMediaDOM(data) {
             mediaCardImg.setAttribute("src", picture);
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
+            mediaCardImg.setAttribute("data-index", index)
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
             const mediaCardVideo = document.createElement("video");
@@ -41,8 +45,9 @@ function getPhotographerMediaDOM(data) {
     };
     getMediaByFileTypeDOM();
 
-   mediaCardSample.addEventListener("click", function() {
-        displayLightbox();
+   mediaCardSample.addEventListener("click", function(e) {
+        console.log("target", e.target);
+        openLightbox(e.target);
     } );
 
     // Caption

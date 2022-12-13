@@ -5,6 +5,7 @@
     position: relative;
     font-size: 25px;
     margin-top: 25px;
+    z-index: 1;
     &__title {
         width: 200px;
         margin: 0;
@@ -27,15 +28,16 @@
         align-items: center;
         margin: 0px 10px 0px 15px;
         cursor: pointer;
-    }
-    &__content {
-        display: none;        
-    }
+    }      
     &__content li {
         height: 40px;
         list-style-type: none;
+        z-index: 3000;
     }
     &__content li:hover {
         border: 2px solid white;
     }
 };
+.dropdown li:hover {
+    border: 2px solid white;
+}

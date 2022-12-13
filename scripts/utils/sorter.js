@@ -1,9 +1,7 @@
     
-async function sorterDropdownDOM() {    
-    //const photographerMainPage = document.getElementById("main");
+function sorterDropdownDOM() {    
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
-    //photographerMainPage.appendChild(sorterDropdown);
 
     const sorterDropdowTitle = document.createElement("div");
     sorterDropdowTitle.classList.add("dropdown__title");
@@ -15,7 +13,7 @@ async function sorterDropdownDOM() {
     sorterDropdown.appendChild(sorterDropdownMenu);
 
     const sorterDropdownBtn = document.createElement("div");
-    sorterDropdownBtn.classList.add("dropdown__button");
+    sorterDropdownBtn.classList.add("dropdown__button", "selected");
     sorterDropdownBtn.setAttribute("role", "button");
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sorterDropdownBtn.textContent = "Popularité";
@@ -30,11 +28,10 @@ async function sorterDropdownDOM() {
     sorterDropdownBtnIcon.appendChild(sorterDropdownIconChevron);
 
     const sorterDropdownContent = document.createElement("ul");
-    sorterDropdownContent.classList.add("dropdown__content");
+    sorterDropdownContent.classList.add("dropdown__content", "hidden");
     sorterDropdownMenu.appendChild(sorterDropdownContent);
 
     const dropdownSortByFamous = document.createElement("li");
-    dropdownSortByFamous.classList.add("selected");
     dropdownSortByFamous.textContent = "Popularité";
     sorterDropdownContent.appendChild(dropdownSortByFamous);
 
@@ -45,10 +42,15 @@ async function sorterDropdownDOM() {
     const dropdownSortByTitle = document.createElement("li");
     dropdownSortByTitle.textContent = "Titre";
     sorterDropdownContent.appendChild(dropdownSortByTitle);
-
-    console.log(photographerMainPage);
+    
 };
 sorterDropdownDOM();
 
+const dropdownSelectedContent = document.getElementsByClassName("selected")[0];
+dropdownSelectedContent.addEventListener("click", () => dropdownMenu());
 
+function dropdownMenu() {
+    const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
+    dropdownContent.classList.remove("hidden");
+};
 

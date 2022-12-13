@@ -46,24 +46,35 @@ async function getSelectedPhotographerMedia() {
     const photographerId = await getPhotographerId();
     console.log("photographerID2", photographerId);
 
-    const choosenPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
+    const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
     
-    console.log("choosenPhotographerMedia", choosenPhotographerMedias);
-    return (choosenPhotographerMedias);
+    console.log("choosenPhotographerMedia", selectedPhotographerMedias);
+    return (selectedPhotographerMedias);
 };
+
 
 async function displayphotographerMediaData() {
     const photographersMediaSection = document.querySelector(".photographer__media");
-
     const selectedPhotographerMedias = await getSelectedPhotographerMedia();
 
-    selectedPhotographerMedias.forEach((media) => {
-        const photographerMediaDOM = getPhotographerMediaDOM(media);
-        //console.log("photographerMediaDOM", photographerMediaDOM);
+    localStorage.removeItem('mediaArray');
+    localStorage.setItem('mediaArray', JSON.stringify(selectedPhotographerMedias));
+
+    for (let i = 0; i < selectedPhotographerMedias.length; i++) {
+        const photographerMediaDOM = getPhotographerMediaDOM(selectedPhotographerMedias[i],i);
+        console.log("i", i);
         
         photographersMediaSection.appendChild(photographerMediaDOM);
         //console.log("sample", sample);
-    });
+      }
+
+    /*selectedPhotographerMedias.forEach((media) => {
+        const photographerMediaDOM = getPhotographerMediaDOM(media);
+        //console.log("photographerMediaDOM", photographerMediaDOM);
+        
+        //photographersMediaSection.appendChild(photographerMediaDOM);
+        //console.log("sample", sample);
+    });*/
 };
 
 async function displayphotogapherMedia() {
@@ -74,3 +85,4 @@ async function displayphotogapherMedia() {
 displayphotogapherMedia();
 
 // 
+

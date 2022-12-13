@@ -54,27 +54,26 @@
         </header>
 				<form class="modal__form">
 					<div class="modal__form--container">
-						<!--<label></label>-->
-						<!--modal__form--input" />-->
 					</div>
-          <!--<button class="modal__form--sendBtn">Envoyer</button>-->
 				</form>
 			</div>
 		</div>
-    <div id="lightbox__bg" aria-hidden="true">
+    <div class="lightbox__bg hidden" aria-hidden="true">
       <div class="lightbox__modal">
         <img class="lightbox__modal--imgESC" src="assets/icons/close.svg"/>
+        <div class="lightbox__modal--container">
+          <div class="lightbox__modal--PrevIconBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+          <div class="lightbox__modal--card">
+            <img class="lightbox__modal--cardIMG">
+            <div class="lightbox__modal--caption"></div>
+          </div>
+          <div class="lightbox__modal--NextIconBtn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
       </div>
-      <!--<div class="lightbox__modal--PrevIconBtn">
-        <i class="fa-solid fa-chevron-left"></i>
-      </div>
-      <div class="lightbox__modal--imgContainer">
-        <img src="" alt="" airia-label="">
-      </div>
-      <div>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
-    </div>-->
     <script src="/scripts/API/getPhotographersData.js"></script>
     <script src="/scripts/factories/photographerPage.js"></script>
     <script src="/scripts/utils/sorter.js"></script>
