@@ -5,6 +5,7 @@ function displayModal() {
     modal.style.display = "block";
     modal.setAttribute("role", "dialog")
     modal.setAttribute("aria-hidden", "false");
+    
     // TODE revoir le aria-describedby : 
     //modal.setAttribute("aria-describedby", "modalHeaderTitle");
 

@@ -1,16 +1,17 @@
     
-function getSorterDropdownDOM() {    
+async function sorterDropdownDOM() {    
     const photographerMainPage = document.getElementById("main");
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
     photographerMainPage.appendChild(sorterDropdown);
 
-    const sorterDropdowTitle = createElement("div");
+    const sorterDropdowTitle = document.createElement("div");
     sorterDropdowTitle.textContent = "Trier par";
     sorterDropdown.appendChild(sorterDropdowTitle);
 
-    const sorterDropdownBtn = document.createElement("button");
+    const sorterDropdownBtn = document.createElement("div");
     sorterDropdownBtn.classList.add("dorpdown__button");
+    sorterDropdownBtn.setAttribute("role", "button");
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sorterDropdownBtn.textContent = "Popularité";
     sorterDropdown.appendChild(sorterDropdownBtn);
@@ -21,31 +22,30 @@ function getSorterDropdownDOM() {
 
     const sorterDropdownIconChevron = document.createElement("i");
     sorterDropdownIconChevron.classList.add("fa-solid", "fa-chevron-up");
-    sorterDropdownBtnIcon.appendChild(sorterDropdownBtnIcon);
+    sorterDropdownBtnIcon.appendChild(sorterDropdownIconChevron);
 
     const sorterDropdownContent = document.createElement("ul");
     sorterDropdownContent.classList.add("dopdown__content");
     sorterDropdown.appendChild(sorterDropdownContent);
 
     const dropdownSortByFamous = document.createElement("li");
-    dropdownSortByFamous.classList.add("sorter__selected");
+    dropdownSortByFamous.classList.add("selected");
     dropdownSortByFamous.textContent = "Popularité";
     sorterDropdownContent.appendChild(dropdownSortByFamous);
 
     const dropdownSortByDate = document.createElement("li");
     dropdownSortByDate.textContent = "Date";
-    sorterDropdownContent.appendChild("dropdownSortByDate");
+    sorterDropdownContent.appendChild(dropdownSortByDate);
 
-    const dropdownSortByTitle = document.createElement("ul");
+    const dropdownSortByTitle = document.createElement("li");
     dropdownSortByTitle.textContent = "Titre";
     sorterDropdownContent.appendChild(dropdownSortByTitle);
 
-    console.log(sorterDropdown);
+    console.log(photographerMainPage);
 
-    return (photographerMainPage);
+    //return (photographerMainPage);
 };
-
-getSorterDropdownDOM();
+sorterDropdownDOM();
 
 
 

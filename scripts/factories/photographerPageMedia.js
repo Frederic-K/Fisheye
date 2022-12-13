@@ -19,7 +19,6 @@ function getPhotographerMediaDOM(data) {
     mediaCardSample.classList.add("mediaCard__sample");
 
     function getMediaByFileTypeDOM() {
-        const lightboxModal = document.getElementsByClassName("lightbox__modal")[0];
         if (image) {
             const mediaCardImg = document.createElement("img");
             //const mediaCardImg = document.createElement("a");

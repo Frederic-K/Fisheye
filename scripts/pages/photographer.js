@@ -1,5 +1,5 @@
 
-
+// Récupération de l'id de l'url >> https://developer.mozilla.org/fr/docs/Web/API/URL/searchParams
 async function getPhotographerId() {
     let params = (new URL(document.location)).searchParams;
     let id = params.get("id");
