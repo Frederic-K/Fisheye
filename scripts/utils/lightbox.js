@@ -40,8 +40,9 @@ function openLightbox(data) {
         console.log("newCurrentIndex2", currentIndex);
     });
     
+        // TODO : remettre à zéro le compteur "currentIndex"
     
-    /*function moveLightboxSlide(direction) {
+    function moveLightboxSlide(direction) {
         console.log("direction", direction);
      
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
@@ -61,52 +62,13 @@ function openLightbox(data) {
         const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
         console.log("newLightboxSlideSource", newLightboxSlideSource);
 
-        //lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+        lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
 
         lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
         console.log("lightboxCurrentImg", lightboxCurrentImg);
 
         lightboxCurrentCaption.textContent = newlightboxSlideTitle; 
-    };*/
-
-    function moveLightboxSlide(direction) {
-        console.log("direction", direction);
-     
-        const mediaArrayOrigin = localStorage.getItem("mediaArray");
-        const mediaArray = JSON.parse(mediaArrayOrigin);
-        const newLightboxSlideIndex = mediaArray[currentIndex + direction];
-
-        console.log("mediaArray", mediaArray);    
-        console.log("newLightboxSlideIndex", newLightboxSlideIndex); 
-
-        if (image) {
-            const newlightboxSlidePicture = newLightboxSlideIndex.image;
-            console.log("newlightboxSlidePicture", newlightboxSlidePicture);
-            const newLightboxPictureSource = `../assets/sample/${newlightboxSlidePicture}`;
-            console.log("newLightboxSlideSource", newLightboxPictureSource); 
-            lightboxCurrentImg.setAttribute("src", newLightboxPictureSource);
-            console.log("lightboxCurrentImg", lightboxCurrentImg);
-        } else {
-            const newlightboxSlideVideo = newLightboxSlideIndex.video;
-            console.log("newlightboxSlideVideo", newlightboxSlideVideo); 
-            const newLightboxMediaSource = `../assets/sample/${newlightboxSlideVideo}`;
-            console.log("newLightboxMediaSource", newLightboxMediaSource);
-            lightboxCurrentVideo.setAttribute("src", newLightboxMediaSource);
-            console.log("lightboxCurrentVideo", lightboxCurrentVideo);
-        }
-
-        const newlightboxSlideTitle = newLightboxSlideIndex.title;
-        console.log("newlightboxSlideTitle", newlightboxSlideTitle);
-
-
-
-        //lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-
-
-
-        lightboxCurrentCaption.textContent = newlightboxSlideTitle;     
     };
-
 };
 
 lightboxEscBtn.addEventListener("click", () => {
@@ -114,19 +76,8 @@ lightboxEscBtn.addEventListener("click", () => {
 });
 
 function closeLightbox() {
-
     lightboxBg.classList.add("hidden");
     lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-
-    // add src="" a vide
-    // add titre a vide
-
-    // add class hidden
-
-
-    /*lightboxBg.setAttribute("aria-hidden", "true");
-    const lightboxCardImg = document.getElementsByClassName("mediaCard__sample--img")[0];
-    lightboxCardImg.classList.remove("lightbox__modal--img");
-    const lightboxCardCaption = document.getElementsByClassName("mediaCard__caption--title")[0];
-    lightboxCardCaption.classList.remove("lightbox__modal--caption");*/
+    currentIndex = "";
+    console.log("lastCurrentIndex", currentIndex);
 };
