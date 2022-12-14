@@ -11,15 +11,28 @@ const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--Next
 
 function openLightbox(data) {
 
+    currentIndex = "";
+
     console.log("data", data);
 
     lightboxBg.classList.remove("hidden");
     
     currentIndex = parseInt(data.dataset.index);
+    console.log("dataSet", data.dataset.index);
     console.log("currentIndex", currentIndex);
 
     const lightboxMediaSource = data.src;
     console.log("lightboxMediaSource", lightboxMediaSource);
+
+    const lightboxMediaClass = data.classList.value;
+    console.log("lightboxMediaClass", lightboxMediaClass);
+
+   if (lightboxMediaClass === "mediaCard__sample--img") {
+        console.log("lightboxMediaClass = img");
+    } else {
+        console.log("lightboxMediaClass = video");
+    }
+
 
     lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
 
@@ -78,6 +91,5 @@ lightboxEscBtn.addEventListener("click", () => {
 function closeLightbox() {
     lightboxBg.classList.add("hidden");
     lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-    currentIndex = "";
     console.log("lastCurrentIndex", currentIndex);
 };
