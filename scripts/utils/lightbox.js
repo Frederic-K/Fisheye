@@ -75,8 +75,8 @@ function displayLightbox(data) {
        //const medialightboxImg = newLightboxSlide.find("image");
        //console.log("medialightboxImg", medialightboxImg);
 
-        const newLightboxSlideKeys = Object.keys(newLightboxSlide);
-        console.log("keys", newLightboxSlideKeys);
+        //const newLightboxSlideKeys = Object.keys(newLightboxSlide);
+        //console.log("keys", newLightboxSlideKeys);
 
         //const keys = JSON.stringify(newLightboxSlideKeys);
         //console.log("keys", keys);
@@ -84,10 +84,11 @@ function displayLightbox(data) {
         //const keys = [1, 2];
         //const mediaFileType = keys.includes(1);
 
-        const {image, video} = newLightboxSlideKeys;
-        console.log("testImg", image);
+        
+        //const {image, video} = newLightboxSlideKeys;
+        //console.log("testImg", image);
 
-        if (image) { 
+        if (newLightboxSlide.image) { 
 
             console.log("img");
 
@@ -112,7 +113,7 @@ function displayLightbox(data) {
 
             lightboxCurrentImg.classList.remove("hidden");
 
-        } else if (video) {
+        } else if (newLightboxSlide.video) {
 
             console.log("vid");
 
