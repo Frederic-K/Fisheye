@@ -16,6 +16,8 @@
     flex-direction: row;
     align-items: center;
     background-color: red;
+    top: 50%;
+    transform: translateY(-50%);
     &--imgESC {
         position: absolute;
         cursor: pointer;
@@ -40,6 +42,9 @@
         flex-direction: column;
     }
     &--cardIMG {
+        width: 100%;
+    }
+    &--cardVideo {
         width: 100%;
     }
     &--caption {

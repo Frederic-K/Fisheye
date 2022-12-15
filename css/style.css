@@ -321,6 +321,8 @@ h2 {
   flex-direction: row;
   align-items: center;
   background-color: red;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .lightbox__modal--imgESC {
   position: absolute;
@@ -345,6 +347,9 @@ h2 {
   flex-direction: column;
 }
 .lightbox__modal--cardIMG {
+  width: 100%;
+}
+.lightbox__modal--cardVideo {
   width: 100%;
 }
 .lightbox__modal--caption {

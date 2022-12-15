@@ -28,13 +28,16 @@ function openLightbox(data) {
     console.log("lightboxMediaClass", lightboxMediaClass);
 
    if (lightboxMediaClass === "mediaCard__sample--img") {
-        console.log("lightboxMediaClass = img");
+        console.log("lightboxMediaClass = image");
+        lightboxCurrentVideo.setAttribute("class", "hidden");
+        lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
     } else {
         console.log("lightboxMediaClass = video");
+        lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
     }
 
 
-    lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
+    //lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
 
     // Alternative : récupérer le titre à partir du "alt=" de l'img
     const lightboxCurrentImgTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
@@ -60,15 +63,56 @@ function openLightbox(data) {
      
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
         const mediaArray = JSON.parse(mediaArrayOrigin);
-        const newLightboxSlideIndex = mediaArray[currentIndex + direction];
+        const newLightboxSlide = mediaArray[currentIndex + direction];
 
         console.log("mediaArray", mediaArray);    
-        console.log("newLightboxSlideIndex", newLightboxSlideIndex); 
+        console.log("newLightboxSlideIndex", newLightboxSlide); 
 
-        const newlightboxSlidePicture = newLightboxSlideIndex.image;
+        //let checkNewSlideFileType = newLightboxSlide.include(image);
+
+        /*if () { 
+
+            console.log("img");
+            
+            const newlightboxSlidePicture = newLightboxSlideIndex.image;
+            console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
+    
+            const newlightboxSlideTitle = newLightboxSlideIndex.title;
+    
+            console.log("newlightboxSlideTitle", newlightboxSlideTitle);
+    
+            const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
+            console.log("newLightboxSlideSource", newLightboxSlideSource);
+    
+            lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+    
+            lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
+            console.log("lightboxCurrentImg", lightboxCurrentImg);
+    
+            lightboxCurrentCaption.textContent = newlightboxSlideTitle;
+
+        } else {
+
+            console.log("vid");
+
+            const newlightboxSlideVideo = newLightboxSlideIndex.video;
+            console.log("newlightboxSlideVideo", newlightboxSlideVideo); 
+
+            const newlightboxSlideTitle = newLightboxSlideIndex.title;
+    
+            console.log("newlightboxSlideTitle", newlightboxSlideTitle);
+    
+            const newLightboxSlideSource = `../assets/sample/${newlightboxSlideVideo}`;
+            console.log("newLightboxSlideSource", newLightboxSlideSource);
+
+            lightboxCurrentVideo.setAttribute("src", newLightboxSlideSource);
+            console.log("lightboxCurrentVideo", lightboxCurrentVideo);
+        }*/
+        
+        const newlightboxSlidePicture = newLightboxSlide.image;
         console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
 
-        const newlightboxSlideTitle = newLightboxSlideIndex.title;
+        const newlightboxSlideTitle = newLightboxSlide.title;
 
         console.log("newlightboxSlideTitle", newlightboxSlideTitle);
 
@@ -80,7 +124,8 @@ function openLightbox(data) {
         lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
         console.log("lightboxCurrentImg", lightboxCurrentImg);
 
-        lightboxCurrentCaption.textContent = newlightboxSlideTitle; 
+        lightboxCurrentCaption.textContent = newlightboxSlideTitle;
+
     };
 };
 
@@ -91,5 +136,8 @@ lightboxEscBtn.addEventListener("click", () => {
 function closeLightbox() {
     lightboxBg.classList.add("hidden");
     lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+    lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
+    lightboxCurrentVideo.setAttribute("class", "hidden");
+    currentIndex = ""; 
     console.log("lastCurrentIndex", currentIndex);
 };
