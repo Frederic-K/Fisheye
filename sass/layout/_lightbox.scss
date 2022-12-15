@@ -9,13 +9,12 @@
 };
 .lightbox__modal {
     width: 75%;
-    //height: 50%;
     padding-top: 50px;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: red;
+    //background-color: red;
     top: 50%;
     transform: translateY(-50%);
     &--imgESC {
@@ -35,6 +34,10 @@
     &--PrevIconBtn {
         font-size: 50px;
         cursor: pointer;
+        :hover {
+            @include text-shadow;
+            color: $colour-font-secondary;
+        }
     }
     &--card {
         width: 90%;
@@ -43,6 +46,7 @@
     }
     &--cardIMG {
         width: 100%;
+        max-height: fit-content;
     }
     &--cardVideo {
         width: 100%;
@@ -60,6 +64,10 @@
     &--NextIconBtn {
         font-size: 50px;
         cursor: pointer;
+        :hover {
+            @include text-shadow;
+            color: $colour-font-secondary;
+        }
     }
 };
 

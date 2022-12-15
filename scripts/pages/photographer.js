@@ -39,6 +39,7 @@ displayPhotographerData();
 
 // Media
 
+
 async function getSelectedPhotographerMedia() {
     const {media} = await getPhotographersData();
     console.log("media2", media);
@@ -53,7 +54,7 @@ async function getSelectedPhotographerMedia() {
 };
 
 
-async function displayphotographerMediaData() {
+async function displayPhotographerMediaData() {
     const photographersMediaSection = document.querySelector(".photographer__media");
     const selectedPhotographerMedias = await getSelectedPhotographerMedia();
 
@@ -77,12 +78,12 @@ async function displayphotographerMediaData() {
     });*/
 };
 
-async function displayphotogapherMedia() {
+async function displayPhotogapherMedia() {
     const { media } = await getPhotographersData();
-    displayphotographerMediaData(media);
+    displayPhotographerMediaData(media);
 };
 
-displayphotogapherMedia();
+displayPhotogapherMedia();
 
 // 
 

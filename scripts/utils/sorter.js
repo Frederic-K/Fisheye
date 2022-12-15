@@ -1,5 +1,3 @@
-    
-function sorterDropdownDOM() {    
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
@@ -24,7 +22,7 @@ function sorterDropdownDOM() {
     sorterDropdownBtn.appendChild(sorterDropdownBtnIcon);
 
     const sorterDropdownIconChevron = document.createElement("i");
-    sorterDropdownIconChevron.classList.add("fa-solid", "fa-chevron-up");
+    sorterDropdownIconChevron.classList.add("fa-solid", "fa-chevron-down");
     sorterDropdownBtnIcon.appendChild(sorterDropdownIconChevron);
 
     const sorterDropdownContent = document.createElement("ul");
@@ -43,14 +41,15 @@ function sorterDropdownDOM() {
     dropdownSortByTitle.textContent = "Titre";
     sorterDropdownContent.appendChild(dropdownSortByTitle);
     
-};
-sorterDropdownDOM();
 
-const dropdownSelectedContent = document.getElementsByClassName("selected")[0];
-dropdownSelectedContent.addEventListener("click", () => dropdownMenu());
+
+sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
 function dropdownMenu() {
     const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
-    dropdownContent.classList.remove("hidden");
+    dropdownContent.classList.toggle("hidden");
+    //sorterDropdownBtnIcon.classList.toggle("arrow-animation-down");
+    sorterDropdownBtnIcon.classList.toggle("arrow-animation-up");
 };
+
 

@@ -17,7 +17,9 @@
         flex-direction: column;
         color: white;
         background-color: $colour-bg-primary;
+        border: 2px solid $colour-bg-primary;
         border-radius: $border-rad;
+        padding-bottom: 10px;
     }
     &__button {
         width: 100%;
@@ -32,7 +34,11 @@
     &__content li {
         height: 40px;
         list-style-type: none;
-        z-index: 3000;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 15px;
+        padding-top: 5px;
+        padding-left: 10px;
     }
     &__content li:hover {
         border: 2px solid white;
@@ -40,4 +46,12 @@
 };
 .dropdown li:hover {
     border: 2px solid white;
-}
+};
+.arrow-animation-up {
+    transform: rotate(180deg);
+    transition: transform 500ms;
+};
+.arrow-animation-down {
+    transform: rotate(180deg);
+    transition: transform 300ms;
+};
