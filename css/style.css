@@ -348,6 +348,7 @@ h2 {
 }
 .lightbox__modal--cardIMG {
   width: 100%;
+  max-height: fit-content;
 }
 .lightbox__modal--cardVideo {
   width: 100%;

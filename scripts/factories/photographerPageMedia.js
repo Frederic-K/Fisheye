@@ -4,7 +4,8 @@ function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
     const index = i
 
-    console.log
+    console.log("PhotographerDOMIndex", index);
+    console.log("PhotographerDOMData", data);
 
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
@@ -127,15 +128,6 @@ function getPhotographerMediaDOM(data, i) {
     mediaCardLikeBtnContainer.appendChild(mediaCardLikeBtn);
     mediaCardLikeBtn.appendChild(mediaCardLikeBtnEmptyHeart);
     mediaCardLikeBtn.appendChild(mediaCardLikeBtnFullHeart);
-
-    // Lightbox
-
-  /*mediaCardSample.addEventListener("click", function() {
-        lightboxThumbnail();
-    })*/
-    
-    /*const links = document.querySelectorAll('img[href$=".jpg"]');
-    console.log("links", links);*/
 
     return (mediaCard);
 };

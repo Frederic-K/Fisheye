@@ -13,7 +13,7 @@ function displayLightbox(data) {
 
     currentIndex = "";
 
-    console.log("data", data);
+    console.log("lightboxData", data);
 
     lightboxBg.classList.remove("hidden");
     
@@ -36,6 +36,7 @@ function displayLightbox(data) {
         console.log("lightboxMediaClass = video");
         lightboxCurrentImg.classList.add("hidden");
         lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
+        lightboxCurrentVideo.setAttribute("controls", "");
         lightboxCurrentVideo.classList.remove("hidden");
 
     }
@@ -67,17 +68,30 @@ function displayLightbox(data) {
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
         const mediaArray = JSON.parse(mediaArrayOrigin);
         const newLightboxSlide = mediaArray[currentIndex + direction];
-
-        const {image, video} = newLightboxSlide;
-
+        
         console.log("mediaArray", mediaArray);    
         console.log("newLightboxSlideIndex", newLightboxSlide); 
 
-        /*let checkNewSlideFileType = newLightboxSlide.includes(image);*/
+       //const medialightboxImg = newLightboxSlide.find("image");
+       //console.log("medialightboxImg", medialightboxImg);
+
+        const newLightboxSlideKeys = Object.keys(newLightboxSlide);
+        console.log("keys", newLightboxSlideKeys);
+
+        //const keys = JSON.stringify(newLightboxSlideKeys);
+        //console.log("keys", keys);
+
+        //const keys = [1, 2];
+        //const mediaFileType = keys.includes(1);
+
+        const {image, video} = newLightboxSlideKeys;
+        console.log("testImg", image);
 
         if (image) { 
 
             console.log("img");
+
+            lightboxCurrentVideo.classList.add("hidden");
             
             const newlightboxSlidePicture = newLightboxSlide.image;
             console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
@@ -89,52 +103,42 @@ function displayLightbox(data) {
             const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
             console.log("newLightboxSlideSource", newLightboxSlideSource);
     
-            lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+            //lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
     
             lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
             console.log("lightboxCurrentImg", lightboxCurrentImg);
     
             lightboxCurrentCaption.textContent = newlightboxSlideTitle;
 
+            lightboxCurrentImg.classList.remove("hidden");
+
         } else if (video) {
 
             console.log("vid");
 
+            lightboxCurrentImg.classList.add("hidden");
+
             const newlightboxSlideVideo = newLightboxSlide.video;
             console.log("newlightboxSlideVideo", newlightboxSlideVideo); 
 
-            const newlightboxSlideTitle = newLightboxSlide.title;
-    
+            const newlightboxSlideTitle = newLightboxSlide.title;    
             console.log("newlightboxSlideTitle", newlightboxSlideTitle);
     
             const newLightboxSlideSource = `../assets/sample/${newlightboxSlideVideo}`;
             console.log("newLightboxSlideSource", newLightboxSlideSource);
 
+            //lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
+
             lightboxCurrentVideo.setAttribute("src", newLightboxSlideSource);
             console.log("lightboxCurrentVideo", lightboxCurrentVideo);
+
+            lightboxCurrentVideo.setAttribute("controls", "");
 
             lightboxCurrentVideo.classList.remove("hidden");
 
         } else {
-            console.log("turlututu");
+            console.log("Error media file type");
         }
-        
-        /*const newlightboxSlidePicture = newLightboxSlide.image;
-        console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
-
-        const newlightboxSlideTitle = newLightboxSlide.title;
-
-        console.log("newlightboxSlideTitle", newlightboxSlideTitle);
-
-        const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
-        console.log("newLightboxSlideSource", newLightboxSlideSource);
-
-        lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-
-        lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
-        console.log("lightboxCurrentImg", lightboxCurrentImg);
-
-        lightboxCurrentCaption.textContent = newlightboxSlideTitle;*/
 
     };
 };
