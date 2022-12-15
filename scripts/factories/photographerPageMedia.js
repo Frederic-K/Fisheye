@@ -47,7 +47,7 @@ function getPhotographerMediaDOM(data, i) {
 
    mediaCardSample.addEventListener("click", function(e) {
         console.log("target", e.target);
-        openLightbox(e.target);
+        displayLightbox(e.target);
     } );
 
     // Caption
