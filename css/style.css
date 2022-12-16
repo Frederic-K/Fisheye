@@ -260,6 +260,7 @@ h2 {
 
 .dropdown {
   max-width: 1200px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -274,7 +275,7 @@ h2 {
 .dropdown__menu {
   width: 200px;
   position: absolute;
-  left: 200px;
+  left: 150px;
   flex-direction: column;
   color: white;
   background-color: #901C1C;
@@ -284,31 +285,36 @@ h2 {
 }
 .dropdown__button {
   width: 100%;
-  height: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  margin: 0px 10px 0px 15px;
+  margin: 10px 5px 0px 10px;
   cursor: pointer;
+}
+.dropdown__icon {
+  position: absolute;
+  top: 13px;
+  left: 300px;
+  color: white;
+}
+.dropdown__content {
+  margin-left: -40px;
 }
 .dropdown__content li {
   height: 40px;
   list-style-type: none;
   cursor: pointer;
   margin-top: 5px;
-  margin-right: 15px;
+  margin-right: 5px;
   padding-top: 5px;
   padding-left: 10px;
 }
 .dropdown__content li:hover {
-  border: 2px solid white;
+  border-bottom: 3px solid white;
 }
 
-.dropdown li:hover {
-  border: 2px solid white;
-}
-
+/*.dropdown li:hover {
+    border: 3px solid white;
+};*/
 .arrow-animation-up {
   transform: rotate(180deg);
   transition: transform 500ms;
