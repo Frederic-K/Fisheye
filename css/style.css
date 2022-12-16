@@ -365,6 +365,8 @@ h2 {
 .lightbox__modal--PrevIconBtn :hover {
   text-shadow: 0px 0px 10px rgb(144, 28, 28);
   color: #901c1c;
+  transition: transform 300ms;
+  transform: scale(1.5);
 }
 .lightbox__modal--card {
   width: 90%;
@@ -373,7 +375,6 @@ h2 {
 }
 .lightbox__modal--cardIMG {
   width: 100%;
-  max-height: fit-content;
 }
 .lightbox__modal--cardVideo {
   width: 100%;
@@ -394,6 +395,8 @@ h2 {
 .lightbox__modal--NextIconBtn :hover {
   text-shadow: 0px 0px 10px rgb(144, 28, 28);
   color: #901c1c;
+  transition: transform 300ms;
+  transform: scale(1.5);
 }
 
 .photographer__section {

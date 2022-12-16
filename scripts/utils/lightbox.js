@@ -11,7 +11,7 @@ const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--Next
 
 function displayLightbox(data) {
 
-    currentIndex = "";
+    //currentIndex = "";
 
     console.log("lightboxData", data);
 
@@ -41,8 +41,6 @@ function displayLightbox(data) {
 
     }
 
-    //lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
-
     // Alternative : récupérer le titre à partir du "alt=" de l'img
     const lightboxCurrentImgTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
 
@@ -70,8 +68,21 @@ function displayLightbox(data) {
         const newLightboxSlide = mediaArray[currentIndex + direction];
         
         console.log("mediaArray", mediaArray);    
-        console.log("newLightboxSlideIndex", newLightboxSlide); 
+        console.log("newLightboxSlide", newLightboxSlide); 
 
+        console.log("MediaArrayLengh", mediaArray.length);
+
+        if (currentIndex >= mediaArray.length - 2) {
+            lightboxNextMedia.classList.add("hidden");
+            
+        } else {
+            lightboxNextMedia.classList.remove("hidden");
+        } 
+        if (currentIndex === 0) {
+            lightboxPrevMedia.classList.add("hidden");
+        } else {
+            lightboxPrevMedia.classList.remove("hidden");
+        }
        //const medialightboxImg = newLightboxSlide.find("image");
        //console.log("medialightboxImg", medialightboxImg);
 
@@ -152,7 +163,7 @@ function closeLightbox() {
     lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
     lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
     lightboxCurrentVideo.classList.add("hidden");
-    currentIndex = ""; 
+    //currentIndex = ""; 
     console.log("lastCurrentIndex", currentIndex);
 };    
 });

@@ -31,6 +31,7 @@
 
     const dropdownSortByFamous = document.createElement("li");
     dropdownSortByFamous.textContent = "Popularité";
+    dropdownSortByFamous.classList.add("hidden");
     sorterDropdownContent.appendChild(dropdownSortByFamous);
 
     const dropdownSortByDate = document.createElement("li");

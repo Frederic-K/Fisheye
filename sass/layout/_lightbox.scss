@@ -37,6 +37,8 @@
         :hover {
             @include text-shadow;
             color: $colour-font-secondary;
+            transition: transform 300ms;
+            transform: scale(1.5);
         }
     }
     &--card {
@@ -46,7 +48,6 @@
     }
     &--cardIMG {
         width: 100%;
-        max-height: fit-content;
     }
     &--cardVideo {
         width: 100%;
@@ -64,9 +65,13 @@
     &--NextIconBtn {
         font-size: 50px;
         cursor: pointer;
+        
         :hover {
             @include text-shadow;
+            //font-size: 75px;
             color: $colour-font-secondary;
+            transition: transform 300ms;
+            transform: scale(1.5);
         }
     }
 };
