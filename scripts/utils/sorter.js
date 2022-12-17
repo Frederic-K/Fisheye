@@ -1,4 +1,4 @@
-
+    // Sorter DOM
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
     const sorterDropdowTitle = document.createElement("div");
@@ -44,6 +44,9 @@
     
     const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
 
+
+    // DropdowMenu
+
 sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
 function dropdownMenu() {
@@ -64,6 +67,8 @@ dropdownSortByDate.addEventListener("click", () => {
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByDate.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    //mediaArray.sort((a, b) => a.likes - b.likes);
+    //console.log("mediaArraySortByLikes", mediaArray);
 });
 
 dropdownSortByTitle.addEventListener("click", () => {
@@ -82,4 +87,19 @@ dropdownSortByFamous.addEventListener("click", () => {
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
 });
 
+// Sort Media
 
+let objMediaArray = localStorage.getItem("mediaArray");
+let photographerMediaArray = JSON.parse(objMediaArray);
+console.log("TITI", photographerMediaArray);
+
+/*photographerMediaArray.sort((a, b) => a.likes - b.likes);
+console.log("ByLikes", photographerMediaArray);*/
+
+/*photographerMediaArray.sort((a, b) => a.title - b.title);
+console.log("ByTitle", photographerMediaArray);*/
+
+/*photographerMediaArray.sort((a, b) => a.date - b.date);
+console.log("ByDate", photographerMediaArray);*/
+
+const likes = document.querySelectorAll("mediaCard__caption--likes")

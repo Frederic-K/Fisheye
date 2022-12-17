@@ -38,13 +38,14 @@ function displayLightbox(data) {
         lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
         lightboxCurrentVideo.setAttribute("controls", "");
         lightboxCurrentVideo.classList.remove("hidden");
-
     }
 
     // Alternative : récupérer le titre à partir du "alt=" de l'img
     const lightboxCurrentImgTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
 
     lightboxCurrentCaption.textContent = lightboxCurrentImgTitleSource.textContent;
+
+    ///////////////////////////////////////////////////////////
 
     lightboxPrevMedia.addEventListener("click", () => {
         moveLightboxSlide(-1);
@@ -154,6 +155,8 @@ function displayLightbox(data) {
 
     };
 };
+
+/////////////////////////////////////////////////////////////////
 
 lightboxEscBtn.addEventListener("click", () => {
     closeLightbox();

@@ -4,6 +4,7 @@ function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
     const index = i
 
+    //localStorage.setItem("dataArray", JSON.stringify(data));
     console.log("PhotographerDOMIndex", index);
     console.log("PhotographerDOMData", data);
 
@@ -16,6 +17,9 @@ function getPhotographerMediaDOM(data, i) {
     const mediaCard = document.createElement("article"); 
     mediaCard.classList.add("mediaCard");
     mediaCard.setAttribute("aria-label", mediaTitle);
+    mediaCard.setAttribute("date", Date.parse(date));
+    //mediaCard.setAttribute("likes", currentLikes);
+    mediaCard.setAttribute("title", title);
 
     // Picture - video
 
@@ -31,6 +35,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("src", picture);
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
+            mediaCardImg.setAttribute("date", Date.parse(date));
             mediaCardImg.setAttribute("data-index", index)
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
@@ -39,6 +44,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardVideo.setAttribute("src", movie);
             //mediaCardVideo.setAttribute("autoplay", "mute");
             mediaCardVideo.setAttribute("controls", "");
+            mediaCardVideo.setAttribute("date", Date.parse(date));
             mediaCardSample.appendChild(mediaCardVideo);
         } else {
             console.log("le type de fichier n'est pas reconnu")
@@ -131,4 +137,3 @@ function getPhotographerMediaDOM(data, i) {
 
     return (mediaCard);
 };
-

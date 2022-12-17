@@ -369,7 +369,8 @@ h2 {
   transform: scale(1.5);
 }
 .lightbox__modal--card {
-  width: 90%;
+  width: 70%;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
