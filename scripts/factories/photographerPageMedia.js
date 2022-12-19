@@ -56,11 +56,6 @@ function getPhotographerMediaDOM(data, i) {
     };
     getMediaByFileTypeDOM();
 
-   mediaCardSample.addEventListener("click", function(e) {
-        console.log("target", e.target);
-        displayLightbox(e.target);
-    } );
-
     // Caption
 
     const mediaCardCaption = document.createElement("div");
@@ -126,6 +121,13 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardLikeBtnFullHeart.classList.add("invisible");
         }
     });
+
+    // Lightbox launcher 
+
+    mediaCardSample.addEventListener("click", function(e) {
+        console.log("target", e.target);
+        displayLightbox(e.target);
+    } );
 
     // Indent
 

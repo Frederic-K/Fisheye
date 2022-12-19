@@ -93,9 +93,9 @@ dropdownSortByFamous.addEventListener("click", (e) => {
 
 // Sort Media
 
-let objMediaArray = localStorage.getItem("mediaArray");
+/*let objMediaArray = localStorage.getItem("mediaArray");
 let photographerMediaArray = JSON.parse(objMediaArray);
-console.log("TITI", photographerMediaArray);
+console.log("TITI", photographerMediaArray);*/
 
 /*photographerMediaArray.sort((a, b) => a.likes - b.likes);
 console.log("ByLikes", photographerMediaArray);*/
@@ -106,29 +106,30 @@ console.log("ByTitle", photographerMediaArray);*/
 /*photographerMediaArray.sort((a, b) => a.date - b.date);
 console.log("ByDate", photographerMediaArray);*/
 
-const photographerMedia = document.getElementsByClassName("photographer__media")[0];
-
 function valueCompare (a, b) {
     return a - b;
 };
 
 function sortMedias(data) {
-    const cards = document.querySelectorAll(".mediaCard");
+
+    const photographerMedia = document.getElementsByClassName("photographer__media")[0];
+    const mediaCardsNodeList = document.querySelectorAll(".mediaCard");
+    console.log("mediaCardsNodeList", mediaCardsNodeList);
 
     // si date n'est pas parsed par Date.parse(2011-08-11) alors :
     /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
     console.log("mediaDatesArray", mediaDatesArray);*/
 
-    const mediaDatesArray = Array.from(cards).map(d => d.getAttribute("date"));
+    const mediaDatesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("date"));
     console.log("mediaDatesArray", mediaDatesArray);
 
-    const mediaTitlesArray = Array.from(cards).map(d => d.getAttribute("title"));
+    const mediaTitlesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("title"));
     console.log("mediaTitlesArray", mediaTitlesArray);
 
-    /*const mediaLikesArray = Array.from(cards).map(d => parseInt(d.getAttribute("likes"), 10));
+    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(d => parseInt(d.getAttribute("likes"), 10));
     console.log("mediaLikesArray", mediaLikesArray);*/
 
-    const mediaLikesArray = Array.from(cards).map(d => d.getAttribute("likes"));
+    const mediaLikesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("likes"));
     console.log("mediaLikesArray", mediaLikesArray);
 
     selectedSorter = data.textContent;
@@ -139,16 +140,17 @@ function sortMedias(data) {
         console.log("mediaDatesArraySorted", mediaDatesArraySorted);
         
         /*for (let i of mediaDatesArraySorted) {
-            cards.forEach(d => {
-                if (parseInt(d.getAttribute("date")) === i) {
-                    photographerMedia.appendChild(j);
+            mediaCardsNodeList.forEach(card => {
+                if (parseInt(card.getAttribute("date")) === i) {
+                    photographerMedia.appendChild(card);
                 }
             })
         }*/
         for (let i of mediaDatesArraySorted) {
-            cards.forEach(d => {
-                if (d.getAttribute("date") === i) {
-                    photographerMedia.appendChild(d);
+            mediaCardsNodeList.forEach(card => {
+                if (card.getAttribute("date") === i) {
+                    photographerMedia.appendChild(card);
+                    console.log("iFromData", i);
                 }
             })
         }
@@ -157,9 +159,9 @@ function sortMedias(data) {
         console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
 
         for (let i of mediaTitlesArraySorted) {
-            cards.forEach(d => {
-                if (d.getAttribute("title") === i)
-                photographerMedia.appendChild(d);
+            mediaCardsNodeList.forEach(card => {
+                if (card.getAttribute("title") === i)
+                photographerMedia.appendChild(card);
             })
         }
     } else if (selectedSorter === "Popularité") {
@@ -167,9 +169,9 @@ function sortMedias(data) {
         console.log("mediaLikesArraySorted", mediaLikesArraySorted);
 
         for (let i of mediaLikesArraySorted) {
-            cards.forEach(d => {
-                if (d.getAttribute("likes") === i) {
-                    photographerMedia.appendChild(d);
+            mediaCardsNodeList.forEach(card => {
+                if (card.getAttribute("likes") === i) {
+                    photographerMedia.appendChild(card);
                 }
             })
         }
