@@ -61,7 +61,7 @@ function dropdownMenu() {
     sorterDropdownBtn.textContent = "Popularité";
 });*/
 
-dropdownSortByDate.addEventListener("click", () => {
+dropdownSortByDate.addEventListener("click", (e) => {
     dropdownMenu();
     dropdownSortByTitle.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.remove("selected", "hidden");
@@ -69,22 +69,26 @@ dropdownSortByDate.addEventListener("click", () => {
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     //mediaArray.sort((a, b) => a.likes - b.likes);
     //console.log("mediaArraySortByLikes", mediaArray);
+    sortMedias(e.target);
+    console.log("e.target.date", e.target);
 });
 
-dropdownSortByTitle.addEventListener("click", () => {
+dropdownSortByTitle.addEventListener("click", (e) => {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByTitle.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sortMedias(e.target);
 });
 
-dropdownSortByFamous.addEventListener("click", () => {
+dropdownSortByFamous.addEventListener("click", (e) => {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
     dropdownSortByTitle.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sortMedias(e.target);
 });
 
 // Sort Media
@@ -102,4 +106,73 @@ console.log("ByTitle", photographerMediaArray);*/
 /*photographerMediaArray.sort((a, b) => a.date - b.date);
 console.log("ByDate", photographerMediaArray);*/
 
-const likes = document.querySelectorAll("mediaCard__caption--likes")
+const photographerMedia = document.getElementsByClassName("photographer__media")[0];
+
+function valueCompare (a, b) {
+    return a - b;
+};
+
+function sortMedias(data) {
+    const cards = document.querySelectorAll(".mediaCard");
+
+    // si date n'est pas parsed par Date.parse(2011-08-11) alors :
+    /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
+    console.log("mediaDatesArray", mediaDatesArray);*/
+
+    const mediaDatesArray = Array.from(cards).map(d => d.getAttribute("date"));
+    console.log("mediaDatesArray", mediaDatesArray);
+
+    const mediaTitlesArray = Array.from(cards).map(d => d.textContent);
+    console.log("mediaTitlesArray", mediaTitlesArray);
+
+    /*const mediaLikesArray = Array.from(cards).map(d => parseInt(d.getAttribute("likes"), 10));
+    console.log("mediaLikesArray", mediaLikesArray);*/
+
+    const mediaLikesArray = Array.from(cards).map(d => d.getAttribute("likes"));
+    console.log("mediaLikesArray", mediaLikesArray);
+
+    selectedSorter = data.textContent;
+    console.log("selectedSorter", selectedSorter);
+
+    if (selectedSorter === "Date") {
+        mediaDatesArraySorted = mediaDatesArray.sort(valueCompare);
+        console.log("mediaDatesArraySorted", mediaDatesArraySorted);
+        
+        /*for (let i of mediaDatesArraySorted) {
+            cards.forEach(d => {
+                if (parseInt(d.getAttribute("date")) === i) {
+                    photographerMedia.appendChild(j);
+                }
+            })
+        }*/
+        for (let i of mediaDatesArraySorted) {
+            cards.forEach(d => {
+                if (d.getAttribute("date") === i) {
+                    photographerMedia.appendChild(d);
+                }
+            })
+        }
+    } else if (selectedSorter === "Titre") {
+        mediaTitlesArraySorted = mediaTitlesArray.sort();
+        console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
+
+        for (let i of mediaTitlesArraySorted) {
+            cards.forEach(j => {
+                if (j.textContent === i)
+                photographerMedia.appendChild(j);
+            })
+        }
+    } else if (selectedSorter === "Popularité") {
+        mediaLikesArraySorted = mediaLikesArray.sort(valueCompare);
+        console.log("mediaLikesArraySorted", mediaLikesArraySorted);
+
+        for (let i of mediaLikesArraySorted) {
+            cards.forEach(j => {
+                if (j.getAttribute("likes") === i) {
+                    photographerMedia.appendChild(j);
+                }
+            })
+        }
+    }
+
+};

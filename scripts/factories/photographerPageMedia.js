@@ -18,7 +18,7 @@ function getPhotographerMediaDOM(data, i) {
     mediaCard.classList.add("mediaCard");
     mediaCard.setAttribute("aria-label", mediaTitle);
     mediaCard.setAttribute("date", Date.parse(date));
-    //mediaCard.setAttribute("likes", currentLikes);
+    mediaCard.setAttribute("likes", likes);
     mediaCard.setAttribute("title", title);
 
     // Picture - video
@@ -36,6 +36,8 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
             mediaCardImg.setAttribute("date", Date.parse(date));
+            mediaCardImg.setAttribute("likes", likes);
+            mediaCardImg.setAttribute("title", title);
             mediaCardImg.setAttribute("data-index", index)
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
@@ -45,6 +47,8 @@ function getPhotographerMediaDOM(data, i) {
             //mediaCardVideo.setAttribute("autoplay", "mute");
             mediaCardVideo.setAttribute("controls", "");
             mediaCardVideo.setAttribute("date", Date.parse(date));
+            mediaCardVideo.setAttribute("likes", likes);
+            mediaCardVideo.setAttribute("title", title);
             mediaCardSample.appendChild(mediaCardVideo);
         } else {
             console.log("le type de fichier n'est pas reconnu")
