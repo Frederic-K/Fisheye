@@ -122,7 +122,7 @@ function sortMedias(data) {
     const mediaDatesArray = Array.from(cards).map(d => d.getAttribute("date"));
     console.log("mediaDatesArray", mediaDatesArray);
 
-    const mediaTitlesArray = Array.from(cards).map(d => d.textContent);
+    const mediaTitlesArray = Array.from(cards).map(d => d.getAttribute("title"));
     console.log("mediaTitlesArray", mediaTitlesArray);
 
     /*const mediaLikesArray = Array.from(cards).map(d => parseInt(d.getAttribute("likes"), 10));
@@ -157,9 +157,9 @@ function sortMedias(data) {
         console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
 
         for (let i of mediaTitlesArraySorted) {
-            cards.forEach(j => {
-                if (j.textContent === i)
-                photographerMedia.appendChild(j);
+            cards.forEach(d => {
+                if (d.getAttribute("title") === i)
+                photographerMedia.appendChild(d);
             })
         }
     } else if (selectedSorter === "Popularité") {
@@ -167,9 +167,9 @@ function sortMedias(data) {
         console.log("mediaLikesArraySorted", mediaLikesArraySorted);
 
         for (let i of mediaLikesArraySorted) {
-            cards.forEach(j => {
-                if (j.getAttribute("likes") === i) {
-                    photographerMedia.appendChild(j);
+            cards.forEach(d => {
+                if (d.getAttribute("likes") === i) {
+                    photographerMedia.appendChild(d);
                 }
             })
         }
