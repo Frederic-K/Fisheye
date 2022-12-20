@@ -6,7 +6,7 @@ async function getPhotographersData() {
             return response.json()
         }
         else {
-            console.log("Une erreur réseau est survenue")
+            console.log("Une erreur est survenue")
         }
     })
     .then(function(photographersData) {

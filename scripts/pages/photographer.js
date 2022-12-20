@@ -41,6 +41,9 @@ displayPhotographerData();
 
 // Media ///////////////////////
 
+function valueCompare (a, b) {
+    return b - a;
+};
 
 async function getSelectedPhotographerMedia() {
     const {media} = await getPhotographersData();
@@ -50,9 +53,13 @@ async function getSelectedPhotographerMedia() {
     //console.log("photographerID2", photographerId);
 
     const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
-    //console.log("choosenPhotographerMedia", selectedPhotographerMedias);
+    console.log("selectedPhotographerMedias", selectedPhotographerMedias);
+    
+    const selectedPhotographerMediaLikesArray = selectedPhotographerMedias.sort((a, b) => b.likes - a.likes);
 
-    return (selectedPhotographerMedias);
+    console.log("selectedPhotographerMediaLikesArray", selectedPhotographerMediaLikesArray);
+    
+    return (selectedPhotographerMediaLikesArray);
 };
 
 
@@ -65,9 +72,9 @@ async function displayPhotographerMediaData() {
 
     for (let i = 0; i < selectedPhotographerMedias.length; i++) {
         const photographerMediaDOM = getPhotographerMediaDOM(selectedPhotographerMedias[i],i);
-        //console.log("i", i);
-        
+        //console.log("i", i);        
         photographersMediaSection.appendChild(photographerMediaDOM);
+
         //console.log("sample", sample);
       }
 

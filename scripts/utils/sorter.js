@@ -1,7 +1,7 @@
     
     
     // Sorter DOM ///////////////////////
-    
+
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
     const sorterDropdowTitle = document.createElement("div");
@@ -110,7 +110,7 @@ console.log("ByTitle", photographerMediaArray);*/
 console.log("ByDate", photographerMediaArray);*/
 
 function valueCompare (a, b) {
-    return a - b;
+    return b - a;
 };
 
 function sortMedias(data) {

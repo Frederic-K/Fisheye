@@ -6,7 +6,6 @@ function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
     const index = i
 
-    //localStorage.setItem("dataArray", JSON.stringify(data));
     //console.log("PhotographerDOMIndex", index);
     //console.log("PhotographerDOMData", data);
 
