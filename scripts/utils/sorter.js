@@ -1,4 +1,7 @@
-    // Sorter DOM
+    
+    
+    // Sorter DOM ///////////////////////
+    
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
     const sorterDropdowTitle = document.createElement("div");
@@ -45,7 +48,7 @@
     const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
 
 
-    // DropdowMenu
+    // DropdowMenu ///////////////////////
 
 sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
@@ -91,7 +94,7 @@ dropdownSortByFamous.addEventListener("click", (e) => {
     sortMedias(e.target);
 });
 
-// Sort Media
+// Sort Media ///////////////////////
 
 /*let objMediaArray = localStorage.getItem("mediaArray");
 let photographerMediaArray = JSON.parse(objMediaArray);
@@ -120,16 +123,23 @@ function sortMedias(data) {
     /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
     console.log("mediaDatesArray", mediaDatesArray);*/
 
-    const mediaDatesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("date"));
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+    const mediaDatesArrayTest = Array.from(mediaCardsNodeList);
+    console.log("mediaDatesArrayTest", mediaDatesArrayTest);
+
+    const mediaDatesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("date"));
     console.log("mediaDatesArray", mediaDatesArray);
 
-    const mediaTitlesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("title"));
+    const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("title"));
     console.log("mediaTitlesArray", mediaTitlesArray);
 
-    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(d => parseInt(d.getAttribute("likes"), 10));
+    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10));
     console.log("mediaLikesArray", mediaLikesArray);*/
 
-    const mediaLikesArray = Array.from(mediaCardsNodeList).map(d => d.getAttribute("likes"));
+    const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("likes"));
     console.log("mediaLikesArray", mediaLikesArray);
 
     selectedSorter = data.textContent;

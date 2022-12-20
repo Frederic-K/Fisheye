@@ -1,18 +1,20 @@
-// Media
+
+
+// Media ///////////////////////
 
 function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
     const index = i
 
     //localStorage.setItem("dataArray", JSON.stringify(data));
-    console.log("PhotographerDOMIndex", index);
-    console.log("PhotographerDOMData", data);
+    //console.log("PhotographerDOMIndex", index);
+    //console.log("PhotographerDOMData", data);
 
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
 
-    // Photographer media card
+    // Photographer media card ///////////////////////
 
     const mediaCard = document.createElement("article"); 
     mediaCard.classList.add("mediaCard");
@@ -21,7 +23,7 @@ function getPhotographerMediaDOM(data, i) {
     mediaCard.setAttribute("likes", likes);
     mediaCard.setAttribute("title", title);
 
-    // Picture - video
+    // Picture - video ///////////////////////
 
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
@@ -56,31 +58,31 @@ function getPhotographerMediaDOM(data, i) {
     };
     getMediaByFileTypeDOM();
 
-    // Caption
+    // Caption ///////////////////////
 
     const mediaCardCaption = document.createElement("div");
     mediaCardCaption.classList.add("mediaCard__caption");
 
-    // Caption title
+    // Caption title ///////////////////////
 
     const mediaCardTitle = document.createElement("h3");
     mediaCardTitle.classList.add("mediaCard__caption--title");
     mediaCardTitle.setAttribute("aria-label", mediaTitle);
     mediaCardTitle.textContent = title;
 
-    // Caption like container
+    // Caption like container ///////////////////////
 
     const mediaCardLikesContainer = document.createElement("div");
     mediaCardLikesContainer.classList.add("mediaCard__caption--likeContainer");
 
-    // Caption like
+    // Caption like ///////////////////////
 
     const mediaCardLikes = document.createElement("p");
     mediaCardLikes.classList.add("mediaCard__caption--likes");
     mediaCardLikes.setAttribute("aria-label", `Likes`);
     mediaCardLikes.textContent = likes;
 
-    // Caption like heart button
+    // Caption like heart button ///////////////////////
 
     const mediaCardLikeBtnContainer = document.createElement("div");
     mediaCardLikeBtnContainer.classList.add("mediaCard__caption--likeBtnContainer");
@@ -98,14 +100,14 @@ function getPhotographerMediaDOM(data, i) {
     const mediaCardLikeBtnFullHeart = document.createElement("i");
     mediaCardLikeBtnFullHeart.classList.add("fa-sharp", "fa-solid", "fa-heart", "full-heart", "invisible");
  
-    // Get likes from medias
+    // Get likes from medias ///////////////////////
 
     const photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
     const photographerTotalNumbLikes = parseInt(photographerLikes.textContent);
     let photographerSumLikes = photographerTotalNumbLikes + likes;
     photographerLikes.textContent = photographerSumLikes;
 
-    // Media likes
+    // Media likes ///////////////////////
 
     mediaCardLikeBtn.addEventListener("click", function(e) {
         const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
@@ -122,14 +124,14 @@ function getPhotographerMediaDOM(data, i) {
         }
     });
 
-    // Lightbox launcher 
+    // Lightbox launcher ///////////////////////
 
     mediaCardSample.addEventListener("click", function(e) {
         console.log("target", e.target);
         displayLightbox(e.target);
     } );
 
-    // Indent
+    // Indent ///////////////////////
 
     mediaCard.appendChild(mediaCardSample);
     mediaCard.appendChild(mediaCardCaption);

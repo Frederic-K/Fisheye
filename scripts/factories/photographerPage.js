@@ -4,8 +4,8 @@
 function getPhotographerPageDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
-    console.log("photographerPageData", data);
-    console.log("name", name);
+    //console.log("photographerPageData", data);
+    //console.log("name", name);
 
     const picture = `../assets/photographers/${portrait}`;
 
@@ -17,43 +17,44 @@ function getPhotographerPageDOM(data) {
     const pricePerDay = `${price} €/jour`;
     const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
 
-    // Photographer page main
+    // Photographer page main ///////////////////////
 
     const photographerageMain = document.getElementById("main"); 
 
-    // Photographer page
+    // Photographer page ///////////////////////
 
     const photographerPage = document.createElement("section");
     photographerPage.classList.add("photgrapherPage");
 
-    // Photographer header
+    // Photographer header ///////////////////////
     const photographerPageHeader = document.createElement("section");
     photographerPageHeader.classList.add("header__photographerPage");
 
-    // Photographer header info
+    // Photographer header info ///////////////////////
     const photographerInformations = document.createElement("article");
     photographerInformations.classList.add("header__photographerPage--info");
 
-    // Photographer name
+    // Photographer name ///////////////////////
     const photographerName = document.createElement("h1");
     photographerName.classList.add("header__photographerPage--name");
     photographerName.textContent = name;
 
-    // Photographer location
+    // Photographer location ///////////////////////
     const photographerLocation = document.createElement("p");
     photographerLocation.classList.add("header__photographerPage--location");
     photographerLocation.setAttribute("aria-label", photographerHome);
     photographerLocation.textContent = location;
 
-    // Photographer tagline
+    // Photographer tagline ///////////////////////
     const photographerTagline = document.createElement("p");
     photographerTagline.classList.add("header__photographerPage--tagline"); 
     photographerTagline.setAttribute("aria-label", photographerMessage);
     photographerTagline.textContent = tagline;
 
-    // Photographer contact
+    // Photographer contact ///////////////////////
     const photographerContactBtn = document.createElement("button");
     photographerContactBtn.classList.add("header__photographerPage--contactBtn");
+    photographerContactBtn.setAttribute("id", "contactBtn");
     photographerContactBtn.setAttribute("type", "button");
     photographerContactBtn.setAttribute("role", "button");
     photographerContactBtn.setAttribute("aria-label", photographerContactMsg);
@@ -62,18 +63,18 @@ function getPhotographerPageDOM(data) {
     photographerContactBtn.textContent = `Contactez-moi`;
     photographerContactBtn.setAttribute("onclick", "displayModal()");
 
-    // Photographer Img header
+    // Photographer Img header ///////////////////////
     const photographerImgHeader = document.createElement("div");
     photographerImgHeader.classList.add("header__photographerPage--img");
 
-    // Photographe portrait
+    // Photographe portrait ///////////////////////
     const photographerPortrait = document.createElement("img");
     photographerPortrait.classList.add("header__photographerPage--imgProfile")
     photographerPortrait.setAttribute("src", picture);
     photographerPortrait.setAttribute("alt", photographerProfilePicture);
     photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
 
-    // Insert : total likes nd price/day
+    // Insert : total likes nd price/day ///////////////////////
 
     // Insert container
 
@@ -105,7 +106,7 @@ function getPhotographerPageDOM(data) {
     photographerPrice.setAttribute("arial-label", photographerPricePerDay);
     photographerPrice.textContent = pricePerDay;
 
-    // indent
+    // indent ///////////////////////
 
     photographerPage.appendChild(photographerPageHeader);
     photographerPageHeader.appendChild(photographerInformations);
@@ -122,5 +123,9 @@ function getPhotographerPageDOM(data) {
     photographerLikesContainer.appendChild(photographerFullHeart);
     photographerInsert.appendChild(photographerPrice);
 
+    //document.getElementById("contactBtn").focus();
+
     return (photographerPage);
 }; 
+
+
