@@ -47,6 +47,8 @@ function displayLightbox(data) {
 
     ///////////////////////////////////////////////////////////
 
+    // Move slide event
+
     lightboxPrevMedia.addEventListener("click", () => {
         moveLightboxSlide(-1);
         currentIndex = currentIndex - 1;
@@ -58,8 +60,36 @@ function displayLightbox(data) {
         currentIndex = currentIndex + 1;
         console.log("newCurrentIndex2", currentIndex);
     });
+
+    // Keybord https://www.toptal.com/developers/keycode/table-of-all-keycodes
+
+    function keybordNav(e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Escape") {
+            e.stopPropagation();
+            e.preventDefault();
+
+            if (e.key === "ArrowRight") {
+                moveLightboxSlide(1);
+                currentIndex = currentIndex + 1;
+                console.log("newCurrentIndex2", currentIndex);
+            }
+            else if (e.key === "ArrowLeft") {
+                moveLightboxSlide(-1);
+                currentIndex = currentIndex - 1;
+                console.log("newCurrentIndex1", currentIndex);
+            }
+            else if (e.key === "Escape") {
+                closeLightbox();
+            }
+        } else {
+            return (console.log("Unknow keybord key"));
+        };
+    };
+    document.addEventListener("keydown", keybordNav);
     
-        // TODO : remettre à zéro le compteur "currentIndex"
+    // TODO : remettre à zéro le compteur "currentIndex"
+
+    // Move slide function   
     
     function moveLightboxSlide(direction) {
         console.log("direction", direction);
@@ -72,33 +102,6 @@ function displayLightbox(data) {
         console.log("newLightboxSlide", newLightboxSlide); 
 
         console.log("MediaArrayLengh", mediaArray.length);
-
-        if (currentIndex >= mediaArray.length - 2) {
-            lightboxNextMedia.classList.add("hidden");
-            
-        } else {
-            lightboxNextMedia.classList.remove("hidden");
-        } 
-        if (currentIndex === 0) {
-            lightboxPrevMedia.classList.add("hidden");
-        } else {
-            lightboxPrevMedia.classList.remove("hidden");
-        }
-       //const medialightboxImg = newLightboxSlide.find("image");
-       //console.log("medialightboxImg", medialightboxImg);
-
-        //const newLightboxSlideKeys = Object.keys(newLightboxSlide);
-        //console.log("keys", newLightboxSlideKeys);
-
-        //const keys = JSON.stringify(newLightboxSlideKeys);
-        //console.log("keys", keys);
-
-        //const keys = [1, 2];
-        //const mediaFileType = keys.includes(1);
-
-        
-        //const {image, video} = newLightboxSlideKeys;
-        //console.log("testImg", image);
 
         if (newLightboxSlide.image) { 
 
@@ -153,21 +156,40 @@ function displayLightbox(data) {
             console.log("Error media file type");
         }
 
+        if (currentIndex >= mediaArray.length - 2) {
+            lightboxNextMedia.classList.add("hidden");
+            
+        } else {
+            lightboxNextMedia.classList.remove("hidden");
+        } 
+        if (currentIndex === 0) {
+            lightboxPrevMedia.classList.add("hidden");
+        } else {
+            lightboxPrevMedia.classList.remove("hidden");
+        }
     };
+
+    lightboxEscBtn.addEventListener("click", () => {
+        closeLightbox();  
+    });
+
+    // Close  lightbox
+
+    function closeLightbox() {
+        lightboxBg.classList.add("hidden");
+        lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
+        lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
+        lightboxCurrentVideo.classList.add("hidden");
+        //currentIndex = ""; 
+        console.log("lastCurrentIndex", currentIndex);
+    };  
 };
 
 /////////////////////////////////////////////////////////////////
 
-lightboxEscBtn.addEventListener("click", () => {
-    closeLightbox();
 
-function closeLightbox() {
-    lightboxBg.classList.add("hidden");
-    lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-    lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
-    lightboxCurrentVideo.classList.add("hidden");
-    //currentIndex = ""; 
-    console.log("lastCurrentIndex", currentIndex);
-};    
-});
+
+/////////////////////////////////////////////////////////////////
+
+
 
