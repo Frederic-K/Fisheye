@@ -61,7 +61,9 @@ function displayLightbox(data) {
         console.log("newCurrentIndex2", currentIndex);
     });
 
-    // Keybord https://www.toptal.com/developers/keycode/table-of-all-keycodes
+    // Keybord (https://www.toptal.com/developers/keycode/table-of-all-keycodes)
+
+    document.addEventListener("keydown", keybordNav);
 
     function keybordNav(e) {
         if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Escape") {
@@ -85,7 +87,6 @@ function displayLightbox(data) {
             return (console.log("Unknow keybord key"));
         };
     };
-    document.addEventListener("keydown", keybordNav);
     
     // TODO : remettre à zéro le compteur "currentIndex"
 

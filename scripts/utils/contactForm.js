@@ -41,7 +41,7 @@ function displayModal() {
     modalFormInputPrenom.setAttribute("id", "firstname");
     modalFormInputPrenom.setAttribute("type", "text");
     modalFormInputPrenom.setAttribute("aria-label", "Votre prénom");
-    //modalFormInputPrenom.setAttribute("tabindex", "0");
+    modalFormInputPrenom.setAttribute("tabindex", "0");
     modalFormContainer.appendChild(modalFormInputPrenom);
 
     const modalFormLabelNom = document.createElement("label");
@@ -55,7 +55,7 @@ function displayModal() {
     modalFormInputNom.setAttribute("id", "name");
     modalFormInputNom.setAttribute("type", "text");
     modalFormInputNom.setAttribute("aria-label", "Votre nom");
-    //modalFormInputNom.setAttribute("tabindex", "1");
+    modalFormInputNom.setAttribute("tabindex", "1");
     modalFormContainer.appendChild(modalFormInputNom);
 
     const modalFormLabelEmail = document.createElement("label");
@@ -69,7 +69,7 @@ function displayModal() {
     modalFormInputEmail.setAttribute("type", "email");
     modalFormInputEmail.setAttribute("id", "email");
     modalFormInputEmail.setAttribute("aria-label", "Votre email");
-    //modalFormInputEmail.setAttribute("tabindex", "2");
+    modalFormInputEmail.setAttribute("tabindex", "2");
     modalFormContainer.appendChild(modalFormInputEmail);
 
     const modalFormLabelMsg = document.createElement("label");
@@ -83,7 +83,7 @@ function displayModal() {
     modalFormInputMsg.classList.add("modal__form--inputMsg");
     modalFormInputMsg.setAttribute("id", "message");
     modalFormInputMsg.setAttribute("aria-label", "Votre message");
-    //modalFormInputMsg.setAttribute("tabindex", "3");
+    modalFormInputMsg.setAttribute("tabindex", "3");
     modalFormContainer.appendChild(modalFormInputMsg);
 
     const modalForm = document.getElementsByClassName("modal__form")[0];
@@ -92,7 +92,7 @@ function displayModal() {
     modalFormSendBtn.setAttribute("type", "submit");
     modalFormSendBtn.setAttribute("role", "button");
     modalFormSendBtn.setAttribute("aria-label", "Envoyer le formulaire de contact");
-    //modalFormSendBtn.setAttribute("tabindex", "4");
+    modalFormSendBtn.setAttribute("tabindex", "4");
     modalFormSendBtn.textContent = `Envoyer`;
     modalForm.appendChild(modalFormSendBtn);
 
@@ -104,6 +104,17 @@ function displayModal() {
         console.log(modalFormInputMsg.value);
         closeModal();
     });
+
+    document.addEventListener("keydown", keybordESC)
+
+    function keybordESC(e) {
+        if (e.key === "Escape") {
+            e.preventDefault();
+            closeModal();
+        }
+    };
+
+    document.getElementById("firstname").focus();
 };
 
 function closeModal() {
