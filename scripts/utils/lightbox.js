@@ -73,12 +73,12 @@ function displayLightbox(data) {
 
             if (e.key === "ArrowRight") {
                 moveLightboxSlide(1);
-                currentIndex = currentIndex + 1;
+                //currentIndex = currentIndex + 1;
                 console.log("newCurrentIndex2", currentIndex);
             }
             else if (e.key === "ArrowLeft") {
                 moveLightboxSlide(-1);
-                currentIndex = currentIndex - 1;
+                //currentIndex = currentIndex - 1;
                 console.log("newCurrentIndex1", currentIndex);
             }
             else if (e.key === "Escape") {
@@ -108,10 +108,9 @@ function displayLightbox(data) {
         const mediaArray = JSON.parse(mediaArrayOrigin);
         const newLightboxSlide = mediaArray[newIndex];
                 
-        console.log("mediaArray", mediaArray);    
-        console.log("newLightboxSlide", newLightboxSlide); 
-
-        console.log("MediaArrayLengh", mediaArray.length);
+        //console.log("mediaArray", mediaArray);    
+        //console.log("newLightboxSlide", newLightboxSlide); 
+        //console.log("MediaArrayLengh", mediaArray.length);
 
         if (newLightboxSlide.image) { 
 

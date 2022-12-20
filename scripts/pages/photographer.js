@@ -55,11 +55,11 @@ async function getSelectedPhotographerMedia() {
     const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
     console.log("selectedPhotographerMedias", selectedPhotographerMedias);
     
-    const selectedPhotographerMediaLikesArray = selectedPhotographerMedias.sort((a, b) => b.likes - a.likes);
+    const defaultSortedMedia = selectedPhotographerMedias.sort((a, b) => b.likes - a.likes);
 
-    console.log("selectedPhotographerMediaLikesArray", selectedPhotographerMediaLikesArray);
+    console.log("selectedPhotographerMediaLikesArray", defaultSortedMedia);
     
-    return (selectedPhotographerMediaLikesArray);
+    return (defaultSortedMedia);
 };
 
 
