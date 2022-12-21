@@ -33,15 +33,21 @@ function displayLightbox(data) {
     const lightboxMediaClass = data.classList.value;
     //console.log("lightboxMediaClass", lightboxMediaClass);
 
+    const lightboxSlideTitle = data.title;
+
    if (lightboxMediaClass === "mediaCard__sample--img") {
         //console.log("lightboxMediaClass = image");
         lightboxCurrentVideo.classList.add("hidden");
         lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
+        lightboxCurrentImg.setAttribute("alt", lightboxSlideTitle); 
+        lightboxCurrentImg.setAttribute("aria-label", lightboxSlideTitle);
         lightboxCurrentImg.classList.remove("hidden");
     } else {
         //console.log("lightboxMediaClass = video");
         lightboxCurrentImg.classList.add("hidden");
         lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
+        lightboxCurrentVideo.setAttribute("alt", lightboxSlideTitle); 
+        lightboxCurrentVideo.setAttribute("aria-label", lightboxSlideTitle);  
         lightboxCurrentVideo.setAttribute("controls", "");
         lightboxCurrentVideo.classList.remove("hidden");
     }
@@ -87,8 +93,6 @@ function displayLightbox(data) {
         };
     };
     
-    // TODO : remettre à zéro le compteur "currentIndex"
-
     // Move slide function ///////////////////////
     
     function moveLightboxSlide(direction) {
@@ -102,10 +106,11 @@ function displayLightbox(data) {
 
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
         const mediaArray = JSON.parse(mediaArrayOrigin);
-        const newLightboxSlide = mediaArray[newIndex];
+        const newLightboxSlide = mediaArray[currentIndex];
+
+        console.log("newLightboxSlide", newLightboxSlide);
                 
-        //console.log("mediaArray", mediaArray);    
-        //console.log("newLightboxSlide", newLightboxSlide); 
+        //console.log("mediaArray", mediaArray);          
         //console.log("MediaArrayLengh", mediaArray.length);
 
         if (newLightboxSlide.image) { 
@@ -113,7 +118,9 @@ function displayLightbox(data) {
             const newlightboxSlidePicture = newLightboxSlide.image;    
             const newlightboxSlideTitle = newLightboxSlide.title;    
             const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;    
-            lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);    
+            lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
+            lightboxCurrentImg.setAttribute("alt", newlightboxSlideTitle); 
+            lightboxCurrentImg.setAttribute("aria-label", newlightboxSlideTitle);    
             lightboxCurrentCaption.textContent = newlightboxSlideTitle;
             lightboxCurrentImg.classList.remove("hidden");
         } else if (newLightboxSlide.video) {
@@ -122,25 +129,16 @@ function displayLightbox(data) {
             const newlightboxSlideTitle = newLightboxSlide.title;      
             const newLightboxSlideSource = `../assets/sample/${newlightboxSlideVideo}`;
             lightboxCurrentVideo.setAttribute("src", newLightboxSlideSource);
+            lightboxCurrentVideo.setAttribute("alt", newlightboxSlideTitle); 
+            lightboxCurrentVideo.setAttribute("aria-label", newlightboxSlideTitle);  
             lightboxCurrentVideo.setAttribute("controls", "");
+            lightboxCurrentCaption.textContent = newlightboxSlideTitle;
             lightboxCurrentVideo.classList.remove("hidden");
 
         } else {
             console.log("Error media file type");
         }
 
-        
-        /*if (currentIndex >= mediaArray.length) {
-            lightboxNextMedia.classList.add("hidden");
-            
-        } else {
-            lightboxNextMedia.classList.remove("hidden");
-        } 
-        if (currentIndex === 0) {
-            lightboxPrevMedia.classList.add("hidden");
-        } else {
-            lightboxPrevMedia.classList.remove("hidden");
-        }*/
     };
 
     lightboxEscBtn.addEventListener("click", () => {
@@ -154,6 +152,7 @@ function displayLightbox(data) {
         lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
         lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
         lightboxCurrentVideo.classList.add("hidden");
+        window.location.reload();
         currentIndex = null; 
         newIndex = null;
         console.log("lastCurrentIndexWhenCloseLightbox", currentIndex);

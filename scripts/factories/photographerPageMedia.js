@@ -50,6 +50,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardVideo.setAttribute("date", Date.parse(date));
             mediaCardVideo.setAttribute("likes", likes);
             mediaCardVideo.setAttribute("title", title);
+            mediaCardVideo.setAttribute("data-index", index);
             mediaCardSample.appendChild(mediaCardVideo);
         } else {
             console.log("le type de fichier n'est pas reconnu")
