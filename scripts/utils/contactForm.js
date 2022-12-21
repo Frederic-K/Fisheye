@@ -17,7 +17,7 @@ function displayModal() {
     modal.appendChild(contactModalBg);
 
     const name = document.getElementsByClassName("header__photographerPage--name")[0].textContent;
-    console.log("modal name", name);
+    //console.log("modal name", name);
 
     const modalHeaderTitle = document.getElementsByClassName("modal__header--title")[0];
     modalHeaderTitle.textContent = `Contactez-moi ${name}`;

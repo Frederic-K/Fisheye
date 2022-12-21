@@ -2,7 +2,7 @@
 function getPhotographerCardDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
-    console.log("cardData", data);
+    //console.log("cardData", data);
     
     const picture = `../assets/photographers/${portrait}`;
 

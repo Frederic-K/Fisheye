@@ -2,6 +2,7 @@
 // Var ///////////////////////
 
 let currentIndex = "";
+let newIndex = "";
 
 // DOM ///////////////////////
 
@@ -15,29 +16,30 @@ const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--Next
 
 function displayLightbox(data) {
 
-    //currentIndex = "";
-
-    console.log("lightboxData", data);
+    currentIndex = null;
+    console.log("currentIndexWhenOpeningLightbox", currentIndex);
+    newIndex = null;
+    console.log("newtIndexWhenOpeningLightbox", newIndex);
 
     lightboxBg.classList.remove("hidden");
     
     currentIndex = parseInt(data.dataset.index);
-    console.log("dataSet", data.dataset.index);
-    console.log("currentIndex", currentIndex);
+    //console.log("dataSet", data.dataset.index);
+    console.log("currentIndexFromDataSet", currentIndex);
 
     const lightboxMediaSource = data.src;
-    console.log("lightboxMediaSource", lightboxMediaSource);
+    //console.log("lightboxMediaSource", lightboxMediaSource);
 
     const lightboxMediaClass = data.classList.value;
-    console.log("lightboxMediaClass", lightboxMediaClass);
+    //console.log("lightboxMediaClass", lightboxMediaClass);
 
    if (lightboxMediaClass === "mediaCard__sample--img") {
-        console.log("lightboxMediaClass = image");
+        //console.log("lightboxMediaClass = image");
         lightboxCurrentVideo.classList.add("hidden");
         lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
         lightboxCurrentImg.classList.remove("hidden");
     } else {
-        console.log("lightboxMediaClass = video");
+        //console.log("lightboxMediaClass = video");
         lightboxCurrentImg.classList.add("hidden");
         lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
         lightboxCurrentVideo.setAttribute("controls", "");
@@ -51,14 +53,16 @@ function displayLightbox(data) {
 
     // Move slide event ///////////////////////
 
-    lightboxPrevMedia.addEventListener("click", () => {
+    lightboxPrevMedia.addEventListener("click", (e) => {
+        e.stopPropagation();
         moveLightboxSlide(-1);
-        console.log("newCurrentIndex1", currentIndex);
+        console.log("IndexAfterMoveslidePrev", currentIndex);
     });
     
-    lightboxNextMedia.addEventListener("click", () => {
+    lightboxNextMedia.addEventListener("click", (e) => {
+        e.stopPropagation();
         moveLightboxSlide(1);
-        console.log("newCurrentIndex2", currentIndex);
+        console.log("IndexAfterMoveslideNext", currentIndex);
     });
 
     // Keybord ///////////////////////
@@ -68,20 +72,14 @@ function displayLightbox(data) {
 
     function keybordNav(e) {
         if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Escape") {
-            e.stopPropagation();
-            e.preventDefault();
-
             if (e.key === "ArrowRight") {
                 moveLightboxSlide(1);
-                //currentIndex = currentIndex + 1;
-                console.log("newCurrentIndex2", currentIndex);
             }
             else if (e.key === "ArrowLeft") {
                 moveLightboxSlide(-1);
-                //currentIndex = currentIndex - 1;
-                console.log("newCurrentIndex1", currentIndex);
             }
             else if (e.key === "Escape") {
+                e.preventDefault();
                 closeLightbox();
             }
         } else {
@@ -97,12 +95,10 @@ function displayLightbox(data) {
         console.log("direction", direction);
         console.log("currentIndex", currentIndex);
 
-
-        const newIndex = currentIndex + direction;
-
+        newIndex = currentIndex + direction;
         console.log("newIndex", newIndex);
-        currentIndex = newIndex;
-        
+
+        currentIndex = newIndex;        
 
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
         const mediaArray = JSON.parse(mediaArrayOrigin);
@@ -113,59 +109,28 @@ function displayLightbox(data) {
         //console.log("MediaArrayLengh", mediaArray.length);
 
         if (newLightboxSlide.image) { 
-
-            //console.log("img");
-
-            lightboxCurrentVideo.classList.add("hidden");
-            
-            const newlightboxSlidePicture = newLightboxSlide.image;
-            //console.log("newlightboxSlidePicture", newlightboxSlidePicture); 
-    
-            const newlightboxSlideTitle = newLightboxSlide.title;
-    
-            //console.log("newlightboxSlideTitle", newlightboxSlideTitle);
-    
-            const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;
-            //console.log("newLightboxSlideSource", newLightboxSlideSource);
-    
-            //lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
-    
-            lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);
-            //console.log("lightboxCurrentImg", lightboxCurrentImg);
-    
-            lightboxCurrentCaption.textContent = newlightboxSlideTitle;
-
-            lightboxCurrentImg.classList.remove("hidden");
-
-        } else if (newLightboxSlide.video) {
-
-            //console.log("vid");
-
-            lightboxCurrentImg.classList.add("hidden");
-
-            const newlightboxSlideVideo = newLightboxSlide.video;
-            //console.log("newlightboxSlideVideo", newlightboxSlideVideo); 
-
+            lightboxCurrentVideo.classList.add("hidden");            
+            const newlightboxSlidePicture = newLightboxSlide.image;    
             const newlightboxSlideTitle = newLightboxSlide.title;    
-            console.log("newlightboxSlideTitle", newlightboxSlideTitle);
-    
+            const newLightboxSlideSource = `../assets/sample/${newlightboxSlidePicture}`;    
+            lightboxCurrentImg.setAttribute("src", newLightboxSlideSource);    
+            lightboxCurrentCaption.textContent = newlightboxSlideTitle;
+            lightboxCurrentImg.classList.remove("hidden");
+        } else if (newLightboxSlide.video) {
+            lightboxCurrentImg.classList.add("hidden");
+            const newlightboxSlideVideo = newLightboxSlide.video;
+            const newlightboxSlideTitle = newLightboxSlide.title;      
             const newLightboxSlideSource = `../assets/sample/${newlightboxSlideVideo}`;
-            //console.log("newLightboxSlideSource", newLightboxSlideSource);
-
-            //lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
-
             lightboxCurrentVideo.setAttribute("src", newLightboxSlideSource);
-            //console.log("lightboxCurrentVideo", lightboxCurrentVideo);
-
             lightboxCurrentVideo.setAttribute("controls", "");
-
             lightboxCurrentVideo.classList.remove("hidden");
 
         } else {
             console.log("Error media file type");
         }
 
-        if (currentIndex >= mediaArray.length) {
+        
+        /*if (currentIndex >= mediaArray.length) {
             lightboxNextMedia.classList.add("hidden");
             
         } else {
@@ -175,7 +140,7 @@ function displayLightbox(data) {
             lightboxPrevMedia.classList.add("hidden");
         } else {
             lightboxPrevMedia.classList.remove("hidden");
-        }
+        }*/
     };
 
     lightboxEscBtn.addEventListener("click", () => {
@@ -190,7 +155,9 @@ function displayLightbox(data) {
         lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
         lightboxCurrentVideo.classList.add("hidden");
         currentIndex = null; 
-        //console.log("lastCurrentIndex", currentIndex);
+        newIndex = null;
+        console.log("lastCurrentIndexWhenCloseLightbox", currentIndex);
+        console.log("lastNewIndexWhenCloseLightbox", newIndex);
     };  
 };
 
