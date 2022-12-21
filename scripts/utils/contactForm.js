@@ -116,7 +116,7 @@ function displayModal() {
         }
     };
 
-    //document.getElementById("firstname").focus();
+    document.getElementById("firstname").focus();
 };
 
 function closeModal() {

@@ -60,13 +60,11 @@ function displayLightbox(data) {
     // Move slide event ///////////////////////
 
     lightboxPrevMedia.addEventListener("click", (e) => {
-        e.stopPropagation();
         moveLightboxSlide(-1);
         console.log("IndexAfterMoveslidePrev", currentIndex);
     });
     
     lightboxNextMedia.addEventListener("click", (e) => {
-        e.stopPropagation();
         moveLightboxSlide(1);
         console.log("IndexAfterMoveslideNext", currentIndex);
     });
@@ -96,13 +94,14 @@ function displayLightbox(data) {
     // Move slide function ///////////////////////
     
     function moveLightboxSlide(direction) {
+        
         console.log("direction", direction);
         console.log("currentIndex", currentIndex);
 
         newIndex = currentIndex + direction;
         console.log("newIndex", newIndex);
 
-        currentIndex = newIndex;        
+        currentIndex = newIndex;    
 
         const mediaArrayOrigin = localStorage.getItem("mediaArray");
         const mediaArray = JSON.parse(mediaArrayOrigin);
@@ -138,6 +137,11 @@ function displayLightbox(data) {
         } else {
             console.log("Error media file type");
         }
+
+        /*
+        https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
+        if (direction > mediaArray.length) {currentIndex = 0};
+        if (direction < 1) {currentIndex = mediaArray.length};*/
 
     };
 
