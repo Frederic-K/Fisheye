@@ -207,6 +207,9 @@ h2 {
   top: 35px;
   right: 35px;
 }
+.modal__header--imgESC :hover {
+  border-style: solid;
+}
 
 .modal__form {
   display: flex;
