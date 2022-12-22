@@ -207,7 +207,8 @@ h2 {
   top: 35px;
   right: 35px;
 }
-.modal__header--imgESC :hover {
+
+.modal__header img:hover {
   border-style: solid;
 }
 

@@ -48,13 +48,12 @@
             position: absolute;
             top: 35px;
             right: 35px;
-            //border: 3px solid black;
-            //border-style: solid;
-            :hover {
-                border-style: solid;
-            }
         }
     }
+};
+
+.modal__header img:hover {
+    border-style: solid;
 };
 
 .modal__form {
