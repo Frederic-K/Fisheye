@@ -46,25 +46,25 @@
       </section>
       <div class="photographerPage__insert--SumLikes">0</div>
     </main>
-    <div id="contact_modal" aria-hidden="false" aria-controls="modal">
+    <div id="contact_modal">
       <div class="contact__modal--bg"></div>
-			<div class="modal">
+			<div id="modalContainer" class="modal">
 				<header class="modal__header">
           <div class="modal__header--title"></div>
-          <img class="modal__header--imgESC" src="assets/icons/close.svg" alt="Bouton de fermeture du formulaire de contact" role="button" aria-label="Bouton de fermeture du formulaire de contact" aria-role="button" tabindex="0">
+          <img id="escBtn" class="modal__header--imgESC" src="assets/icons/close.svg" alt="Bouton de fermeture du formulaire de contact" role="button" aria-label="Bouton de fermeture du formulaire de contact" aria-role="button" tabindex="">
         </header>
 				<form class="modal__form">
 					<div class="modal__form--container">
             <label class="modal__form--label" for="firstname">Prénom</label>
-            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" tabindex="">
+            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" tabindex="1">
             <label class="modal__form--label" for="name">Nom</label>
-            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom" tabindex="">
+            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom" tabindex="2">
             <label class="modal__form--label" for="email">Email</label>
-            <input class="modal__form--input" type="email" id="email" aria-label="Votre email" tabindex="">
+            <input class="modal__form--input" type="email" id="email" aria-label="Votre email" tabindex="3">
             <label class="modal__form--label" type="text" for="message">Votre message</label>
-            <input class="modal__form--inputMsg" id="message" aria-label="Votre message" tabindex="">
+            <input class="modal__form--inputMsg" id="message" aria-label="Votre message" tabindex="4">
 					</div>
-          <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact" tabindex="">Envoyer</button>
+          <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact" tabindex="5">Envoyer</button>
 				</form>
 			</div>
 		</div>
