@@ -6,7 +6,9 @@ let newIndex = "";
 
 // DOM ///////////////////////
 
+const main = document.getElementById("main");
 const lightboxBg = document.getElementsByClassName("lightbox__bg")[0];
+const lightboxModal = document.getElementsByClassName("lightbox__modal")[0];
 const lightboxCurrentImg = document.getElementsByClassName("lightbox__modal--cardIMG")[0];
 const lightboxCurrentVideo = document.getElementsByClassName("lightbox__modal--cardVideo")[0];
 const lightboxCurrentCaption = document.getElementsByClassName("lightbox__modal--caption")[0];
@@ -22,6 +24,12 @@ function displayLightbox(data) {
     console.log("newtIndexWhenOpeningLightbox", newIndex);
 
     lightboxBg.classList.remove("hidden");
+    main.setAttribute("aria-hidden", "true");
+    lightboxModal.setAttribute("role", "dialog")
+    lightboxModal.setAttribute("aria-hidden", "false");
+    lightboxModal.setAttribute("aria-modal", "true");
+    lightboxModal.setAttribute("aria-controls", "modal");
+    lightboxModal.setAttribute("aria-label", "Vue rapprochée du media");
     
     currentIndex = parseInt(data.dataset.index);
     //console.log("dataSet", data.dataset.index);
@@ -156,6 +164,8 @@ function displayLightbox(data) {
         lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
         lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
         lightboxCurrentVideo.classList.add("hidden");
+        const main = document.getElementById("main");
+        main.setAttribute("aria-hidden", "false");
         window.location.reload();
         currentIndex = null; 
         newIndex = null;
