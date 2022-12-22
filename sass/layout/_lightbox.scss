@@ -22,8 +22,6 @@
         cursor: pointer;
         top: 35px;
         right: 35px;
-        fill: black;
-        //background-image: url("/assets/icons/close.svg");
     }    
     &--container {
         display: flex;
@@ -33,25 +31,28 @@
     }
     &--PrevIconBtn {
         font-size: 50px;
+        color: $colour-font-secondary;
         cursor: pointer;
         :hover {
             @include text-shadow;
-            color: $colour-font-secondary;
+            //color: $colour-font-secondary;
             transition: transform 300ms;
             transform: scale(1.5);
         }
     }
     &--card {
         width: 70%;
-        height: auto;
+        //height: auto;
         display: flex;
         flex-direction: column;
     }
     &--cardIMG {
         width: 100%;
+        //height: auto;
     }
     &--cardVideo {
         width: 100%;
+        //height: auto;
     }
     &--caption {
         font-size: 25px;
@@ -61,19 +62,39 @@
     }
     &--img {
         width: 100%;
-        //object-fit: cover;
+        //height: auto;
+        object-fit: cover;
     }
     &--NextIconBtn {
         font-size: 50px;
-        cursor: pointer;
-        
+        color: $colour-font-secondary;
+        cursor: pointer;        
         :hover {
             @include text-shadow;
             //font-size: 75px;
-            color: $colour-font-secondary;
+            //color: $colour-font-secondary;
             transition: transform 300ms;
             transform: scale(1.5);
         }
     }
 };
+
+.lightbox__modal .lightbox__modal--imgESC:hover {
+    border-radius: $border-rad;
+    border: 5px;;
+    border-style: solid;
+    border-color: $colour-bg-secondary;
+    //transition: transform 300ms;
+    //transform: scale(1.2);
+};
+
+.lightbox__modal .lightbox__modal--imgESC {
+    fill: $colour-bg-primary;
+    background: url(assets\icons\closeLightboxBtn.svg) center center, 100% 100%;
+    position: absolute;
+    cursor: pointer;
+    top: 35px;
+    right: 35px;
+}
+
 

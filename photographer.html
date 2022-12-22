@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <!--Import CSS Prefixer : compatibilité navigateur-->
     <link rel="stylesheet" href="./css/prefixed/style.css">
-    <!--TODO Mettre Sass en place pour cette feuille de style-->
+    <!--Done : Mettre Sass en place pour cette feuille de style-->
     <!--link rel="stylesheet" href="css/photographer.css">-->
     <!-- Import CSS de sortie Sass-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -45,31 +45,31 @@
       </section>
       <div class="photographerPage__insert--SumLikes">0</div>
     </main>
-    <div id="contact_modal" aria-hidden="false">
+    <div id="contact_modal" aria-hidden="false" aria-controls="modal">
       <div class="contact__modal--bg"></div>
 			<div class="modal">
 				<header class="modal__header">
           <div class="modal__header--title"></div>
-          <img class="modal__header--imgESC" src="assets/icons/close.svg" alt="Bouton de fermeture du formulaire de contact" aria-label="Bouton de fermeture du formulaire de contact">
+          <img class="modal__header--imgESC" src="assets/icons/close.svg" alt="Bouton de fermeture du formulaire de contact" role="button" aria-label="Bouton de fermeture du formulaire de contact" aria-role="button" tabindex="0">
         </header>
 				<form class="modal__form">
 					<div class="modal__form--container">
             <label class="modal__form--label" for="firstname">Prénom</label>
-            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" >
+            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" tabindex="">
             <label class="modal__form--label" for="name">Nom</label>
-            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom">
+            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom" tabindex="">
             <label class="modal__form--label" for="email">Email</label>
-            <input class="modal__form--input" type="email" id="email" aria-label="Votre email">
+            <input class="modal__form--input" type="email" id="email" aria-label="Votre email" tabindex="">
             <label class="modal__form--label" type="text" for="message">Votre message</label>
-            <input class="modal__form--inputMsg" id="message" aria-label="Votre message">
+            <input class="modal__form--inputMsg" id="message" aria-label="Votre message" tabindex="">
 					</div>
-          <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact">Envoyer</button>
+          <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact" tabindex="">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div class="lightbox__bg hidden" aria-hidden="true">
       <div class="lightbox__modal">
-        <img class="lightbox__modal--imgESC" src="assets/icons/close.svg"/>
+        <img class="lightbox__modal--imgESC"  role="button" aria-role="button" aria-label="hidden"/>
         <div class="lightbox__modal--container">
           <div class="lightbox__modal--PrevIconBtn">
             <i class="fa-solid fa-chevron-left"></i>

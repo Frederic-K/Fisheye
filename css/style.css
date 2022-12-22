@@ -210,6 +210,7 @@ h2 {
 
 .modal__header img:hover {
   border-style: solid;
+  border-color: white;
 }
 
 .modal__form {
@@ -354,7 +355,6 @@ h2 {
   cursor: pointer;
   top: 35px;
   right: 35px;
-  fill: black;
 }
 .lightbox__modal--container {
   display: flex;
@@ -364,17 +364,16 @@ h2 {
 }
 .lightbox__modal--PrevIconBtn {
   font-size: 50px;
+  color: #901c1c;
   cursor: pointer;
 }
 .lightbox__modal--PrevIconBtn :hover {
   text-shadow: 0px 0px 10px rgb(144, 28, 28);
-  color: #901c1c;
   transition: transform 300ms;
   transform: scale(1.5);
 }
 .lightbox__modal--card {
   width: 70%;
-  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -392,16 +391,33 @@ h2 {
 }
 .lightbox__modal--img {
   width: 100%;
+  object-fit: cover;
 }
 .lightbox__modal--NextIconBtn {
   font-size: 50px;
+  color: #901c1c;
   cursor: pointer;
 }
 .lightbox__modal--NextIconBtn :hover {
   text-shadow: 0px 0px 10px rgb(144, 28, 28);
-  color: #901c1c;
   transition: transform 300ms;
   transform: scale(1.5);
+}
+
+.lightbox__modal .lightbox__modal--imgESC:hover {
+  border-radius: 5px;
+  border: 5px;
+  border-style: solid;
+  border-color: #D3573C;
+}
+
+.lightbox__modal .lightbox__modal--imgESC {
+  fill: #901C1C;
+  background: url(assetsicons\c loseLightboxBtn.svg) center center, 100% 100%;
+  position: absolute;
+  cursor: pointer;
+  top: 35px;
+  right: 35px;
 }
 
 .photographer__section {
