@@ -1,0 +1,46 @@
+.photographer__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    .photographer__article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $colour-bg-secondary;
+        &--link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        &--linkImg {
+            width: 200px;
+            height: 200px;
+            border-radius: $border-circle;
+            overflow: hidden;
+        }
+        &--img {
+            @include profile-img;
+        }
+        &--caption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        &--captionLocation{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            color: $colour-bg-primary;
+        }
+        &--captionTagLine {
+            color: black;
+        }
+        &--captionPrice {
+            color: $colour-font-tertiary;
+        }
+    }   
+};

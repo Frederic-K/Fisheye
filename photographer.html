@@ -5,42 +5,94 @@
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <!--Import CSS Prefixer : compatibilité navigateur-->
     <link rel="stylesheet" href="./css/prefixed/style.css">
+    <!--Done : Mettre Sass en place pour cette feuille de style-->
+    <!--link rel="stylesheet" href="css/photographer.css">-->
     <!-- Import CSS de sortie Sass-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- Font Awesome kit-->
+    <script src="https://kit.fontawesome.com/24edcbc727.js" crossorigin="anonymous"></script>
     <!-- Lien Google Font-->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body id="body">
     <header class="header" role="banner">
       <a href="./index.html" class="header__logo" aria-label="Accueil">
         <img src="assets/images/logo.png" class="header__logo--img" alt="Logo du site"/>
       </a>
-        <h1 class="header__mainTtitle hidden">Nos photographes</h1>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    <main id="main" aria-hidden="false">
+      <section class="photographer__page">
+        <!--<button class="contact__button" onclick="displayModal()">Contactez-moi</button>-->
+      </section>
+      <div class="dropdown">
+        <!--<div class="dropdown__title">Trier par</div>
+        <div class="dorpdown__button" role="button" aria-expanded="false" airia-label="Bouton menu de tri" >
+          <div class="selected">Popularité</div>
+          <div class="dorpdown__button--icon">
+            <i class="fa-solid fa-chevron-up"></i>
+          </div>
+        </div>
+        <ul class="dropdown__content">
+          <li class="dropdown__content--selected">Popularité</li>
+          <li>Date</li>
+          <li>Titre</li>
+        </ul>-->
       </div>
+      <section class="photographer__media">
+        <!--<div class="photographer__media--loader"></div>-->
+      </section>
+      <div class="photographerPage__insert--SumLikes">0</div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+      <div class="contact__modal--bg"></div>
+			<div id="modalContainer" class="modal">
+				<header class="modal__header">
+          <div class="modal__header--title"></div>
+          <div id="modal__header--imgEscContainer">
+            <img id="escBtn" class="modal__header--imgESC" src="assets/icons/close.svg" alt="Bouton de fermeture du formulaire de contact" role="button" aria-label="Bouton de fermeture du formulaire de contact" aria-role="button" tabindex="">
+          </div>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+				<form class="modal__form">
+					<div class="modal__form--container">
+            <label class="modal__form--label" for="firstname">Prénom</label>
+            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" tabindex="1">
+            <label class="modal__form--label" for="name">Nom</label>
+            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom" tabindex="2">
+            <label class="modal__form--label" for="email">Email</label>
+            <input class="modal__form--input" type="email" id="email" aria-label="Votre email" tabindex="3">
+            <label class="modal__form--label" type="text" for="message">Votre message</label>
+            <input class="modal__form--inputMsg" id="message" aria-label="Votre message" tabindex="4">
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact" tabindex="5">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
+    <div class="lightbox__bg hidden" aria-hidden="true">
+      <div class="lightbox__modal">
+        <img class="lightbox__modal--imgESC" src="./assets/icons/closeLightboxBtn.svg" role="button" aria-role="button" aria-label="Bouton de fermeture de la lightbox"/>
+        <div class="lightbox__modal--container">
+          <div class="lightbox__modal--PrevIconBtn" role="button" aria-role="button" aria-label="Afficher le media précédent">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+          <div class="lightbox__modal--card">
+            <img class="lightbox__modal--cardIMG hidden">
+            <video class="lightbox__modal--cardVideo hidden"></video>
+            <div class="lightbox__modal--caption"></div>
+          </div>
+          <div class="lightbox__modal--NextIconBtn" role="button" aria-role="button" aria-label="Afficher le media suivnate">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    <script src="/scripts/API/getPhotographersData.js"></script>
+    <script src="/scripts/factories/photographerPage.js"></script>
+    <script src="/scripts/factories/photographerPageMedia.js"></script>
+    <script src="/scripts/utils/sorter.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>

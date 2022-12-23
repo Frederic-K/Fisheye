@@ -1,0 +1,99 @@
+
+
+.contact__modal--bg {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: $colour-bg-tertiary;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    overflow: auto;
+};
+
+#contact_modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    overflow: auto;
+};
+
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: 100px auto;
+    position: relative;
+    z-index: 3;
+    &__header {
+        width: 100%;
+        margin-bottom: 30px;
+        &--title {
+            width: 80%;
+            margin: 0px;
+            font-size: 50px;
+            font-weight: normal;
+        }
+        &--imgESC {
+            cursor: pointer;
+            position: absolute;
+            top: 35px;
+            right: 35px;
+        }
+    }
+};
+
+.modal__header img:hover {
+    border-style: solid;
+    border-color: white;
+};
+
+.modal__form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    &--container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: self-start;
+        margin-bottom: 26px;
+    }
+    &--label {
+        color: #312E2E;
+        font-size: 36px;
+        margin: 0;
+    }
+    &--input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: $border-rad;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 30px;
+    }
+    &--inputMsg {
+        width: 100%;
+        height: 200px;
+        border: none;
+        border-radius: $border-rad;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 30px
+    }
+    &--sendBtn {
+        @include contact-btn;
+    }
+};

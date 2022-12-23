@@ -1,0 +1,40 @@
+
+.photographerPage__aside {
+    max-width: 1220px;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 23px;
+    .photographerPage__insert {
+        width: 350px;
+        height: 50px;
+        margin: 0px;
+        background-color: $colour-bg-secondary;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-top-right-radius: $border-rad;
+        border-top-left-radius: $border-rad;
+        &--LikesContainer {
+            display: flex;
+            flex-direction: row;
+            margin: 0px;
+            gap: 5px;
+            justify-content: space-around;
+        }
+        &--SumLikes {
+            margin: 0px 10px 0px 20px;
+        }
+        &--icon {
+            margin: 0;
+        }
+        &--price {
+            margin: 0px 20px 0px 50px;
+        }
+    }
+};
