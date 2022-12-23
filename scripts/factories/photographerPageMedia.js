@@ -39,7 +39,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("title", title);
             mediaCardImg.setAttribute("data-index", index)
             mediaCardImg.setAttribute("filetype", "img")
-            mediaCardImg.setAttribute("data-type", "media")
+            mediaCardImg.setAttribute("datatype", "media")
 
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
@@ -53,7 +53,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardVideo.setAttribute("title", title);
             mediaCardVideo.setAttribute("data-index", index);
             mediaCardVideo.setAttribute("filetype", "vid");
-            mediaCardVideo.setAttribute("data-type", "media");
+            mediaCardVideo.setAttribute("datatype", "media");
             mediaCardSample.appendChild(mediaCardVideo);
         } else {
             console.log("le type de fichier n'est pas reconnu")
