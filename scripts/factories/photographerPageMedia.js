@@ -30,7 +30,7 @@ function getPhotographerMediaDOM(data, i) {
     function getMediaByFileTypeDOM() {
         if (image) {
             const mediaCardImg = document.createElement("img");
-            mediaCardImg.classList.add("mediaCard__sample--img");
+            mediaCardImg.classList.add("mediaCard__sample--img", "toto");
             mediaCardImg.setAttribute("src", picture);
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
@@ -44,7 +44,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
             const mediaCardVideo = document.createElement("video");
-            mediaCardVideo.classList.add("mediaCard__sample--video");
+            mediaCardVideo.classList.add("mediaCard__sample--video", "toto");
             mediaCardVideo.setAttribute("src", movie);
             //mediaCardVideo.setAttribute("autoplay", "mute");
             mediaCardVideo.setAttribute("controls", "");

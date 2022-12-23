@@ -111,10 +111,14 @@ function displayLightbox(data) {
 
         currentIndex = newIndex;
         
-        const mediaCardsNodeList4Lightbox = document.querySelectorAll(".mediaCard__sample img", "mediaCard__sample video");
+        const mediaCardsNodeList4Lightbox = document.querySelectorAll(".toto");
         console.log('mediaCardsNodeList4Lightbox', mediaCardsNodeList4Lightbox);
-        const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
+        // https://nikitahl.com/convert-array-like-collections-to-array/
+        //const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
+        const mediaCardsNodeList4LightboxArray = Array.from(mediaCardsNodeList4Lightbox);
         console.log('mediaCardsNodeList4LightboxArray', mediaCardsNodeList4LightboxArray);
+
+
         const newLightboxSlide = mediaCardsNodeList4LightboxArray[currentIndex];
         console.log('newLightboxSlide',newLightboxSlide);
 
@@ -129,14 +133,17 @@ function displayLightbox(data) {
         // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
         //if (newIndex > mediaCardsNodeList4LightboxArray.length) {currentIndex = 0};
         //if (newIndex < 1) {currentIndex = mediaCardsNodeList4LightboxArray.length};
-
+                        
         if (newIndex > mediaCardsNodeList4LightboxArray.length) {currentIndex = 0};
         if (newIndex < 1) {currentIndex = mediaCardsNodeList4LightboxArray.length};
 
-        let fileType = newLightboxSlide.getAttribute("filetype");
-        console.log('fileType', fileType);
+        //let fileType = newLightboxSlide.getAttribute("filetype");
+        //console.log('fileType', fileType);
 
-        if (fileType === "img") { 
+        let isFileType = (newLightboxSlide.getAttribute("filetype") === "img");
+        console.log('isFileType', isFileType);
+
+        if (isFileType) { 
             lightboxCurrentImg.classList.remove("hidden");
             lightboxCurrentVideo.classList.add("hidden");             
             lightboxCurrentCaption.textContent = newLightboxSlide.title;    
@@ -144,7 +151,7 @@ function displayLightbox(data) {
             lightboxCurrentImg.setAttribute("alt", newLightboxSlide.title); 
             lightboxCurrentImg.setAttribute("aria-label", newLightboxSlide.title);    
         } 
-        else if (fileType === "vid") {
+        else if (!isFileType) {
             lightboxCurrentVideo.classList.remove("hidden");
             lightboxCurrentImg.classList.add("hidden");      
             lightboxCurrentVideo.setAttribute("src", newLightboxSlide.src);
