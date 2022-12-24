@@ -1,6 +1,6 @@
     
     
-    // Sorter DOM ///////////////////////
+    // Dropdown DOM ///////////////////////
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
@@ -133,6 +133,7 @@ function sortMedias(data) {
     const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("title"));
     console.log("mediaTitlesArray", mediaTitlesArray);
 
+    // Si la parse est nécessaire
     /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 is the base
     console.log("mediaLikesArray", mediaLikesArray);*/
 
@@ -145,22 +146,20 @@ function sortMedias(data) {
     if (selectedSorter === "Date") {
         mediaDatesArraySorted = mediaDatesArray.sort(valueCompare);
         console.log("mediaDatesArraySorted", mediaDatesArraySorted);
-        
-        /*for (let i of mediaDatesArraySorted) {
-            mediaCardsNodeList.forEach(card => {
-                if (parseInt(card.getAttribute("date")) === i) {
-                    photographerMedia.appendChild(card);
-                }
-            })
-        }*/
+
         for (let i of mediaDatesArraySorted) {
             mediaCardsNodeList.forEach(card => {
                 if (card.getAttribute("date") === i) {
                     photographerMedia.appendChild(card);
                     //console.log("iFromData", i);
+                    console.log('card', card);
                 }
             })
         }
+        /*for (let x=0; x < mediaDatesArraySorted.length; x++) {
+            console.log("test", mediaDatesArraySorted[x]);
+        }*/
+        console.log("mediaDatesArraySortedLength", mediaDatesArraySorted.length);
     } else if (selectedSorter === "Titre") {
         mediaTitlesArraySorted = mediaTitlesArray.sort();
         console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);

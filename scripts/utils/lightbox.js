@@ -18,10 +18,14 @@ const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--Next
 
 function displayLightbox(data) {
 
+    console.log('data', data);
+
     /*currentIndex = null;
     console.log("currentIndexWhenOpeningLightbox", currentIndex);
     newIndex = null;
     console.log("newtIndexWhenOpeningLightbox", newIndex);*/
+
+    // Aria ///////////////////////
 
     lightboxBg.classList.remove("hidden");
     main.setAttribute("aria-hidden", "true");
@@ -31,27 +35,35 @@ function displayLightbox(data) {
     lightboxModal.setAttribute("aria-controls", "modal");
     lightboxModal.setAttribute("aria-label", "Vue rapprochée du media");
     
-    currentIndex = parseInt(data.dataset.index);
+    //currentIndex = parseInt(data.dataset.index);
     //console.log("dataSet", data.dataset.index);
-    console.log("currentIndexFromDataSet", currentIndex);
+    //console.log("currentIndexFromDataSet", currentIndex);
 
-    const lightboxMediaSource = data.src;
+    // Source ///////////////////////
+
+    currentIndex = parseInt(data.getAttribute("data-index"));
+    console.log('currentIndex', currentIndex);
+
+    //const lightboxMediaSource = data.src;
     //console.log("lightboxMediaSource", lightboxMediaSource);
-
-    const lightboxMediaClass = data.classList.value;
-    //console.log("lightboxMediaClass", lightboxMediaClass);
+    const lightboxMediaSource = data.getAttribute("src");
+    console.log('lightboxMediaSource', lightboxMediaSource);
 
     const lightboxSlideTitle = data.title;
+    console.log('lightboxSlideTitle', lightboxSlideTitle);
 
-   if (lightboxMediaClass === "mediaCard__sample--img") {
-        //console.log("lightboxMediaClass = image");
+    // Display file type ///////////////////////
+
+   let isFileType = (data.getAttribute("filetype") === "img");
+        console.log('isFileType', isFileType);
+
+   if (isFileType) {
         lightboxCurrentVideo.classList.add("hidden");
         lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
         lightboxCurrentImg.setAttribute("alt", lightboxSlideTitle); 
         lightboxCurrentImg.setAttribute("aria-label", lightboxSlideTitle);
         lightboxCurrentImg.classList.remove("hidden");
-    } else {
-        //console.log("lightboxMediaClass = video");
+    } else if (!isFileType) {
         lightboxCurrentImg.classList.add("hidden");
         lightboxCurrentVideo.setAttribute("src", lightboxMediaSource);
         lightboxCurrentVideo.setAttribute("alt", lightboxSlideTitle); 
@@ -60,10 +72,10 @@ function displayLightbox(data) {
         lightboxCurrentVideo.classList.remove("hidden");
     }
 
-    // Alternative : récupérer le titre à partir du "alt=" de l'img
-    const lightboxCurrentImgTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
+    // Caption ///////////////////////
 
-    lightboxCurrentCaption.textContent = lightboxCurrentImgTitleSource.textContent;
+    const lightboxCurrentTitleSource = data.parentElement.parentElement.getElementsByClassName("mediaCard__caption--title")[0];
+    lightboxCurrentCaption.textContent = lightboxCurrentTitleSource.textContent;
 
     // Move slide event ///////////////////////
 
@@ -163,7 +175,10 @@ function displayLightbox(data) {
         } else {
             console.log("Error media file type");
         }
-    }    
+    }
+    
+    // Escape button ///////////////////////
+    
     lightboxEscBtn.addEventListener("click", () => {
         closeLightbox();  
     });

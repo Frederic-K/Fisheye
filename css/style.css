@@ -349,6 +349,7 @@ h2 {
 
 .lightbox__modal {
   width: 75%;
+  height: 100%;
   padding-top: 50px;
   position: relative;
   display: flex;
@@ -364,6 +365,8 @@ h2 {
   right: 35px;
 }
 .lightbox__modal--container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -386,19 +389,19 @@ h2 {
 }
 .lightbox__modal--cardIMG {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .lightbox__modal--cardVideo {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .lightbox__modal--caption {
   font-size: 25px;
   color: #901c1c;
   margin: 0;
   padding-top: 15px;
-}
-.lightbox__modal--img {
-  width: 100%;
-  object-fit: cover;
 }
 .lightbox__modal--NextIconBtn {
   font-size: 50px;
