@@ -17,13 +17,7 @@ const lightboxPrevMedia = document.getElementsByClassName("lightbox__modal--Prev
 const lightboxNextMedia = document.getElementsByClassName("lightbox__modal--NextIconBtn")[0];
 
 function displayLightbox(data) {
-
     console.log('data', data);
-
-    /*currentIndex = null;
-    console.log("currentIndexWhenOpeningLightbox", currentIndex);
-    newIndex = null;
-    console.log("newtIndexWhenOpeningLightbox", newIndex);*/
 
     // Aria ///////////////////////
 
@@ -34,13 +28,12 @@ function displayLightbox(data) {
     lightboxModal.setAttribute("aria-modal", "true");
     lightboxModal.setAttribute("aria-controls", "modal");
     lightboxModal.setAttribute("aria-label", "Vue rapprochée du media");
-    
+
+    // Source ///////////////////////
+    // https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/dataset    
     //currentIndex = parseInt(data.dataset.index);
     //console.log("dataSet", data.dataset.index);
     //console.log("currentIndexFromDataSet", currentIndex);
-
-    // Source ///////////////////////
-
     currentIndex = parseInt(data.getAttribute("data-index"));
     console.log('currentIndex', currentIndex);
 
@@ -62,6 +55,7 @@ function displayLightbox(data) {
         lightboxCurrentImg.setAttribute("src", lightboxMediaSource);
         lightboxCurrentImg.setAttribute("alt", lightboxSlideTitle); 
         lightboxCurrentImg.setAttribute("aria-label", lightboxSlideTitle);
+        lightboxCurrentImg.setAttribute("data-index", currentIndex);
         lightboxCurrentImg.classList.remove("hidden");
     } else if (!isFileType) {
         lightboxCurrentImg.classList.add("hidden");
@@ -69,6 +63,7 @@ function displayLightbox(data) {
         lightboxCurrentVideo.setAttribute("alt", lightboxSlideTitle); 
         lightboxCurrentVideo.setAttribute("aria-label", lightboxSlideTitle);  
         lightboxCurrentVideo.setAttribute("controls", "");
+        lightboxCurrentVideo.setAttribute("data-index", currentIndex);
         lightboxCurrentVideo.classList.remove("hidden");
     }
 
@@ -123,13 +118,12 @@ function displayLightbox(data) {
 
         currentIndex = newIndex;
         
-        const mediaCardsNodeList4Lightbox = document.querySelectorAll(".toto");
+        const mediaCardsNodeList4Lightbox = document.querySelectorAll(".media");
         console.log('mediaCardsNodeList4Lightbox', mediaCardsNodeList4Lightbox);
         // https://nikitahl.com/convert-array-like-collections-to-array/
         //const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
         const mediaCardsNodeList4LightboxArray = Array.from(mediaCardsNodeList4Lightbox);
         console.log('mediaCardsNodeList4LightboxArray', mediaCardsNodeList4LightboxArray);
-
 
         const newLightboxSlide = mediaCardsNodeList4LightboxArray[currentIndex];
         console.log('newLightboxSlide',newLightboxSlide);
@@ -161,7 +155,7 @@ function displayLightbox(data) {
             lightboxCurrentCaption.textContent = newLightboxSlide.title;    
             lightboxCurrentImg.setAttribute("src", newLightboxSlide.src);
             lightboxCurrentImg.setAttribute("alt", newLightboxSlide.title); 
-            lightboxCurrentImg.setAttribute("aria-label", newLightboxSlide.title);    
+            lightboxCurrentImg.setAttribute("aria-label", newLightboxSlide.title);   
         } 
         else if (!isFileType) {
             lightboxCurrentVideo.classList.remove("hidden");

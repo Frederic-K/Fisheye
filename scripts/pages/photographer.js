@@ -53,7 +53,7 @@ async function getSelectedPhotographerMedia() {
     //console.log("photographerID2", photographerId);
 
     const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId);
-    console.log("selectedPhotographerMedias", selectedPhotographerMedias);
+    //console.log("selectedPhotographerMedias", selectedPhotographerMedias);
     
     const defaultSortedMedia = selectedPhotographerMedias.sort((a, b) => b.likes - a.likes);
     //console.log("selectedPhotographerMediaLikesArray", defaultSortedMedia);
@@ -66,15 +66,13 @@ async function displayPhotographerMediaData() {
     const photographersMediaSection = document.querySelector(".photographer__media");
     const selectedPhotographerMedias = await getSelectedPhotographerMedia();
 
-    localStorage.removeItem('mediaArray');
-    localStorage.setItem('mediaArray', JSON.stringify(selectedPhotographerMedias));
+    //localStorage.removeItem('mediaArray');
+    //localStorage.setItem('mediaArray', JSON.stringify(selectedPhotographerMedias));
 
     for (let i = 0; i < selectedPhotographerMedias.length; i++) {
         const photographerMediaDOM = getPhotographerMediaDOM(selectedPhotographerMedias[i],i);
         //console.log("i", i);        
         photographersMediaSection.appendChild(photographerMediaDOM);
-
-        //console.log("sample", sample);
       }
 
     /*selectedPhotographerMedias.forEach((media) => {
@@ -87,7 +85,7 @@ async function displayPhotographerMediaData() {
 };
 
 async function displayPhotogapherMedia() {
-    const { media } = await getPhotographersData();
+    const {media} = await getPhotographersData();
     displayPhotographerMediaData(media);
 };
 
