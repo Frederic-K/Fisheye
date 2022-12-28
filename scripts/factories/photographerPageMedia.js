@@ -17,11 +17,13 @@ function getPhotographerMediaDOM(data, i) {
     mediaCard.setAttribute("date", Date.parse(date));
     mediaCard.setAttribute("likes", likes);
     mediaCard.setAttribute("title", title);
+    //mediaCard.setAttribute("tabindex", "0");                                                                                    
 
     // Picture - video ///////////////////////
 
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
+   //mediaCardSample.setAttribute("tabindex", "0");      
 
     function getMediaByFileTypeDOM() {
         if (image) {
@@ -35,8 +37,8 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("title", title);
             mediaCardImg.setAttribute("data-index", index)
             mediaCardImg.setAttribute("filetype", "img")
-            mediaCardImg.setAttribute("datatype", "media")
-
+            mediaCardImg.setAttribute("datatype", "media");
+            mediaCardImg.setAttribute("tabindex", "0");
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
             const mediaCardVideo = document.createElement("video");
@@ -127,7 +129,16 @@ function getPhotographerMediaDOM(data, i) {
 
     mediaCardSample.addEventListener("click", function(e) {
         displayLightbox(e.target);
-    } );
+    });
+
+    mediaCardSample.addEventListener("keydown", keybordSelection);
+
+    function keybordSelection(e) {
+        if (e.key === "Enter") {
+            displayLightbox(e.target);
+            console.log('e.targetTest', e.target);
+        }
+    };
 
     // Indent ///////////////////////
 
