@@ -101,44 +101,55 @@ function keybordNav(e) {
 
 function moveLightboxSlide(direction) {
         
-    console.log("direction", direction);
-
     newIndex = currentIndex + direction;
-
     currentIndex = newIndex;
     
     const mediaCardsNodeList4Lightbox = document.querySelectorAll(".media");
-    //const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
+    //Old School : const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
     const mediaCardsNodeList4LightboxArray = Array.from(mediaCardsNodeList4Lightbox);
-
     const newLightboxSlide = mediaCardsNodeList4LightboxArray[currentIndex];
 
     // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
     //if (newIndex > mediaCardsNodeList4LightboxArray.length) {currentIndex = 0};
     //if (newIndex < 1) {currentIndex = mediaCardsNodeList4LightboxArray.length};
 
-    let isFileType = (newLightboxSlide.getAttribute("filetype") === "img");
-
-    if (isFileType) { 
-        lightboxCurrentImg.classList.remove("hidden");
-        lightboxCurrentVideo.classList.add("hidden");             
-        lightboxCurrentCaption.textContent = newLightboxSlide.title;    
-        lightboxCurrentImg.setAttribute("src", newLightboxSlide.src);
-        lightboxCurrentImg.setAttribute("alt", newLightboxSlide.title); 
-        lightboxCurrentImg.setAttribute("aria-label", newLightboxSlide.title);   
-    } 
-    else if (!isFileType) {
-        lightboxCurrentVideo.classList.remove("hidden");
-        lightboxCurrentImg.classList.add("hidden");      
-        lightboxCurrentVideo.setAttribute("src", newLightboxSlide.src);
-        lightboxCurrentCaption.textContent = newLightboxSlide.title;
-        lightboxCurrentVideo.setAttribute("alt", newLightboxSlide.title); 
-        lightboxCurrentVideo.setAttribute("aria-label", newLightboxSlide.title);  
-        lightboxCurrentVideo.setAttribute("controls", "");
-
+    if (newIndex < 0) {
+        console.log('newindex', newIndex);
+        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        lightboxPrevMedia.classList.add("hidden");
+        lightboxNextMedia.classList.remove("hidden");
+    } else if (newIndex > mediaCardsNodeList4LightboxArray.length - 1) {
+        console.log('newindex', newIndex);
+        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        lightboxNextMedia.classList.add("hidden");
+        lightboxPrevMedia.classList.remove("hidden");
     } else {
-        console.log("Error media file type");
-    }
+        console.log('newindex', newIndex);
+        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        lightboxPrevMedia.classList.remove("hidden");
+        lightboxNextMedia.classList.remove("hidden");
+        let isFileType = (newLightboxSlide.getAttribute("filetype") === "img");
+        if (isFileType) { 
+            lightboxCurrentImg.classList.remove("hidden");
+            lightboxCurrentVideo.classList.add("hidden");             
+            lightboxCurrentCaption.textContent = newLightboxSlide.title;    
+            lightboxCurrentImg.setAttribute("src", newLightboxSlide.src);
+            lightboxCurrentImg.setAttribute("alt", newLightboxSlide.title); 
+            lightboxCurrentImg.setAttribute("aria-label", newLightboxSlide.title);   
+        } 
+        else if (!isFileType) {
+            lightboxCurrentVideo.classList.remove("hidden");
+            lightboxCurrentImg.classList.add("hidden");      
+            lightboxCurrentVideo.setAttribute("src", newLightboxSlide.src);
+            lightboxCurrentCaption.textContent = newLightboxSlide.title;
+            lightboxCurrentVideo.setAttribute("alt", newLightboxSlide.title); 
+            lightboxCurrentVideo.setAttribute("aria-label", newLightboxSlide.title);  
+            lightboxCurrentVideo.setAttribute("controls", "");
+
+        } else {
+            console.log("Error media file type");
+        }
+    };
 };
 
 // Close  lightbox ///////////////////////

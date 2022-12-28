@@ -17,6 +17,7 @@
     sorterDropdownBtn.classList.add("dropdown__button");
     sorterDropdownBtn.setAttribute("role", "button");
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
+    sorterDropdownBtn.setAttribute("tabindex", "0");        
     sorterDropdownBtn.textContent = "Popularité";
     sorterDropdownMenu.appendChild(sorterDropdownBtn);
 
