@@ -53,16 +53,10 @@
 sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
 function dropdownMenu() {
-    //const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
     dropdownContent.classList.toggle("hidden");
-    //sorterDropdownBtnIcon.classList.toggle("arrow-animation-down");
+
     sorterDropdownBtnIcon.classList.toggle("arrow-animation-up");
 };
-
-/*dropdownSortByFamous.addEventListener("click", () => {
-    dropdownMenu();
-    sorterDropdownBtn.textContent = "Popularité";
-});*/
 
 dropdownSortByDate.addEventListener("click", (e) => {
     dropdownMenu();
@@ -70,10 +64,7 @@ dropdownSortByDate.addEventListener("click", (e) => {
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByDate.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
-    //mediaArray.sort((a, b) => a.likes - b.likes);
-    //console.log("mediaArraySortByLikes", mediaArray);
     sortMedias(e.target);
-    //console.log("e.target.date", e.target);
 });
 
 dropdownSortByTitle.addEventListener("click", (e) => {
@@ -106,7 +97,6 @@ function sortMedias(data) {
     const mediaCardsNodeList = document.querySelectorAll(".mediaCard");
     const mediaCardSampleItem = document.querySelectorAll(".media");
     console.log('mediaCardSampleItem', mediaCardSampleItem);
-    //console.log("mediaCardsNodeList", mediaCardsNodeList);
 
     // si date n'est pas parsed par Date.parse(2011-08-11) alors :
     /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
@@ -117,35 +107,23 @@ function sortMedias(data) {
     // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
     const mediaDatesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("date"));
-    //console.log("mediaDatesArray", mediaDatesArray);
 
     const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("title"));
-    //console.log("mediaTitlesArray", mediaTitlesArray);
 
     // Si la parse est nécessaire
-    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 is the base
+    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 est la base
     console.log("mediaLikesArray", mediaLikesArray);*/
 
     const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("likes"));
-    //console.log("mediaLikesArray", mediaLikesArray);
 
     let selectedSorter = data.textContent;
-    //console.log("selectedSorter", selectedSorter);
 
     // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of
 
     if (selectedSorter === "Date") {
         mediaDatesArraySorted = mediaDatesArray.sort(valueCompare);
         console.log("mediaDatesArraySorted", mediaDatesArraySorted);
-
-        /*for (const element of mediaDatesArraySorted) {
-            //console.log('element', element);
-            for (const card of mediaCardsNodeList) {
-                if (card.getAttribute("date") === element) {
-                    photographerMedia.appendChild(card);
-                }
-            }
-        }*/  
+ 
        for (let i = 0; i < mediaDatesArraySorted.length; i++) {
             console.log('i', i);
             const date = mediaDatesArraySorted[i];
@@ -155,18 +133,7 @@ function sortMedias(data) {
                     photographerMedia.appendChild(card);
                 }
             }
-        }    
-            /*const date = mediaDatesArraySorted[i];
-            console.log('date', date);
-            const card = mediaCardsNodeList[i];
-            console.log('card', card);
-            const cardDate = card.getAttribute("date");
-            //console.log('cardDate', cardDate);
-            if (cardDate === date) {
-                photographerMedia.appendChild(card);
-            };
-            //console.log("mediaDatesArraySortedLength", mediaDatesArraySorted.length);
-        } */   
+        }     
     } else if (selectedSorter === "Titre") {
         mediaTitlesArraySorted = mediaTitlesArray.sort();
         console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);

@@ -4,11 +4,7 @@
 
 function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
-    const index = i
-
-    //console.log("PhotographerDOMIndex", index);
-    //console.log("PhotographerDOMData", data);
-
+    const index = i;
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
@@ -130,7 +126,6 @@ function getPhotographerMediaDOM(data, i) {
     // Lightbox launcher ///////////////////////
 
     mediaCardSample.addEventListener("click", function(e) {
-        console.log("target", e.target);
         displayLightbox(e.target);
     } );
 
