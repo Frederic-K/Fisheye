@@ -1,6 +1,6 @@
     
     
-    // Sorter DOM ///////////////////////
+    // Dropdown DOM ///////////////////////
 
     const sorterDropdown = document.getElementsByClassName("dropdown")[0];
 
@@ -53,16 +53,10 @@
 sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
 function dropdownMenu() {
-    //const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
     dropdownContent.classList.toggle("hidden");
-    //sorterDropdownBtnIcon.classList.toggle("arrow-animation-down");
+
     sorterDropdownBtnIcon.classList.toggle("arrow-animation-up");
 };
-
-/*dropdownSortByFamous.addEventListener("click", () => {
-    dropdownMenu();
-    sorterDropdownBtn.textContent = "Popularité";
-});*/
 
 dropdownSortByDate.addEventListener("click", (e) => {
     dropdownMenu();
@@ -70,10 +64,7 @@ dropdownSortByDate.addEventListener("click", (e) => {
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByDate.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
-    //mediaArray.sort((a, b) => a.likes - b.likes);
-    //console.log("mediaArraySortByLikes", mediaArray);
     sortMedias(e.target);
-    console.log("e.target.date", e.target);
 });
 
 dropdownSortByTitle.addEventListener("click", (e) => {
@@ -96,19 +87,6 @@ dropdownSortByFamous.addEventListener("click", (e) => {
 
 // Sort Media ///////////////////////
 
-/*let objMediaArray = localStorage.getItem("mediaArray");
-let photographerMediaArray = JSON.parse(objMediaArray);
-console.log("TITI", photographerMediaArray);*/
-
-/*photographerMediaArray.sort((a, b) => a.likes - b.likes);
-console.log("ByLikes", photographerMediaArray);*/
-
-/*photographerMediaArray.sort((a, b) => a.title - b.title);
-console.log("ByTitle", photographerMediaArray);*/
-
-/*photographerMediaArray.sort((a, b) => a.date - b.date);
-console.log("ByDate", photographerMediaArray);*/
-
 function valueCompare (a, b) {
     return b - a;
 };
@@ -117,7 +95,8 @@ function sortMedias(data) {
 
     const photographerMedia = document.getElementsByClassName("photographer__media")[0];
     const mediaCardsNodeList = document.querySelectorAll(".mediaCard");
-    console.log("mediaCardsNodeList", mediaCardsNodeList);
+    const mediaCardSampleItem = document.querySelectorAll(".media");
+    console.log('mediaCardSampleItem', mediaCardSampleItem);
 
     // si date n'est pas parsed par Date.parse(2011-08-11) alors :
     /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
@@ -127,64 +106,62 @@ function sortMedias(data) {
     // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/from
     // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
-    const mediaDatesArrayTest = Array.from(mediaCardsNodeList);
-    console.log("mediaDatesArrayTest", mediaDatesArrayTest);
-
     const mediaDatesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("date"));
-    console.log("mediaDatesArray", mediaDatesArray);
 
     const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("title"));
-    console.log("mediaTitlesArray", mediaTitlesArray);
 
-    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10));
+    // Si la parse est nécessaire
+    /*const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 est la base
     console.log("mediaLikesArray", mediaLikesArray);*/
 
     const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute("likes"));
-    console.log("mediaLikesArray", mediaLikesArray);
 
-    selectedSorter = data.textContent;
-    console.log("selectedSorter", selectedSorter);
+    let selectedSorter = data.textContent;
+
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of
 
     if (selectedSorter === "Date") {
         mediaDatesArraySorted = mediaDatesArray.sort(valueCompare);
         console.log("mediaDatesArraySorted", mediaDatesArraySorted);
-        
-        /*for (let i of mediaDatesArraySorted) {
-            mediaCardsNodeList.forEach(card => {
-                if (parseInt(card.getAttribute("date")) === i) {
+ 
+       for (let i = 0; i < mediaDatesArraySorted.length; i++) {
+            console.log('i', i);
+            const date = mediaDatesArraySorted[i];
+            for (const card of mediaCardsNodeList) {
+                if (card.getAttribute("date") === date) {
+                    card.firstChild.firstChild.setAttribute("data-index", i)
                     photographerMedia.appendChild(card);
                 }
-            })
-        }*/
-        for (let i of mediaDatesArraySorted) {
-            mediaCardsNodeList.forEach(card => {
-                if (card.getAttribute("date") === i) {
-                    photographerMedia.appendChild(card);
-                    console.log("iFromData", i);
-                }
-            })
-        }
+            }
+        }     
     } else if (selectedSorter === "Titre") {
         mediaTitlesArraySorted = mediaTitlesArray.sort();
         console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
 
-        for (let i of mediaTitlesArraySorted) {
-            mediaCardsNodeList.forEach(card => {
-                if (card.getAttribute("title") === i)
-                photographerMedia.appendChild(card);
-            })
-        }
+        for (let i = 0; i < mediaTitlesArraySorted.length; i++) {
+            console.log('i', i);
+            const title = mediaTitlesArraySorted[i];
+            for (const card of mediaCardsNodeList) {
+                if (card.getAttribute("title") === title) {
+                    card.firstChild.firstChild.setAttribute("data-index", i)
+                    photographerMedia.appendChild(card);
+                }
+            }
+        } 
     } else if (selectedSorter === "Popularité") {
         mediaLikesArraySorted = mediaLikesArray.sort(valueCompare);
         console.log("mediaLikesArraySorted", mediaLikesArraySorted);
 
-        for (let i of mediaLikesArraySorted) {
-            mediaCardsNodeList.forEach(card => {
-                if (card.getAttribute("likes") === i) {
+        for (let i = 0; i < mediaLikesArraySorted.length; i++) {
+            console.log('i', i);
+            const like = mediaLikesArraySorted[i];
+            for (const card of mediaCardsNodeList) {
+                if (card.getAttribute("likes") === like) {
+                    card.firstChild.firstChild.setAttribute("data-index", i)
                     photographerMedia.appendChild(card);
                 }
-            })
-        }
+            }
+        } 
     }
 
 };

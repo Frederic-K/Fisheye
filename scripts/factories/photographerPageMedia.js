@@ -4,11 +4,7 @@
 
 function getPhotographerMediaDOM(data, i) {
     const {id, photographerId, title, image, video, likes, date, price} = data
-    const index = i
-
-    //console.log("PhotographerDOMIndex", index);
-    //console.log("PhotographerDOMData", data);
-
+    const index = i;
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
@@ -21,18 +17,18 @@ function getPhotographerMediaDOM(data, i) {
     mediaCard.setAttribute("date", Date.parse(date));
     mediaCard.setAttribute("likes", likes);
     mediaCard.setAttribute("title", title);
+    //mediaCard.setAttribute("tabindex", "0");                                                                                    
 
     // Picture - video ///////////////////////
 
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
+   //mediaCardSample.setAttribute("tabindex", "0");      
 
     function getMediaByFileTypeDOM() {
         if (image) {
             const mediaCardImg = document.createElement("img");
-            //const mediaCardImg = document.createElement("a");
-            mediaCardImg.classList.add("mediaCard__sample--img");
-            //mediaCardImg.setAttribute("id", "testImgSrc");
+            mediaCardImg.classList.add("mediaCard__sample--img", "media");
             mediaCardImg.setAttribute("src", picture);
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
@@ -40,10 +36,13 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("likes", likes);
             mediaCardImg.setAttribute("title", title);
             mediaCardImg.setAttribute("data-index", index)
+            mediaCardImg.setAttribute("filetype", "img")
+            mediaCardImg.setAttribute("datatype", "media");
+            mediaCardImg.setAttribute("tabindex", "0");
             mediaCardSample.appendChild(mediaCardImg);
         } else if (video) {
             const mediaCardVideo = document.createElement("video");
-            mediaCardVideo.classList.add("mediaCard__sample--video");
+            mediaCardVideo.classList.add("mediaCard__sample--video", "media");
             mediaCardVideo.setAttribute("src", movie);
             //mediaCardVideo.setAttribute("autoplay", "mute");
             mediaCardVideo.setAttribute("controls", "");
@@ -51,6 +50,8 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardVideo.setAttribute("likes", likes);
             mediaCardVideo.setAttribute("title", title);
             mediaCardVideo.setAttribute("data-index", index);
+            mediaCardVideo.setAttribute("filetype", "vid");
+            mediaCardVideo.setAttribute("datatype", "media");
             mediaCardSample.appendChild(mediaCardVideo);
         } else {
             console.log("le type de fichier n'est pas reconnu")
@@ -127,9 +128,17 @@ function getPhotographerMediaDOM(data, i) {
     // Lightbox launcher ///////////////////////
 
     mediaCardSample.addEventListener("click", function(e) {
-        console.log("target", e.target);
         displayLightbox(e.target);
-    } );
+    });
+
+    mediaCardSample.addEventListener("keydown", keybordSelection);
+
+    function keybordSelection(e) {
+        if (e.key === "Enter") {
+            displayLightbox(e.target);
+            console.log('e.targetTest', e.target);
+        }
+    };
 
     // Indent ///////////////////////
 

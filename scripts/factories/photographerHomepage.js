@@ -2,14 +2,15 @@
 function getPhotographerCardDOM(data) {
 
     const {name, id, city, country, tagline, price, portrait} = data;
-    //console.log("cardData", data);
     
     const picture = `../assets/photographers/${portrait}`;
 
     const photographerPageLink = `Lien vers la page du photographe ${name}`;
     const photographerProfilePicture = `Photo du profil du photographe ${name}`;
+
     // Set photographer link with photographer id /////////////////////// 
     const link = `./photographer.html?id=${id}`;
+    
     const location = `${city}, ${country}`;
     const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`;
     const photographerMessage = `Message du photographe ${name}`;
