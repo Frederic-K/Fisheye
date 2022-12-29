@@ -16,10 +16,11 @@
     const sorterDropdownBtn = document.createElement("div");
     sorterDropdownBtn.classList.add("dropdown__button");
     sorterDropdownBtn.setAttribute("role", "button");
+    sorterDropdownBtn.setAttribute("aria-haspopup", "listbox");
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sorterDropdownBtn.setAttribute("tabindex", "0");        
     sorterDropdownBtn.textContent = "Popularité";
-    sorterDropdownMenu.appendChild(sorterDropdownBtn);
+    sorterDropdownMenu.appendChild(sorterDropdownBtn);  
 
     const sorterDropdownBtnIcon = document.createElement("div");
     sorterDropdownBtnIcon.classList.add("dropdown__icon");
@@ -55,8 +56,13 @@ sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
 
 function dropdownMenu() {
     dropdownContent.classList.toggle("hidden");
-
     sorterDropdownBtnIcon.classList.toggle("arrow-animation-up");
+    let isDropdownContenHidden = dropdownContent.classList.contains("hidden");
+    if (!isDropdownContenHidden) {
+        sorterDropdownBtn.setAttribute("aria-expanded", "true");
+    } else {
+        sorterDropdownBtn.setAttribute("aria-expanded", "false");
+    };
 };
 
 dropdownSortByDate.addEventListener("click", (e) => {
@@ -65,6 +71,7 @@ dropdownSortByDate.addEventListener("click", (e) => {
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByDate.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
 });
 
@@ -74,6 +81,7 @@ dropdownSortByTitle.addEventListener("click", (e) => {
     dropdownSortByFamous.classList.remove("selected", "hidden");
     dropdownSortByTitle.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
 });
 
@@ -83,6 +91,7 @@ dropdownSortByFamous.addEventListener("click", (e) => {
     dropdownSortByTitle.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.add("selected", "hidden");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
 });
 
@@ -97,7 +106,7 @@ function sortMedias(data) {
     const photographerMedia = document.getElementsByClassName("photographer__media")[0];
     const mediaCardsNodeList = document.querySelectorAll(".mediaCard");
     const mediaCardSampleItem = document.querySelectorAll(".media");
-    console.log('mediaCardSampleItem', mediaCardSampleItem);
+    //console.log('mediaCardSampleItem', mediaCardSampleItem);
 
     // si date n'est pas parsed par Date.parse(2011-08-11) alors :
     /*const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
@@ -123,10 +132,10 @@ function sortMedias(data) {
 
     if (selectedSorter === "Date") {
         mediaDatesArraySorted = mediaDatesArray.sort(valueCompare);
-        console.log("mediaDatesArraySorted", mediaDatesArraySorted);
+        //console.log("mediaDatesArraySorted", mediaDatesArraySorted);
  
        for (let i = 0; i < mediaDatesArraySorted.length; i++) {
-            console.log('i', i);
+            //console.log('i', i);
             const date = mediaDatesArraySorted[i];
             for (const card of mediaCardsNodeList) {
                 if (card.getAttribute("date") === date) {
@@ -137,10 +146,10 @@ function sortMedias(data) {
         }     
     } else if (selectedSorter === "Titre") {
         mediaTitlesArraySorted = mediaTitlesArray.sort();
-        console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
+        //console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
 
         for (let i = 0; i < mediaTitlesArraySorted.length; i++) {
-            console.log('i', i);
+            //console.log('i', i);
             const title = mediaTitlesArraySorted[i];
             for (const card of mediaCardsNodeList) {
                 if (card.getAttribute("title") === title) {
@@ -151,10 +160,10 @@ function sortMedias(data) {
         } 
     } else if (selectedSorter === "Popularité") {
         mediaLikesArraySorted = mediaLikesArray.sort(valueCompare);
-        console.log("mediaLikesArraySorted", mediaLikesArraySorted);
+        //console.log("mediaLikesArraySorted", mediaLikesArraySorted);
 
         for (let i = 0; i < mediaLikesArraySorted.length; i++) {
-            console.log('i', i);
+            //console.log('i', i);
             const like = mediaLikesArraySorted[i];
             for (const card of mediaCardsNodeList) {
                 if (card.getAttribute("likes") === like) {

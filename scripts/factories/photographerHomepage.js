@@ -19,6 +19,7 @@ function getPhotographerCardDOM(data) {
 
     // Card ///////////////////////
     const photographerArticleCard = document.createElement("article");
+    photographerArticleCard.setAttribute("role", "article");
     photographerArticleCard.classList.add("photographer__article");
 
     // Link ///////////////////////
@@ -31,6 +32,7 @@ function getPhotographerCardDOM(data) {
     // Img link ///////////////////////
     const photographerImgLinkCard = document.createElement("div");
     photographerImgLinkCard.classList.add("photographer__article--linkImg");
+    photographerImgLinkCard.setAttribute("role", "link");
 
     // Img ///////////////////////
     const photographerImgCard = document.createElement("img");

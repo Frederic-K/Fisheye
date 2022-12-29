@@ -163,6 +163,8 @@ function closeLightbox() {
     lightboxCurrentImg.removeAttribute("src", "alt", "aria-label");
     lightboxCurrentVideo.removeAttribute("src", "alt", "aria-label");
     lightboxCurrentVideo.classList.add("hidden");
+    lightboxModal.setAttribute("aria-hidden", "true");
+    lightboxModal.setAttribute("aria-modal", "false");
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "false");
     currentIndex = ""; 

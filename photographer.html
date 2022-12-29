@@ -19,11 +19,11 @@
   </head>
   <body id="body">
     <header class="header" role="banner">
-      <a href="./index.html" class="header__logo" aria-label="Accueil">
+      <a href="./index.html" class="header__logo" role="link" aria-label="Accueil">
         <img src="assets/images/logo.png" class="header__logo--img" alt="Logo du site"/>
       </a>
     </header>
-    <main id="main" aria-hidden="false">
+    <main id="main" role="main" aria-hidden="false">
       <section class="photographer__page">
         <!--<button class="contact__button" onclick="displayModal()">Contactez-moi</button>-->
       </section>
@@ -57,21 +57,21 @@
         </header>
 				<form class="modal__form">
 					<div class="modal__form--container">
-            <label class="modal__form--label" for="firstname">Prénom</label>
-            <input class="modal__form--input" id="firstname" type="text" aria-label="Votre prénom" tabindex="0">
-            <label class="modal__form--label" for="name">Nom</label>
-            <input class="modal__form--input" id="name" type="text" aria-label="Votre nom">
-            <label class="modal__form--label" for="email">Email</label>
-            <input class="modal__form--input" type="email" id="email" aria-label="Votre email">
-            <label class="modal__form--label" type="text" for="message">Votre message</label>
-            <input class="modal__form--inputMsg" id="message" aria-label="Votre message">
+            <label class="modal__form--label" id="firstnameLabel" role="label" for="firstname">Prénom</label>
+            <input class="modal__form--input" id="firstname" type="text" aria-labelledby="firstnameLabel" tabindex="0">
+            <label class="modal__form--label" id="nameLabel" role="label" for="name">Nom</label>
+            <input class="modal__form--input" id="name" type="text" aria-labelledby="nameLabel">
+            <label class="modal__form--label" id="emailLabel" role="label" for="email">Email</label>
+            <input class="modal__form--input" type="email" id="email" aria-labelledby="emailLabel">
+            <label class="modal__form--label" id="messageLabel" role="label" type="text" for="message">Votre message</label>
+            <input class="modal__form--inputMsg" id="message" aria-labelledby="messageLabel">
 					</div>
           <button class="modal__form--sendBtn" type="submit" role="button" aria-label="Envoyer le formulaire de contact" >Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div class="lightbox__bg hidden" aria-hidden="true">
-      <div class="lightbox__modal" role="dialog" aria-label="Vue rapprochée du media">
+      <div class="lightbox__modal">
         <img class="lightbox__modal--imgESC" src="./assets/icons/closeLightboxBtn.svg" role="button" aria-role="button" aria-label="Bouton de fermeture de la vue rapprochée"/>
         <div class="lightbox__modal--container">
           <div class="lightbox__modal--PrevIconBtn" role="button" aria-role="button" aria-label="Affiche le media précédent">

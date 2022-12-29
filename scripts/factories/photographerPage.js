@@ -37,6 +37,7 @@ function getPhotographerPageDOM(data) {
     // Photographer name ///////////////////////
     const photographerName = document.createElement("h1");
     photographerName.classList.add("header__photographerPage--name");
+    photographerName.setAttribute("aria-label", name);
     photographerName.textContent = name;
 
     // Photographer location ///////////////////////
@@ -72,7 +73,7 @@ function getPhotographerPageDOM(data) {
     photographerPortrait.classList.add("header__photographerPage--imgProfile")
     photographerPortrait.setAttribute("src", picture);
     photographerPortrait.setAttribute("alt", photographerProfilePicture);
-    photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
+    //photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
 
     // Insert : total likes nd price/day ///////////////////////
 
@@ -92,6 +93,7 @@ function getPhotographerPageDOM(data) {
     photographerLikesContainer.classList.add("photographerPage__insert--LikesContainer");
 
     const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
+    photographerTotalLikes.setAttribute("aria-label", "Total des like");
     
     // Insert likes icon
 

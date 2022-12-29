@@ -8,11 +8,13 @@ function getPhotographerMediaDOM(data, i) {
     const picture = `../assets/sample/${image}`;
     const movie = `../assets/sample/${video}`;
     const mediaTitle = `Le titre du media est ${title}`;
+    const linkLightboxMediaTitle = `Lien vers la vue rapprochée de ${title}`;
 
     // Photographer media card ///////////////////////
 
     const mediaCard = document.createElement("article"); 
     mediaCard.classList.add("mediaCard");
+    mediaCard.setAttribute("role", "article");
     mediaCard.setAttribute("aria-label", mediaTitle);
     mediaCard.setAttribute("date", Date.parse(date));
     mediaCard.setAttribute("likes", likes);
@@ -23,6 +25,8 @@ function getPhotographerMediaDOM(data, i) {
 
     const mediaCardSample = document.createElement("div");
     mediaCardSample.classList.add("mediaCard__sample");
+    mediaCardSample.setAttribute("role", "link");
+    mediaCardSample.setAttribute("aria-label", linkLightboxMediaTitle);
    //mediaCardSample.setAttribute("tabindex", "0");      
 
     function getMediaByFileTypeDOM() {
@@ -32,6 +36,7 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardImg.setAttribute("src", picture);
             mediaCardImg.setAttribute("href", picture);
             mediaCardImg.setAttribute("alt", mediaTitle);
+            mediaCardImg.setAttribute("aria-label", mediaTitle);
             mediaCardImg.setAttribute("date", Date.parse(date));
             mediaCardImg.setAttribute("likes", likes);
             mediaCardImg.setAttribute("title", title);
@@ -49,6 +54,8 @@ function getPhotographerMediaDOM(data, i) {
             mediaCardVideo.setAttribute("date", Date.parse(date));
             mediaCardVideo.setAttribute("likes", likes);
             mediaCardVideo.setAttribute("title", title);
+            mediaCardVideo.setAttribute("alt", title);
+            mediaCardVideo.setAttribute("aria-label", title);
             mediaCardVideo.setAttribute("data-index", index);
             mediaCardVideo.setAttribute("filetype", "vid");
             mediaCardVideo.setAttribute("datatype", "media");
@@ -92,6 +99,7 @@ function getPhotographerMediaDOM(data, i) {
     mediaCardLikeBtn.classList.add("mediaCard__caption--likeBtnIcon");
     mediaCardLikeBtn.setAttribute("type", "button");
     mediaCardLikeBtn.setAttribute("role", "button");
+    mediaCardLikeBtn.setAttribute("aria-label", "Likes");
 
     const mediaCardLikeBtnEmptyHeart = document.createElement("i");
     mediaCardLikeBtnEmptyHeart.classList.add("fa-regular");
@@ -132,7 +140,7 @@ function getPhotographerMediaDOM(data, i) {
     });
 
     mediaCardSample.addEventListener("keydown", keybordSelection);
-
+    
     function keybordSelection(e) {
         if (e.key === "Enter") {
             displayLightbox(e.target);
