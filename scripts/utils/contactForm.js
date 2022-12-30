@@ -13,7 +13,6 @@ function displayModal() {
     modalContainer.setAttribute("aria-modal", "true");
     modalContainer.setAttribute("aria-controls", "modal");
 
-
     const contactModalBg = document.getElementsByClassName("contact__modal--bg")[0];
     contactModalBg.style.display = "block";
     modal.appendChild(contactModalBg);
@@ -40,6 +39,24 @@ function displayModal() {
         console.log(modalFormInputMsg.value);
         closeModal();
     });
+
+    modalFormSendBtn.addEventListener("click", (e) => formSubmit(e));
+    modalFormSendBtn.addEventListener("keydown", keyboardformSubmit);
+
+    function keyboardformSubmit(e) {
+        if (e.key === "Enter") {
+            formSubmit(e);
+        }
+    };
+
+    function formSubmit(e) {
+        e.preventDefault();
+        console.log(modalFormInputPrenom.value);
+        console.log(modalFormInputNom.value);
+        console.log(modalFormInputEmail.value);
+        console.log(modalFormInputMsg.value);
+        closeModal();
+    };
 
    // Trap focus ///////////////////////
 

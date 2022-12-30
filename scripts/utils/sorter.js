@@ -89,8 +89,11 @@ function keyboardSorterByDate(e) {
 function sorterByDate(e) {    
     dropdownMenu();
     dropdownSortByTitle.classList.remove("selected", "hidden");
+    dropdownSortByTitle.setAttribute("aria-selected", "false");
     dropdownSortByFamous.classList.remove("selected", "hidden");
+    dropdownSortByFamous.setAttribute("aria-selected", "false");
     dropdownSortByDate.classList.add("selected", "hidden");
+    dropdownSortByDate.setAttribute("aria-selected", "true");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
@@ -118,8 +121,11 @@ function keyboardSorterByTitle(e) {
 function sorterByTitle(e) {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
+    dropdownSortByDate.setAttribute("aria-selected", "false");
     dropdownSortByFamous.classList.remove("selected", "hidden");
+    dropdownSortByFamous.setAttribute("aria-selected", "false");
     dropdownSortByTitle.classList.add("selected", "hidden");
+    dropdownSortByTitle.setAttribute("aria-selected", "true");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
@@ -131,14 +137,17 @@ dropdownSortByFamous.addEventListener("keydown", keyboardSorterByFamous);
 function keyboardSorterByFamous(e) {
     if (e.key === "Enter") {
         sorterByFamous(e);
-}                                   
+    }                                   
 };
 
 function sorterByFamous(e) {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
+    dropdownSortByDate.setAttribute("aria-selected", "false");
     dropdownSortByTitle.classList.remove("selected", "hidden");
+    dropdownSortByTitle.setAttribute("aria-selected", "false");
     dropdownSortByFamous.classList.add("selected", "hidden");
+    dropdownSortByFamous.setAttribute("aria-selected", "true");
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);

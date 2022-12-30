@@ -7,6 +7,7 @@ let newIndex = "";
 // DOM ///////////////////////
 
 const main = document.getElementById("main");
+const mediaContainer = document.getElementsByClassName("photographer__media")[0];
 const lightboxBg = document.getElementsByClassName("lightbox__bg")[0];
 const lightboxModal = document.getElementsByClassName("lightbox__modal")[0];
 const lightboxCurrentImg = document.getElementsByClassName("lightbox__modal--cardIMG")[0];
@@ -78,7 +79,7 @@ lightboxNextMedia.addEventListener("click", (e) => {
 // Keybord ///////////////////////
 // (https://www.toptal.com/developers/keycode/table-of-all-keycodes)
 
-document.addEventListener("keydown", keybordNav);
+mediaContainer.addEventListener("keydown", keybordNav);
 
 function keybordNav(e) {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Escape") {
