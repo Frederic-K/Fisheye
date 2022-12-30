@@ -12,9 +12,7 @@ function displayModal() {
     modalContainer.setAttribute("aria-hidden", "false");
     modalContainer.setAttribute("aria-modal", "true");
     modalContainer.setAttribute("aria-controls", "modal");
-    
-    // TODE revoir le aria-describedby : 
-    //modal.setAttribute("aria-describedby", "modalHeaderTitle");
+
 
     const contactModalBg = document.getElementsByClassName("contact__modal--bg")[0];
     contactModalBg.style.display = "block";
@@ -57,12 +55,12 @@ function displayModal() {
         if (e.shiftKey) { // if shift key pressed for shift + tab combination
             if (document.activeElement === firstFocusableElement) {
                 lastFocusableElement.focus(); // add focus for the last focusable element
-                console.log("K9lastFocusableElement", lastFocusableElement);
+                //console.log("K9lastFocusableElement", lastFocusableElement);
                 e.preventDefault();
             }
         } else if (document.activeElement === lastFocusableElement) {   // if tab key is pressed // focused has reached to last focusable element then focus first focusable element after pressing tab
             firstFocusableElement.focus(); // add focus for the first focusable element
-            console.log("K9firstFocusableElement", firstFocusableElement);
+            //console.log("K9firstFocusableElement", firstFocusableElement);
             e.preventDefault();
         }           
         if (isEscPressed) {
@@ -72,7 +70,7 @@ function displayModal() {
     });
 
     firstFocusableElement.focus();
-    console.log("FinalfirstFocusableElement", firstFocusableElement); 
+    //console.log("FinalfirstFocusableElement", firstFocusableElement); 
 };
 
 // Fermeture de la modal ///////////////////////

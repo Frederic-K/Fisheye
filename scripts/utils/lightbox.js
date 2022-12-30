@@ -114,18 +114,18 @@ function moveLightboxSlide(direction) {
     //if (newIndex < 1) {currentIndex = mediaCardsNodeList4LightboxArray.length};
 
     if (newIndex < 0) {
-        console.log('newindex', newIndex);
-        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        //console.log('newindex', newIndex);
+        //console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
         lightboxPrevMedia.classList.add("hidden");
         lightboxNextMedia.classList.remove("hidden");
     } else if (newIndex > mediaCardsNodeList4LightboxArray.length - 1) {
-        console.log('newindex', newIndex);
-        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        //console.log('newindex', newIndex);
+        //console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
         lightboxNextMedia.classList.add("hidden");
         lightboxPrevMedia.classList.remove("hidden");
     } else {
-        console.log('newindex', newIndex);
-        console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
+        //console.log('newindex', newIndex);
+        //console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
         lightboxPrevMedia.classList.remove("hidden");
         lightboxNextMedia.classList.remove("hidden");
         let isFileType = (newLightboxSlide.getAttribute("filetype") === "img");

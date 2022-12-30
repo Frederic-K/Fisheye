@@ -37,14 +37,17 @@
     const dropdownSortByFamous = document.createElement("li");
     dropdownSortByFamous.textContent = "Popularité";
     dropdownSortByFamous.classList.add("hidden");
+    dropdownSortByFamous.setAttribute("tabindex", "0");
     sorterDropdownContent.appendChild(dropdownSortByFamous);
 
     const dropdownSortByDate = document.createElement("li");
     dropdownSortByDate.textContent = "Date";
+    dropdownSortByDate.setAttribute("tabindex", "0");
     sorterDropdownContent.appendChild(dropdownSortByDate);
 
     const dropdownSortByTitle = document.createElement("li");
     dropdownSortByTitle.textContent = "Titre";
+    dropdownSortByTitle.setAttribute("tabindex", "0");
     sorterDropdownContent.appendChild(dropdownSortByTitle);
     
     const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
@@ -53,6 +56,15 @@
     // DropdowMenu ///////////////////////
 
 sorterDropdownBtn.addEventListener("click", () => dropdownMenu());
+sorterDropdownBtn.addEventListener("keydown", keyboardDropdowMenu);
+
+function keyboardDropdowMenu(e) {
+    if (e.key === "Enter") {
+        dropdownMenu();
+    } else if (e.key === "Escape") {
+        dropdownContent.classList.add("hidden");
+    }
+};
 
 function dropdownMenu() {
     dropdownContent.classList.toggle("hidden");
@@ -65,7 +77,16 @@ function dropdownMenu() {
     };
 };
 
-dropdownSortByDate.addEventListener("click", (e) => {
+dropdownSortByDate.addEventListener("click", (e) => sorterByDate(e));
+dropdownSortByDate.addEventListener("keydown", keyboardSorterByDate);
+
+function keyboardSorterByDate(e) {
+    if (e.key === "Enter") {
+        sorterByDate(e);
+    }
+};
+
+function sorterByDate(e) {    
     dropdownMenu();
     dropdownSortByTitle.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.remove("selected", "hidden");
@@ -73,9 +94,28 @@ dropdownSortByDate.addEventListener("click", (e) => {
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
-});
+};
 
-dropdownSortByTitle.addEventListener("click", (e) => {
+/*dropdownSortByDate.addEventListener("click", (e) => {
+    dropdownMenu();
+    dropdownSortByTitle.classList.remove("selected", "hidden");
+    dropdownSortByFamous.classList.remove("selected", "hidden");
+    dropdownSortByDate.classList.add("selected", "hidden");
+    sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
+    sorterDropdownBtn.setAttribute("aria-expanded", "false");
+    sortMedias(e.target);
+});*/
+
+dropdownSortByTitle.addEventListener("click", (e) => sorterByTitle(e)); 
+dropdownSortByTitle.addEventListener("keydown", keyboardSorterByTitle);
+
+function keyboardSorterByTitle(e) {
+    if (e.key === "Enter") {
+        sorterByTitle(e);
+    }
+};
+
+function sorterByTitle(e) {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
     dropdownSortByFamous.classList.remove("selected", "hidden");
@@ -83,9 +123,18 @@ dropdownSortByTitle.addEventListener("click", (e) => {
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
-});
+};
 
-dropdownSortByFamous.addEventListener("click", (e) => {
+dropdownSortByFamous.addEventListener("click", (e) => sorterByFamous(e));
+dropdownSortByFamous.addEventListener("keydown", keyboardSorterByFamous);
+
+function keyboardSorterByFamous(e) {
+    if (e.key === "Enter") {
+        sorterByFamous(e);
+}                                   
+};
+
+function sorterByFamous(e) {
     dropdownMenu();
     dropdownSortByDate.classList.remove("selected", "hidden");
     dropdownSortByTitle.classList.remove("selected", "hidden");
@@ -93,7 +142,7 @@ dropdownSortByFamous.addEventListener("click", (e) => {
     sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
-});
+};
 
 // Sort Media ///////////////////////
 

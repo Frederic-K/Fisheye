@@ -139,12 +139,12 @@ function getPhotographerMediaDOM(data, i) {
         displayLightbox(e.target);
     });
 
-    mediaCardSample.addEventListener("keydown", keybordSelection);
+    mediaCardSample.addEventListener("keydown", keyboardSelection);
     
-    function keybordSelection(e) {
+    function keyboardSelection(e) {
         if (e.key === "Enter") {
             displayLightbox(e.target);
-            console.log('e.targetTest', e.target);
+            //console.log('e.targetTest', e.target);
         }
     };
 
