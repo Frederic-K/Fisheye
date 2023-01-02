@@ -94,7 +94,7 @@ function keybordNav(e) {
             closeLightbox();
         }
     } else {
-        return (console.log("Unknow keybord key"));
+        return; //(console.log("Unknow keybord key"));
     };
 };
 

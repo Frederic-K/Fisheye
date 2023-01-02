@@ -18,11 +18,9 @@ function getPhotographerPageDOM(data) {
     const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
 
     // Photographer page main ///////////////////////
-
     const photographerageMain = document.getElementById("main"); 
 
     // Photographer page ///////////////////////
-
     const photographerPage = document.createElement("section");
     photographerPage.classList.add("photgrapherPage");
 
@@ -128,6 +126,4 @@ function getPhotographerPageDOM(data) {
     //document.getElementById("contactBtn").focus();
 
     return (photographerPage);
-}; 
-
-
+};

@@ -36,18 +36,23 @@
 
     const dropdownSortByFamous = document.createElement("li");
     dropdownSortByFamous.textContent = "Popularité";
-    dropdownSortByFamous.classList.add("hidden");
+    dropdownSortByFamous.classList.add("hidden", "listboxMenu");
+    dropdownSortByFamous.setAttribute("id", "byLikes");
     dropdownSortByFamous.setAttribute("tabindex", "0");
     sorterDropdownContent.appendChild(dropdownSortByFamous);
 
     const dropdownSortByDate = document.createElement("li");
     dropdownSortByDate.textContent = "Date";
     dropdownSortByDate.setAttribute("tabindex", "0");
+    dropdownSortByDate.classList.add("listboxMenu")
+    dropdownSortByDate.setAttribute("id", "byDate");
     sorterDropdownContent.appendChild(dropdownSortByDate);
 
     const dropdownSortByTitle = document.createElement("li");
     dropdownSortByTitle.textContent = "Titre";
     dropdownSortByTitle.setAttribute("tabindex", "0");
+    dropdownSortByTitle.classList.add("listboxMenu");
+    dropdownSortByTitle.setAttribute("id", "byTitle");
     sorterDropdownContent.appendChild(dropdownSortByTitle);
     
     const dropdownContent = document.getElementsByClassName("dropdown__content")[0];
@@ -83,6 +88,8 @@ dropdownSortByDate.addEventListener("keydown", keyboardSorterByDate);
 function keyboardSorterByDate(e) {
     if (e.key === "Enter") {
         sorterByDate(e);
+    } else if (e.key === "Escape") {
+        dropdownContent.classList.add("hidden");
     }
 };
 
@@ -115,6 +122,8 @@ dropdownSortByTitle.addEventListener("keydown", keyboardSorterByTitle);
 function keyboardSorterByTitle(e) {
     if (e.key === "Enter") {
         sorterByTitle(e);
+    } else if (e.key === "Escape") {
+        dropdownContent.classList.add("hidden");
     }
 };
 
@@ -137,7 +146,9 @@ dropdownSortByFamous.addEventListener("keydown", keyboardSorterByFamous);
 function keyboardSorterByFamous(e) {
     if (e.key === "Enter") {
         sorterByFamous(e);
-    }                                   
+    } else if (e.key === "Escape") {
+        dropdownContent.classList.add("hidden");
+    }                                  
 };
 
 function sorterByFamous(e) {
@@ -152,6 +163,35 @@ function sorterByFamous(e) {
     sorterDropdownBtn.setAttribute("aria-expanded", "false");
     sortMedias(e.target);
 };
+
+/*const focusableElements = element.querySelectorAll(".listboxMenu");
+console.log('focusableElements', focusableElements);
+const firstFocusableElement = focusableElements[0];
+console.log('firstFocusableElement', firstFocusableElement);
+const lastFocusableElement = focusableElements[focusableElements.length - 1];
+console.log('lastFocusableElement', lastFocusableElement);
+    
+ document.addEventListener("keydown", function(e) {
+
+    //let isTabPressed = e.key === "Tab";
+    //let isEscPressed = e.key === "Escape";
+
+    /*if (!isTabPressed) {
+        return;
+    }*/
+
+   /* if (e.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            e.preventDefault();
+        }
+    } else if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        e.preventDefault();
+    }
+ });*/
+
+
 
 // Sort Media ///////////////////////
 
