@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch ./sass/style.scss:./css/style.css",
-    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/Frederic-K/Front-End-Fisheye/issues"
   },
-  "homepage": "https://github.com/Frederic-K/Front-End-Fisheye#readme"
+  "homepage": "https://github.com/Frederic-K/Front-End-Fisheye#readme",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
 }

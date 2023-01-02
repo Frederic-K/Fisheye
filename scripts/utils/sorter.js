@@ -106,16 +106,6 @@ function sorterByDate(e) {
     sortMedias(e.target);
 };
 
-/*dropdownSortByDate.addEventListener("click", (e) => {
-    dropdownMenu();
-    dropdownSortByTitle.classList.remove("selected", "hidden");
-    dropdownSortByFamous.classList.remove("selected", "hidden");
-    dropdownSortByDate.classList.add("selected", "hidden");
-    sorterDropdownBtn.textContent = document.getElementsByClassName("selected")[0].textContent;
-    sorterDropdownBtn.setAttribute("aria-expanded", "false");
-    sortMedias(e.target);
-});*/
-
 dropdownSortByTitle.addEventListener("click", (e) => sorterByTitle(e)); 
 dropdownSortByTitle.addEventListener("keydown", keyboardSorterByTitle);
 
