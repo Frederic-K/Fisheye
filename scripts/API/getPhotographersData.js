@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, n/handle-callback-err */
+
 // Fonction Fetch
 async function getPhotographersData () {
   const photographersData = await fetch('../data/photographers.json')

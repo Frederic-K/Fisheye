@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-unused-vars, eqeqeq */
 
 // Grab photographer's id from url ///////////////////////
 // https://developer.mozilla.org/fr/docs/Web/API/URL/searchParams

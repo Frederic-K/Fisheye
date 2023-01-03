@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars, eqeqeq, no-undef */
 
 // Media ///////////////////////
 
 function getPhotographerMediaDOM (data, i) {
-  const { id, photographerId, title, image, video, likes, date, price } = data
+  const { title, image, video, likes, date } = data
   const index = i
   const picture = `../assets/sample/${image}`
   const movie = `../assets/sample/${video}`

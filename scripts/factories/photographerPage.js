@@ -2,7 +2,7 @@
 // Header
 
 function getPhotographerPageDOM (data) {
-  const { name, id, city, country, tagline, price, portrait } = data
+  const { name, city, country, tagline, price, portrait } = data
   // console.log("photographerPageData", data);
   // console.log("name", name);
 

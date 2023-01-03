@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 
 function getPhotographerCardDOM (data) {
   const { name, id, city, country, tagline, price, portrait } = data
