@@ -1,164 +1,163 @@
 
-
 // Media ///////////////////////
 
-function getPhotographerMediaDOM(data, i) {
-    const {id, photographerId, title, image, video, likes, date, price} = data
-    const index = i;
-    const picture = `../assets/sample/${image}`;
-    const movie = `../assets/sample/${video}`;
-    const mediaTitle = `Le titre du media est ${title}`;
-    const linkLightboxMediaTitle = `Lien vers la vue rapprochée de ${title}`;
+function getPhotographerMediaDOM (data, i) {
+  const { id, photographerId, title, image, video, likes, date, price } = data
+  const index = i
+  const picture = `../assets/sample/${image}`
+  const movie = `../assets/sample/${video}`
+  const mediaTitle = `Le titre du media est ${title}`
+  const linkLightboxMediaTitle = `Lien vers la vue rapprochée de ${title}`
 
-    // Photographer media card ///////////////////////
+  // Photographer media card ///////////////////////
 
-    const mediaCard = document.createElement("article"); 
-    mediaCard.classList.add("mediaCard");
-    mediaCard.setAttribute("role", "article");
-    mediaCard.setAttribute("aria-label", mediaTitle);
-    mediaCard.setAttribute("date", Date.parse(date));
-    mediaCard.setAttribute("likes", likes);
-    mediaCard.setAttribute("title", title);
-    //mediaCard.setAttribute("tabindex", "0");                                                                                    
+  const mediaCard = document.createElement('article')
+  mediaCard.classList.add('mediaCard')
+  mediaCard.setAttribute('role', 'article')
+  mediaCard.setAttribute('aria-label', mediaTitle)
+  mediaCard.setAttribute('date', Date.parse(date))
+  mediaCard.setAttribute('likes', likes)
+  mediaCard.setAttribute('title', title)
+  // mediaCard.setAttribute("tabindex", "0");
 
-    // Picture - video ///////////////////////
+  // Picture - video ///////////////////////
 
-    const mediaCardSample = document.createElement("div");
-    mediaCardSample.classList.add("mediaCard__sample");
-    mediaCardSample.setAttribute("role", "link");
-    mediaCardSample.setAttribute("aria-label", linkLightboxMediaTitle);
-   //mediaCardSample.setAttribute("tabindex", "0");      
+  const mediaCardSample = document.createElement('div')
+  mediaCardSample.classList.add('mediaCard__sample')
+  mediaCardSample.setAttribute('role', 'link')
+  mediaCardSample.setAttribute('aria-label', linkLightboxMediaTitle)
+  // mediaCardSample.setAttribute("tabindex", "0");
 
-    function getMediaByFileTypeDOM() {
-        if (image) {
-            const mediaCardImg = document.createElement("img");
-            mediaCardImg.classList.add("mediaCard__sample--img", "media");
-            mediaCardImg.setAttribute("src", picture);
-            mediaCardImg.setAttribute("href", picture);
-            mediaCardImg.setAttribute("alt", mediaTitle);
-            mediaCardImg.setAttribute("aria-label", mediaTitle);
-            mediaCardImg.setAttribute("date", Date.parse(date));
-            mediaCardImg.setAttribute("likes", likes);
-            mediaCardImg.setAttribute("title", title);
-            mediaCardImg.setAttribute("data-index", index)
-            mediaCardImg.setAttribute("filetype", "img")
-            mediaCardImg.setAttribute("datatype", "media");
-            mediaCardImg.setAttribute("tabindex", "0");
-            mediaCardSample.appendChild(mediaCardImg);
-        } else if (video) {
-            const mediaCardVideo = document.createElement("video");
-            mediaCardVideo.classList.add("mediaCard__sample--video", "media");
-            mediaCardVideo.setAttribute("src", movie);
-            //mediaCardVideo.setAttribute("autoplay", "mute");
-            mediaCardVideo.setAttribute("controls", "");
-            mediaCardVideo.setAttribute("date", Date.parse(date));
-            mediaCardVideo.setAttribute("likes", likes);
-            mediaCardVideo.setAttribute("title", title);
-            mediaCardVideo.setAttribute("alt", title);
-            mediaCardVideo.setAttribute("aria-label", title);
-            mediaCardVideo.setAttribute("data-index", index);
-            mediaCardVideo.setAttribute("filetype", "vid");
-            mediaCardVideo.setAttribute("datatype", "media");
-            mediaCardSample.appendChild(mediaCardVideo);
-        } else {
-            console.log("le type de fichier n'est pas reconnu")
-        }
-    };
-    getMediaByFileTypeDOM();
+  function getMediaByFileTypeDOM () {
+    if (image) {
+      const mediaCardImg = document.createElement('img')
+      mediaCardImg.classList.add('mediaCard__sample--img', 'media')
+      mediaCardImg.setAttribute('src', picture)
+      mediaCardImg.setAttribute('href', picture)
+      mediaCardImg.setAttribute('alt', mediaTitle)
+      mediaCardImg.setAttribute('aria-label', mediaTitle)
+      mediaCardImg.setAttribute('date', Date.parse(date))
+      mediaCardImg.setAttribute('likes', likes)
+      mediaCardImg.setAttribute('title', title)
+      mediaCardImg.setAttribute('data-index', index)
+      mediaCardImg.setAttribute('filetype', 'img')
+      mediaCardImg.setAttribute('datatype', 'media')
+      mediaCardImg.setAttribute('tabindex', '0')
+      mediaCardSample.appendChild(mediaCardImg)
+    } else if (video) {
+      const mediaCardVideo = document.createElement('video')
+      mediaCardVideo.classList.add('mediaCard__sample--video', 'media')
+      mediaCardVideo.setAttribute('src', movie)
+      // mediaCardVideo.setAttribute("autoplay", "mute");
+      mediaCardVideo.setAttribute('controls', '')
+      mediaCardVideo.setAttribute('date', Date.parse(date))
+      mediaCardVideo.setAttribute('likes', likes)
+      mediaCardVideo.setAttribute('title', title)
+      mediaCardVideo.setAttribute('alt', title)
+      mediaCardVideo.setAttribute('aria-label', title)
+      mediaCardVideo.setAttribute('data-index', index)
+      mediaCardVideo.setAttribute('filetype', 'vid')
+      mediaCardVideo.setAttribute('datatype', 'media')
+      mediaCardSample.appendChild(mediaCardVideo)
+    } else {
+      console.log("le type de fichier n'est pas reconnu")
+    }
+  };
+  getMediaByFileTypeDOM()
 
-    // Caption ///////////////////////
+  // Caption ///////////////////////
 
-    const mediaCardCaption = document.createElement("div");
-    mediaCardCaption.classList.add("mediaCard__caption");
+  const mediaCardCaption = document.createElement('div')
+  mediaCardCaption.classList.add('mediaCard__caption')
 
-    // Caption title ///////////////////////
+  // Caption title ///////////////////////
 
-    const mediaCardTitle = document.createElement("h3");
-    mediaCardTitle.classList.add("mediaCard__caption--title");
-    mediaCardTitle.setAttribute("aria-label", mediaTitle);
-    mediaCardTitle.textContent = title;
+  const mediaCardTitle = document.createElement('h3')
+  mediaCardTitle.classList.add('mediaCard__caption--title')
+  mediaCardTitle.setAttribute('aria-label', mediaTitle)
+  mediaCardTitle.textContent = title
 
-    // Caption like container ///////////////////////
+  // Caption like container ///////////////////////
 
-    const mediaCardLikesContainer = document.createElement("div");
-    mediaCardLikesContainer.classList.add("mediaCard__caption--likeContainer");
+  const mediaCardLikesContainer = document.createElement('div')
+  mediaCardLikesContainer.classList.add('mediaCard__caption--likeContainer')
 
-    // Caption like ///////////////////////
+  // Caption like ///////////////////////
 
-    const mediaCardLikes = document.createElement("p");
-    mediaCardLikes.classList.add("mediaCard__caption--likes");
-    mediaCardLikes.setAttribute("aria-label", `Likes`);
-    mediaCardLikes.textContent = likes;
+  const mediaCardLikes = document.createElement('p')
+  mediaCardLikes.classList.add('mediaCard__caption--likes')
+  mediaCardLikes.setAttribute('aria-label', 'Likes')
+  mediaCardLikes.textContent = likes
 
-    // Caption like heart button ///////////////////////
+  // Caption like heart button ///////////////////////
 
-    const mediaCardLikeBtnContainer = document.createElement("div");
-    mediaCardLikeBtnContainer.classList.add("mediaCard__caption--likeBtnContainer");
+  const mediaCardLikeBtnContainer = document.createElement('div')
+  mediaCardLikeBtnContainer.classList.add('mediaCard__caption--likeBtnContainer')
 
-    const mediaCardLikeBtn = document.createElement("button");
-    mediaCardLikeBtn.classList.add("mediaCard__caption--likeBtnIcon");
-    mediaCardLikeBtn.setAttribute("type", "button");
-    mediaCardLikeBtn.setAttribute("role", "button");
-    mediaCardLikeBtn.setAttribute("aria-label", "Likes");
+  const mediaCardLikeBtn = document.createElement('button')
+  mediaCardLikeBtn.classList.add('mediaCard__caption--likeBtnIcon')
+  mediaCardLikeBtn.setAttribute('type', 'button')
+  mediaCardLikeBtn.setAttribute('role', 'button')
+  mediaCardLikeBtn.setAttribute('aria-label', 'Likes')
 
-    const mediaCardLikeBtnEmptyHeart = document.createElement("i");
-    mediaCardLikeBtnEmptyHeart.classList.add("fa-regular");
-    mediaCardLikeBtnEmptyHeart.classList.add("fa-heart");
-    mediaCardLikeBtnEmptyHeart.classList.add("empty-heart");
+  const mediaCardLikeBtnEmptyHeart = document.createElement('i')
+  mediaCardLikeBtnEmptyHeart.classList.add('fa-regular')
+  mediaCardLikeBtnEmptyHeart.classList.add('fa-heart')
+  mediaCardLikeBtnEmptyHeart.classList.add('empty-heart')
 
-    const mediaCardLikeBtnFullHeart = document.createElement("i");
-    mediaCardLikeBtnFullHeart.classList.add("fa-sharp", "fa-solid", "fa-heart", "full-heart", "invisible");
- 
-    // Get likes from medias ///////////////////////
+  const mediaCardLikeBtnFullHeart = document.createElement('i')
+  mediaCardLikeBtnFullHeart.classList.add('fa-sharp', 'fa-solid', 'fa-heart', 'full-heart', 'invisible')
 
-    const photographerLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
-    const photographerTotalNumbLikes = parseInt(photographerLikes.textContent);
-    let photographerSumLikes = photographerTotalNumbLikes + likes;
-    photographerLikes.textContent = photographerSumLikes;
+  // Get likes from medias ///////////////////////
 
-    // Media likes ///////////////////////
+  const photographerLikes = document.getElementsByClassName('photographerPage__insert--SumLikes')[0]
+  const photographerTotalNumbLikes = parseInt(photographerLikes.textContent)
+  const photographerSumLikes = photographerTotalNumbLikes + likes
+  photographerLikes.textContent = photographerSumLikes
 
-    mediaCardLikeBtn.addEventListener("click", function(e) {
-        const photographerTotalLikes = document.getElementsByClassName("photographerPage__insert--SumLikes")[0];
-        if (likes == mediaCardLikes.textContent) {
-            mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) + 1;
-            photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) + 1;
-            mediaCardLikeBtnEmptyHeart.classList.add("invisible");
-            mediaCardLikeBtnFullHeart.classList.remove("invisible");
-        } else {
-            mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) - 1;
-            photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) - 1;
-            mediaCardLikeBtnEmptyHeart.classList.remove("invisible");
-            mediaCardLikeBtnFullHeart.classList.add("invisible");
-        }
-    });
+  // Media likes ///////////////////////
 
-    // Lightbox launcher ///////////////////////
+  mediaCardLikeBtn.addEventListener('click', function (e) {
+    const photographerTotalLikes = document.getElementsByClassName('photographerPage__insert--SumLikes')[0]
+    if (likes == mediaCardLikes.textContent) {
+      mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) + 1
+      photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) + 1
+      mediaCardLikeBtnEmptyHeart.classList.add('invisible')
+      mediaCardLikeBtnFullHeart.classList.remove('invisible')
+    } else {
+      mediaCardLikes.textContent = parseInt(mediaCardLikes.textContent) - 1
+      photographerTotalLikes.textContent = parseInt(photographerTotalLikes.textContent) - 1
+      mediaCardLikeBtnEmptyHeart.classList.remove('invisible')
+      mediaCardLikeBtnFullHeart.classList.add('invisible')
+    }
+  })
 
-    mediaCardSample.addEventListener("click", function(e) {
-        displayLightbox(e.target);
-    });
+  // Lightbox launcher ///////////////////////
 
-    mediaCardSample.addEventListener("keydown", keyboardSelection);
-    
-    function keyboardSelection(e) {
-        if (e.key === "Enter") {
-            displayLightbox(e.target);
-            //console.log('e.targetTest', e.target);
-        }
-    };
+  mediaCardSample.addEventListener('click', function (e) {
+    displayLightbox(e.target)
+  })
 
-    // Indent ///////////////////////
+  mediaCardSample.addEventListener('keydown', keyboardSelection)
 
-    mediaCard.appendChild(mediaCardSample);
-    mediaCard.appendChild(mediaCardCaption);
-    mediaCardCaption.appendChild(mediaCardTitle);
-    mediaCardCaption.appendChild(mediaCardLikesContainer);
-    mediaCardLikesContainer.appendChild(mediaCardLikes);    
-    mediaCardLikesContainer.appendChild(mediaCardLikeBtnContainer);
-    mediaCardLikeBtnContainer.appendChild(mediaCardLikeBtn);
-    mediaCardLikeBtn.appendChild(mediaCardLikeBtnEmptyHeart);
-    mediaCardLikeBtn.appendChild(mediaCardLikeBtnFullHeart);
+  function keyboardSelection (e) {
+    if (e.key === 'Enter') {
+      displayLightbox(e.target)
+      // console.log('e.targetTest', e.target);
+    }
+  };
 
-    return (mediaCard);
+  // Indent ///////////////////////
+
+  mediaCard.appendChild(mediaCardSample)
+  mediaCard.appendChild(mediaCardCaption)
+  mediaCardCaption.appendChild(mediaCardTitle)
+  mediaCardCaption.appendChild(mediaCardLikesContainer)
+  mediaCardLikesContainer.appendChild(mediaCardLikes)
+  mediaCardLikesContainer.appendChild(mediaCardLikeBtnContainer)
+  mediaCardLikeBtnContainer.appendChild(mediaCardLikeBtn)
+  mediaCardLikeBtn.appendChild(mediaCardLikeBtnEmptyHeart)
+  mediaCardLikeBtn.appendChild(mediaCardLikeBtnFullHeart)
+
+  return (mediaCard)
 };

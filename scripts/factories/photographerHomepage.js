@@ -1,82 +1,81 @@
 
-function getPhotographerCardDOM(data) {
+function getPhotographerCardDOM (data) {
+  const { name, id, city, country, tagline, price, portrait } = data
 
-    const {name, id, city, country, tagline, price, portrait} = data;
-    
-    const picture = `../assets/photographers/${portrait}`;
+  const picture = `../assets/photographers/${portrait}`
 
-    const photographerPageLink = `Lien vers la page du photographe ${name}`;
-    const photographerProfilePicture = `Photo du profil du photographe ${name}`;
+  const photographerPageLink = `Lien vers la page du photographe ${name}`
+  const photographerProfilePicture = `Photo du profil du photographe ${name}`
 
-    // Set photographer link with photographer id /////////////////////// 
-    const link = `./photographer.html?id=${id}`;
-    
-    const location = `${city}, ${country}`;
-    const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`;
-    const photographerMessage = `Message du photographe ${name}`;
-    const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`;
-    const pricePerDay = `${price} €/jour`;
+  // Set photographer link with photographer id ///////////////////////
+  const link = `./photographer.html?id=${id}`
 
-    // Card ///////////////////////
-    const photographerArticleCard = document.createElement("article");
-    photographerArticleCard.setAttribute("role", "article");
-    photographerArticleCard.classList.add("photographer__article");
+  const location = `${city}, ${country}`
+  const photographerHome = `Lieu de résidence du photographe ${city}, ${country}`
+  const photographerMessage = `Message du photographe ${name}`
+  const photographerPricePerDay = `Tarif journalier en euro du photographe ${name}`
+  const pricePerDay = `${price} €/jour`
 
-    // Link ///////////////////////
-    const photographerLink = document.createElement("a");
-    photographerLink.classList.add("photographer__article--link");
-    photographerLink.setAttribute("href", link);
-    photographerLink.setAttribute("role", "link");
-    photographerLink.setAttribute("aria-label", photographerPageLink);
+  // Card ///////////////////////
+  const photographerArticleCard = document.createElement('article')
+  photographerArticleCard.setAttribute('role', 'article')
+  photographerArticleCard.classList.add('photographer__article')
 
-    // Img link ///////////////////////
-    const photographerImgLinkCard = document.createElement("div");
-    photographerImgLinkCard.classList.add("photographer__article--linkImg");
-    photographerImgLinkCard.setAttribute("role", "link");
+  // Link ///////////////////////
+  const photographerLink = document.createElement('a')
+  photographerLink.classList.add('photographer__article--link')
+  photographerLink.setAttribute('href', link)
+  photographerLink.setAttribute('role', 'link')
+  photographerLink.setAttribute('aria-label', photographerPageLink)
 
-    // Img ///////////////////////
-    const photographerImgCard = document.createElement("img");
-    photographerImgCard.classList.add("photographer__article--img");
-    photographerImgCard.setAttribute("src", picture);
-    photographerImgCard.setAttribute("alt", photographerProfilePicture);
-    photographerImgCard.setAttribute("aria-label", photographerProfilePicture);
+  // Img link ///////////////////////
+  const photographerImgLinkCard = document.createElement('div')
+  photographerImgLinkCard.classList.add('photographer__article--linkImg')
+  photographerImgLinkCard.setAttribute('role', 'link')
 
-    // Name ///////////////////////
-    const photographerNameCard = document.createElement("h2");
-    photographerNameCard.classList.add("photographer__article--linkTitle");
-    photographerNameCard.textContent = name;
-    
-    // Caption ///////////////////////
-    const photographerArticleCaption = document.createElement("div");
-    photographerArticleCaption.classList.add("photographer__article--caption");
+  // Img ///////////////////////
+  const photographerImgCard = document.createElement('img')
+  photographerImgCard.classList.add('photographer__article--img')
+  photographerImgCard.setAttribute('src', picture)
+  photographerImgCard.setAttribute('alt', photographerProfilePicture)
+  photographerImgCard.setAttribute('aria-label', photographerProfilePicture)
 
-    // Location ///////////////////////
-    const photographerlocation = document.createElement("p");
-    photographerlocation.classList.add("photographer__article--captionLocation");
-    photographerlocation.textContent = location;
-    photographerlocation.setAttribute("aria-label", photographerHome);
+  // Name ///////////////////////
+  const photographerNameCard = document.createElement('h2')
+  photographerNameCard.classList.add('photographer__article--linkTitle')
+  photographerNameCard.textContent = name
 
-    // Tagline ///////////////////////
-    const photographTagLine = document.createElement("p");
-    photographTagLine.classList.add("photographer__article--captionTagLine");
-    photographTagLine.setAttribute("aria-label", photographerMessage);
-    photographTagLine.textContent = tagline;
+  // Caption ///////////////////////
+  const photographerArticleCaption = document.createElement('div')
+  photographerArticleCaption.classList.add('photographer__article--caption')
 
-    // Price per day ///////////////////////
-    const photographerPrice = document.createElement("p");
-    photographerPrice.classList.add("photographer__article--captionPrice");
-    photographerPrice.setAttribute("aria-label", photographerPricePerDay);
-    photographerPrice.textContent = pricePerDay;
+  // Location ///////////////////////
+  const photographerlocation = document.createElement('p')
+  photographerlocation.classList.add('photographer__article--captionLocation')
+  photographerlocation.textContent = location
+  photographerlocation.setAttribute('aria-label', photographerHome)
 
-    // Indent ///////////////////////
-    photographerArticleCard.appendChild(photographerLink);
-    photographerLink.appendChild(photographerImgLinkCard)
-    photographerImgLinkCard.appendChild(photographerImgCard);
-    photographerLink.appendChild(photographerNameCard);
-    photographerArticleCard.appendChild(photographerArticleCaption)
-    photographerArticleCaption.appendChild(photographerlocation);
-    photographerArticleCaption.appendChild(photographTagLine);
-    photographerArticleCaption.appendChild(photographerPrice);
+  // Tagline ///////////////////////
+  const photographTagLine = document.createElement('p')
+  photographTagLine.classList.add('photographer__article--captionTagLine')
+  photographTagLine.setAttribute('aria-label', photographerMessage)
+  photographTagLine.textContent = tagline
 
-    return (photographerArticleCard);
+  // Price per day ///////////////////////
+  const photographerPrice = document.createElement('p')
+  photographerPrice.classList.add('photographer__article--captionPrice')
+  photographerPrice.setAttribute('aria-label', photographerPricePerDay)
+  photographerPrice.textContent = pricePerDay
+
+  // Indent ///////////////////////
+  photographerArticleCard.appendChild(photographerLink)
+  photographerLink.appendChild(photographerImgLinkCard)
+  photographerImgLinkCard.appendChild(photographerImgCard)
+  photographerLink.appendChild(photographerNameCard)
+  photographerArticleCard.appendChild(photographerArticleCaption)
+  photographerArticleCaption.appendChild(photographerlocation)
+  photographerArticleCaption.appendChild(photographTagLine)
+  photographerArticleCaption.appendChild(photographerPrice)
+
+  return (photographerArticleCard)
 };
