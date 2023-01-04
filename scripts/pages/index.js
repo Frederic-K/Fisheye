@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 
-
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer__section')
 

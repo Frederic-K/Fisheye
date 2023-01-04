@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 // Header
 
@@ -67,7 +68,7 @@ function getPhotographerPageDOM (data) {
   photographerPortrait.classList.add('header__photographerPage--imgProfile')
   photographerPortrait.setAttribute('src', picture)
   photographerPortrait.setAttribute('alt', photographerProfilePicture)
-  photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
+  photographerPortrait.setAttribute('aria-label', photographerProfilePicture)
 
   // Insert : total likes nd price/day ///////////////////////
 

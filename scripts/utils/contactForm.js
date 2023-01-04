@@ -72,7 +72,7 @@ function displayModal () {
 
         e.preventDefault()
       }
-    } else if (document.activeElement === lastFocusableElement) { 
+    } else if (document.activeElement === lastFocusableElement) {
       firstFocusableElement.focus()
       e.preventDefault()
     }
@@ -81,7 +81,7 @@ function displayModal () {
       closeModal()
     }
   })
-  
+
   firstFocusableElement.focus()
 };
 

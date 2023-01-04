@@ -169,9 +169,8 @@ function sortMedias (data) {
   // Si la parse est nécessaire
   // const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 est la base
 
-
   const mediaDatesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('date'))
-  const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('title'))  
+  const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('title'))
   const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('likes'))
 
   const selectedSorter = data.textContent

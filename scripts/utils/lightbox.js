@@ -18,7 +18,6 @@ const lightboxEscBtn = document.getElementsByClassName('lightbox__modal--imgESC'
 const lightboxPrevMedia = document.getElementsByClassName('lightbox__modal--PrevIconBtn')[0]
 const lightboxNextMedia = document.getElementsByClassName('lightbox__modal--NextIconBtn')[0]
 
-
 function displayLightbox (data) {
   const lightboxMediaSource = data.getAttribute('src')
   const lightboxSlideTitle = data.title
@@ -35,7 +34,7 @@ function displayLightbox (data) {
     lightboxNextMedia.classList.remove('hidden')
   }
 
-    // Display file type ///////////////////////
+  // Display file type ///////////////////////
   const isFileType = (data.getAttribute('filetype') === 'img')
   if (isFileType) {
     lightboxCurrentVideo.classList.add('hidden')
@@ -109,33 +108,33 @@ function moveLightboxSlide (direction) {
   const newLightboxSlide = mediaCardsNodeList4LightboxArray[currentIndex]
 
   const isFileType = (newLightboxSlide.getAttribute('filetype') === 'img')
-    if (isFileType) {
-      lightboxCurrentImg.classList.remove('hidden')
-      lightboxCurrentVideo.classList.add('hidden')
-      lightboxCurrentCaption.textContent = newLightboxSlide.title
-      lightboxCurrentImg.setAttribute('src', newLightboxSlide.src)
-      lightboxCurrentImg.setAttribute('alt', newLightboxSlide.title)
-      lightboxCurrentImg.setAttribute('aria-label', newLightboxSlide.title)
-    } else if (!isFileType) {
-      lightboxCurrentVideo.classList.remove('hidden')
-      lightboxCurrentImg.classList.add('hidden')
-      lightboxCurrentVideo.setAttribute('src', newLightboxSlide.src)
-      lightboxCurrentCaption.textContent = newLightboxSlide.title
-      lightboxCurrentVideo.setAttribute('alt', newLightboxSlide.title)
-      lightboxCurrentVideo.setAttribute('aria-label', newLightboxSlide.title)
-      lightboxCurrentVideo.setAttribute('controls', '')
-    } else {
-      console.log('Error media file type')
-    }
+  if (isFileType) {
+    lightboxCurrentImg.classList.remove('hidden')
+    lightboxCurrentVideo.classList.add('hidden')
+    lightboxCurrentCaption.textContent = newLightboxSlide.title
+    lightboxCurrentImg.setAttribute('src', newLightboxSlide.src)
+    lightboxCurrentImg.setAttribute('alt', newLightboxSlide.title)
+    lightboxCurrentImg.setAttribute('aria-label', newLightboxSlide.title)
+  } else if (!isFileType) {
+    lightboxCurrentVideo.classList.remove('hidden')
+    lightboxCurrentImg.classList.add('hidden')
+    lightboxCurrentVideo.setAttribute('src', newLightboxSlide.src)
+    lightboxCurrentCaption.textContent = newLightboxSlide.title
+    lightboxCurrentVideo.setAttribute('alt', newLightboxSlide.title)
+    lightboxCurrentVideo.setAttribute('aria-label', newLightboxSlide.title)
+    lightboxCurrentVideo.setAttribute('controls', '')
+  } else {
+    console.log('Error media file type')
+  }
 
-    if (newIndex === 0) {
-      lightboxPrevMedia.classList.add('hidden')
-    } else if (newIndex === mediaCardsNodeList4LightboxArray.length - 1) {
-      lightboxNextMedia.classList.add('hidden')
-    } else {
-      lightboxPrevMedia.classList.remove('hidden')
-      lightboxNextMedia.classList.remove('hidden')
-    }
+  if (newIndex === 0) {
+    lightboxPrevMedia.classList.add('hidden')
+  } else if (newIndex === mediaCardsNodeList4LightboxArray.length - 1) {
+    lightboxNextMedia.classList.add('hidden')
+  } else {
+    lightboxPrevMedia.classList.remove('hidden')
+    lightboxNextMedia.classList.remove('hidden')
+  }
 };
 
 // Close  lightbox ///////////////////////
@@ -146,8 +145,8 @@ lightboxEscBtn.addEventListener('click', () => {
 
 function closeLightbox () {
   lightboxBg.classList.add('hidden')
-  //lightboxCurrentImg.removeAttribute('src', 'alt', 'aria-label')
-  //lightboxCurrentVideo.removeAttribute('src', 'alt', 'aria-label')
+  // lightboxCurrentImg.removeAttribute('src', 'alt', 'aria-label')
+  // lightboxCurrentVideo.removeAttribute('src', 'alt', 'aria-label')
   lightboxCurrentVideo.classList.add('hidden')
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-modal', 'false')
