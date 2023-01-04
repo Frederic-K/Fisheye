@@ -11,7 +11,6 @@ async function getPhotographerId () {
 };
 
 // Photographer (header) ///////////////////////
-
 async function getSelectedPhotographer () {
   const { photographers } = await getPhotographersData()
 
@@ -34,7 +33,6 @@ async function displayPhotographerData () {
 displayPhotographerData()
 
 // Media ///////////////////////
-
 function valueCompare (a, b) {
   return b - a
 };

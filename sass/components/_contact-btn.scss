@@ -1,6 +1,9 @@
 .header__photographerPage--contactBtn {
 @include contact-btn;
 &:focus {
-    @include focus-black;
+    @include focus-btn;
+}
+&:hover {
+    @include focus-btn;
 }
 };

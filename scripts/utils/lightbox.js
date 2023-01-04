@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 
 // Var ///////////////////////
-
 let currentIndex = ''
 let newIndex = ''
 
 // DOM ///////////////////////
-
 const main = document.getElementById('main')
 const mediaContainer = document.getElementsByClassName('photographer__media')[0]
 const lightboxBg = document.getElementsByClassName('lightbox__bg')[0]
@@ -79,7 +77,6 @@ lightboxNextMedia.addEventListener('click', (e) => {
 
 // Keybord ///////////////////////
 // (https://www.toptal.com/developers/keycode/table-of-all-keycodes)
-
 mediaContainer.addEventListener('keydown', keybordNav)
 
 function keybordNav (e) {
@@ -93,12 +90,11 @@ function keybordNav (e) {
       closeLightbox()
     }
   } else {
-    return // (console.log("Unknow keybord key"));
-  };
+    // (console.log("Unknow keybord key"));
+  }
 };
 
 // Move slide function ///////////////////////
-
 function moveLightboxSlide (direction) {
   newIndex = currentIndex + direction
   currentIndex = newIndex
@@ -127,6 +123,7 @@ function moveLightboxSlide (direction) {
     console.log('Error media file type')
   }
 
+  // Hide arrow start/end ///////////////////////
   if (newIndex === 0) {
     lightboxPrevMedia.classList.add('hidden')
   } else if (newIndex === mediaCardsNodeList4LightboxArray.length - 1) {
@@ -138,7 +135,6 @@ function moveLightboxSlide (direction) {
 };
 
 // Close  lightbox ///////////////////////
-
 lightboxEscBtn.addEventListener('click', () => {
   closeLightbox()
 })

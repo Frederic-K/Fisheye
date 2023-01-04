@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 
+// Ouverture de la modal ///////////////////////
 function displayModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
@@ -31,6 +32,7 @@ function displayModal () {
   const modalFormInputMsg = document.getElementById('message')
   const modalFormSendBtn = document.getElementsByClassName('modal__form--sendBtn')[0]
 
+  // Log on submit ///////////////////////
   modalFormSendBtn.addEventListener('click', function (e) {
     e.preventDefault()
     console.log(modalFormInputPrenom.value)
@@ -40,6 +42,7 @@ function displayModal () {
     closeModal()
   })
 
+  // Submit ///////////////////////
   modalFormSendBtn.addEventListener('click', (e) => formSubmit(e))
   modalFormSendBtn.addEventListener('keydown', keyboardformSubmit)
 
@@ -59,7 +62,6 @@ function displayModal () {
   };
 
   // Trap focus ///////////////////////
-
   const firstFocusableElement = document.getElementById('firstname')
   const lastFocusableElement = document.getElementsByClassName('modal__form--sendBtn')[0]
 
@@ -86,7 +88,6 @@ function displayModal () {
 };
 
 // Fermeture de la modal ///////////////////////
-
 function closeModal () {
   const main = document.getElementById('main')
   const modal = document.getElementById('contact_modal')

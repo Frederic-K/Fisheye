@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars, no-undef */
 
 // Dropdown DOM ///////////////////////
-
 const sorterDropdown = document.getElementsByClassName('dropdown')[0]
 
 const sorterDropdowTitle = document.createElement('div')
@@ -59,7 +58,6 @@ sorterDropdownContent.appendChild(dropdownSortByTitle)
 const dropdownContent = document.getElementsByClassName('dropdown__content')[0]
 
 // DropdowMenu ///////////////////////
-
 sorterDropdownBtn.addEventListener('click', () => dropdownMenu())
 sorterDropdownBtn.addEventListener('keydown', keyboardDropdowMenu)
 
@@ -155,7 +153,6 @@ function sorterByFamous (e) {
 };
 
 // Sort Media ///////////////////////
-
 function valueCompare (a, b) {
   return b - a
 };
