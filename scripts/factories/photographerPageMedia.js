@@ -19,15 +19,14 @@ function getPhotographerMediaDOM (data, i) {
   mediaCard.setAttribute('date', Date.parse(date))
   mediaCard.setAttribute('likes', likes)
   mediaCard.setAttribute('title', title)
-  // mediaCard.setAttribute("tabindex", "0");
 
   // Picture - video ///////////////////////
 
   const mediaCardSample = document.createElement('div')
   mediaCardSample.classList.add('mediaCard__sample')
   mediaCardSample.setAttribute('role', 'link')
+  mediaCardSample.setAttribute('tabindex', '0')
   mediaCardSample.setAttribute('aria-label', linkLightboxMediaTitle)
-  // mediaCardSample.setAttribute("tabindex", "0");
 
   function getMediaByFileTypeDOM () {
     if (image) {
@@ -43,13 +42,11 @@ function getPhotographerMediaDOM (data, i) {
       mediaCardImg.setAttribute('data-index', index)
       mediaCardImg.setAttribute('filetype', 'img')
       mediaCardImg.setAttribute('datatype', 'media')
-      mediaCardImg.setAttribute('tabindex', '0')
       mediaCardSample.appendChild(mediaCardImg)
     } else if (video) {
       const mediaCardVideo = document.createElement('video')
       mediaCardVideo.classList.add('mediaCard__sample--video', 'media')
       mediaCardVideo.setAttribute('src', movie)
-      // mediaCardVideo.setAttribute("autoplay", "mute");
       mediaCardVideo.setAttribute('controls', '')
       mediaCardVideo.setAttribute('date', Date.parse(date))
       mediaCardVideo.setAttribute('likes', likes)
@@ -144,7 +141,6 @@ function getPhotographerMediaDOM (data, i) {
   function keyboardSelection (e) {
     if (e.key === 'Enter') {
       displayLightbox(e.target)
-      // console.log('e.targetTest', e.target);
     }
   };
 

@@ -3,8 +3,6 @@
 
 function getPhotographerPageDOM (data) {
   const { name, city, country, tagline, price, portrait } = data
-  // console.log("photographerPageData", data);
-  // console.log("name", name);
 
   const picture = `../assets/photographers/${portrait}`
 
@@ -70,7 +68,7 @@ function getPhotographerPageDOM (data) {
   photographerPortrait.classList.add('header__photographerPage--imgProfile')
   photographerPortrait.setAttribute('src', picture)
   photographerPortrait.setAttribute('alt', photographerProfilePicture)
-  // photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
+  photographerPortrait.setAttribute("aria-label", photographerProfilePicture);
 
   // Insert : total likes nd price/day ///////////////////////
 
@@ -121,8 +119,6 @@ function getPhotographerPageDOM (data) {
   photographerLikesContainer.appendChild(photographerTotalLikes)
   photographerLikesContainer.appendChild(photographerFullHeart)
   photographerInsert.appendChild(photographerPrice)
-
-  // document.getElementById("contactBtn").focus();
 
   return (photographerPage)
 };

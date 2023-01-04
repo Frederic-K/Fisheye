@@ -109,9 +109,6 @@ function moveLightboxSlide (direction) {
   const mediaCardsNodeList4LightboxArray = Array.from(mediaCardsNodeList4Lightbox) // Old School : const mediaCardsNodeList4LightboxArray = Array.prototype.slice.call(mediaCardsNodeList4Lightbox);
   const newLightboxSlide = mediaCardsNodeList4LightboxArray[currentIndex]
 
-  console.log('newindex', newIndex);
-  console.log('currentIndex', currentIndex);
-
   const isFileType = (newLightboxSlide.getAttribute('filetype') === 'img')
     if (isFileType) {
       lightboxCurrentImg.classList.remove('hidden')
@@ -140,42 +137,6 @@ function moveLightboxSlide (direction) {
       lightboxPrevMedia.classList.remove('hidden')
       lightboxNextMedia.classList.remove('hidden')
     }
- /*
-  if (newIndex <= 0) {
-    //console.log('newindex', newIndex);
-    // console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
-    lightboxPrevMedia.classList.add('hidden')
-    lightboxNextMedia.classList.remove('hidden')
-  } else if (newIndex > mediaCardsNodeList4LightboxArray.length - 1) {
-    // console.log('newindex', newIndex);
-    // console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
-    lightboxNextMedia.classList.add('hidden')
-    lightboxPrevMedia.classList.remove('hidden')
-  } else {
-    // console.log('newindex', newIndex);
-    // console.log('mediaCardsNodeList4LightboxArray.length', mediaCardsNodeList4LightboxArray.length);
-    lightboxPrevMedia.classList.remove('hidden')
-    lightboxNextMedia.classList.remove('hidden')
-    const isFileType = (newLightboxSlide.getAttribute('filetype') === 'img')
-    if (isFileType) {
-      lightboxCurrentImg.classList.remove('hidden')
-      lightboxCurrentVideo.classList.add('hidden')
-      lightboxCurrentCaption.textContent = newLightboxSlide.title
-      lightboxCurrentImg.setAttribute('src', newLightboxSlide.src)
-      lightboxCurrentImg.setAttribute('alt', newLightboxSlide.title)
-      lightboxCurrentImg.setAttribute('aria-label', newLightboxSlide.title)
-    } else if (!isFileType) {
-      lightboxCurrentVideo.classList.remove('hidden')
-      lightboxCurrentImg.classList.add('hidden')
-      lightboxCurrentVideo.setAttribute('src', newLightboxSlide.src)
-      lightboxCurrentCaption.textContent = newLightboxSlide.title
-      lightboxCurrentVideo.setAttribute('alt', newLightboxSlide.title)
-      lightboxCurrentVideo.setAttribute('aria-label', newLightboxSlide.title)
-      lightboxCurrentVideo.setAttribute('controls', '')
-    } else {
-      console.log('Error media file type')
-    }
-  };*/
 };
 
 // Close  lightbox ///////////////////////

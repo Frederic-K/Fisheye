@@ -1,4 +1,4 @@
-/* /* eslint-disable no-unused-vars, no-undef */
+/* eslint-disable no-unused-vars, no-undef */
 
 // Dropdown DOM ///////////////////////
 
@@ -153,33 +153,6 @@ function sorterByFamous (e) {
   sortMedias(e.target)
 };
 
-/* const focusableElements = element.querySelectorAll(".listboxMenu");
-console.log('focusableElements', focusableElements);
-const firstFocusableElement = focusableElements[0];
-console.log('firstFocusableElement', firstFocusableElement);
-const lastFocusableElement = focusableElements[focusableElements.length - 1];
-console.log('lastFocusableElement', lastFocusableElement);
-
- document.addEventListener("keydown", function(e) {
-
-    //let isTabPressed = e.key === "Tab";
-    //let isEscPressed = e.key === "Escape";
-
-    /*if (!isTabPressed) {
-        return;
-    } */
-
-/* if (e.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-            lastFocusableElement.focus();
-            e.preventDefault();
-        }
-    } else if (document.activeElement === lastFocusableElement) {
-        firstFocusableElement.focus();
-        e.preventDefault();
-    }
- }); */
-
 // Sort Media ///////////////////////
 
 function valueCompare (a, b) {
@@ -189,25 +162,16 @@ function valueCompare (a, b) {
 function sortMedias (data) {
   const photographerMedia = document.getElementsByClassName('photographer__media')[0]
   const mediaCardsNodeList = document.querySelectorAll('.mediaCard')
-  const mediaCardSampleItem = document.querySelectorAll('.media')
-  // console.log('mediaCardSampleItem', mediaCardSampleItem);
-
-  // si date n'est pas parsed par Date.parse(2011-08-11) alors :
-  /* const mediaDatesArray = Array.from(cards).map(d => parseInt(d.getAttribute("date"), 10));
-    console.log("mediaDatesArray", mediaDatesArray); */
 
   // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array
   // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/from
   // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+  // Si la parse est nécessaire
+  // const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 est la base
+
 
   const mediaDatesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('date'))
-
-  const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('title'))
-
-  // Si la parse est nécessaire
-  /* const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => parseInt(n.getAttribute("likes"), 10)); with parseInt, 10 est la base
-    console.log("mediaLikesArray", mediaLikesArray); */
-
+  const mediaTitlesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('title'))  
   const mediaLikesArray = Array.from(mediaCardsNodeList).map(n => n.getAttribute('likes'))
 
   const selectedSorter = data.textContent
@@ -216,10 +180,7 @@ function sortMedias (data) {
 
   if (selectedSorter === 'Date') {
     mediaDatesArraySorted = mediaDatesArray.sort(valueCompare)
-    // console.log("mediaDatesArraySorted", mediaDatesArraySorted);
-
     for (let i = 0; i < mediaDatesArraySorted.length; i++) {
-      // console.log('i', i);
       const date = mediaDatesArraySorted[i]
       for (const card of mediaCardsNodeList) {
         if (card.getAttribute('date') === date) {
@@ -230,10 +191,7 @@ function sortMedias (data) {
     }
   } else if (selectedSorter === 'Titre') {
     mediaTitlesArraySorted = mediaTitlesArray.sort()
-    // console.log("mediaTitlesArraySorted", mediaTitlesArraySorted);
-
     for (let i = 0; i < mediaTitlesArraySorted.length; i++) {
-      // console.log('i', i);
       const title = mediaTitlesArraySorted[i]
       for (const card of mediaCardsNodeList) {
         if (card.getAttribute('title') === title) {
@@ -244,10 +202,7 @@ function sortMedias (data) {
     }
   } else if (selectedSorter === 'Popularité') {
     mediaLikesArraySorted = mediaLikesArray.sort(valueCompare)
-    // console.log("mediaLikesArraySorted", mediaLikesArraySorted);
-
     for (let i = 0; i < mediaLikesArraySorted.length; i++) {
-      // console.log('i', i);
       const like = mediaLikesArraySorted[i]
       for (const card of mediaCardsNodeList) {
         if (card.getAttribute('likes') === like) {

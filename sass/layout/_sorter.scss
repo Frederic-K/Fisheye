@@ -28,6 +28,9 @@
         align-items: center;
         margin: 10px 5px 0px 10px;
         cursor: pointer;
+        &:focus {
+            @include focus-black;
+        }
     }
     &__icon {
         position: absolute;
@@ -46,6 +49,9 @@
         margin-right: 5px;
         padding-top: 5px;
         padding-left: 10px;
+        &:focus {
+            @include focus-black;
+        }
     }
     &__content li:hover {
         border-bottom: 3px solid white;

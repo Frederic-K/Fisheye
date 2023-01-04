@@ -60,23 +60,20 @@ function displayModal () {
 
   // Trap focus ///////////////////////
 
-  // https://gist.github.com/myogeshchavan97/d50d42aa9205573b811587d57c2e58a6
-
   const firstFocusableElement = document.getElementById('firstname')
   const lastFocusableElement = document.getElementsByClassName('modal__form--sendBtn')[0]
 
   document.addEventListener('keydown', function (e) {
     const isEscPressed = e.key === 'Escape'
 
-    if (e.shiftKey) { // if shift key pressed for shift + tab combination
+    if (e.shiftKey) {
       if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus() // add focus for the last focusable element
-        // console.log("K9lastFocusableElement", lastFocusableElement);
+        lastFocusableElement.focus()
+
         e.preventDefault()
       }
-    } else if (document.activeElement === lastFocusableElement) { // if tab key is pressed // focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus() // add focus for the first focusable element
-      // console.log("K9firstFocusableElement", firstFocusableElement);
+    } else if (document.activeElement === lastFocusableElement) { 
+      firstFocusableElement.focus()
       e.preventDefault()
     }
     if (isEscPressed) {
@@ -84,9 +81,8 @@ function displayModal () {
       closeModal()
     }
   })
-
+  
   firstFocusableElement.focus()
-  // console.log("FinalfirstFocusableElement", firstFocusableElement);
 };
 
 // Fermeture de la modal ///////////////////////

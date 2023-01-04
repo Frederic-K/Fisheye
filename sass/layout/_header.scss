@@ -7,6 +7,9 @@
     align-items: center;
     &__logo {
         margin-left: 100px;
+        &:focus {
+            @include focus-black;
+        }
         &--img {
             height: 50px;
         }

@@ -10,6 +10,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.header__photographerPage--contactBtn:focus {
+  outline: 5px solid black;
+}
 
 .photographerPage__aside {
   max-width: 1220px;
@@ -62,17 +65,9 @@
   margin: 0px;
   padding: 0px;
   cursor: pointer;
-  /*&:hover {
-      .empty-heart {
-          opacity: 0;
-          transition: opacity 1500ms;
-      }
-      .full-heart {
-          opacity: 1;
-          transform: scale(1);
-          transform-origin: bottom;
-      }
-  }*/
+}
+.mediaCard__caption--likeBtnIcon:focus {
+  outline: 5px solid black;
 }
 .mediaCard__caption--likeBtnIcon .empty-heart {
   position: absolute;
@@ -136,6 +131,9 @@ h2 {
 }
 .header__logo {
   margin-left: 100px;
+}
+.header__logo:focus {
+  outline: 5px solid black;
 }
 .header__logo--img {
   height: 50px;
@@ -248,6 +246,9 @@ h2 {
   padding: 10px;
   font-size: 30px;
 }
+.modal__form--input:focus {
+  outline: 5px solid black;
+}
 .modal__form--inputMsg {
   width: 100%;
   height: 200px;
@@ -256,6 +257,9 @@ h2 {
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 30px;
+}
+.modal__form--inputMsg:focus {
+  outline: 5px solid black;
 }
 .modal__form--sendBtn {
   font-size: 20px;
@@ -268,6 +272,9 @@ h2 {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+}
+.modal__form--sendBtn:focus {
+  outline: 5px solid black;
 }
 
 .dropdown {
@@ -302,6 +309,9 @@ h2 {
   margin: 10px 5px 0px 10px;
   cursor: pointer;
 }
+.dropdown__button:focus {
+  outline: 5px solid black;
+}
 .dropdown__icon {
   position: absolute;
   top: 13px;
@@ -319,6 +329,9 @@ h2 {
   margin-right: 5px;
   padding-top: 5px;
   padding-left: 10px;
+}
+.dropdown__content li:focus {
+  outline: 5px solid black;
 }
 .dropdown__content li:hover {
   border-bottom: 3px solid white;
@@ -490,11 +503,17 @@ h2 {
   border-radius: 5px;
   overflow: hidden;
 }
+.photographer__media .mediaCard__sample:focus {
+  outline: 5px solid black;
+}
 .photographer__media .mediaCard__sample--img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+.photographer__media .mediaCard__sample--img:focus {
+  outline: 5px solid black;
 }
 .photographer__media .mediaCard__sample--video {
   width: 100%;
@@ -525,6 +544,10 @@ h2 {
   color: #901c1c;
   font-size: 20px;
   font-weight: bold;
+}
+
+.media:focus {
+  outline: 5px solid #901C1C;
 }
 
 .header__photographerPage {

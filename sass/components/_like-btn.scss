@@ -10,32 +10,21 @@
             position: relative;
             margin: 0px;
             padding: 0px;
-            cursor: pointer;            
+            cursor: pointer;
+            &:focus {
+                @include focus-black;
+            }            
             .empty-heart {
                 position: absolute;
                 top: 13px;
                 left: 5px;
                 opacity: 1;
-                //transition: opacity 1500ms;
             }
             .full-heart {
                 position: absolute;
                 top: 13px;
                 left: 5px;
-                //transform: scale(0);
-                //transition: all 500ms;
             }
-            /*&:hover {
-                .empty-heart {
-                    opacity: 0;
-                    transition: opacity 1500ms;
-                }
-                .full-heart {
-                    opacity: 1;
-                    transform: scale(1);
-                    transform-origin: bottom;
-                }
-            }*/
         }
     }
 };
