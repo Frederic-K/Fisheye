@@ -66,9 +66,6 @@
   padding: 0px;
   cursor: pointer;
 }
-.mediaCard__caption--likeBtnIcon:focus {
-  outline: 5px solid black;
-}
 .mediaCard__caption--likeBtnIcon .empty-heart {
   position: absolute;
   top: 13px;
@@ -309,9 +306,6 @@ h2 {
   margin: 10px 5px 0px 10px;
   cursor: pointer;
 }
-.dropdown__button:focus {
-  outline: 5px solid black;
-}
 .dropdown__icon {
   position: absolute;
   top: 13px;
@@ -330,16 +324,10 @@ h2 {
   padding-top: 5px;
   padding-left: 10px;
 }
-.dropdown__content li:focus {
-  outline: 5px solid black;
-}
 .dropdown__content li:hover {
   border-bottom: 3px solid white;
 }
 
-/*.dropdown li:hover {
-    border: 3px solid white;
-};*/
 .arrow-animation-up {
   transform: rotate(180deg);
   transition: transform 500ms;
@@ -512,9 +500,6 @@ h2 {
   object-fit: cover;
   cursor: pointer;
 }
-.photographer__media .mediaCard__sample--img:focus {
-  outline: 5px solid black;
-}
 .photographer__media .mediaCard__sample--video {
   width: 100%;
   height: 100%;
@@ -544,10 +529,6 @@ h2 {
   color: #901c1c;
   font-size: 20px;
   font-weight: bold;
-}
-
-.media:focus {
-  outline: 5px solid #901C1C;
 }
 
 .header__photographerPage {

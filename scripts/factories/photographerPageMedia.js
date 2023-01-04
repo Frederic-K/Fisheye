@@ -70,7 +70,7 @@ function getPhotographerMediaDOM (data, i) {
 
   // Caption title ///////////////////////
 
-  const mediaCardTitle = document.createElement('h3')
+  const mediaCardTitle = document.createElement('h2')
   mediaCardTitle.classList.add('mediaCard__caption--title')
   mediaCardTitle.setAttribute('aria-label', mediaTitle)
   mediaCardTitle.textContent = title

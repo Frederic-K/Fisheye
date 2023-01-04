@@ -25,8 +25,7 @@ function displayLightbox (data) {
   const mediaCardsNodeList4Lightbox = document.querySelectorAll('.media')
   const mediaCardsNodeList4LightboxArray = Array.from(mediaCardsNodeList4Lightbox)
   currentIndex = parseInt(data.getAttribute('data-index'))
-  console.log('currentIndex', currentIndex);
-  console.log('toto', mediaCardsNodeList4LightboxArray.length);
+
   if (currentIndex === 0) {
     lightboxPrevMedia.classList.add('hidden')
   } else if (currentIndex === mediaCardsNodeList4LightboxArray.length - 1) {
@@ -35,6 +34,7 @@ function displayLightbox (data) {
     lightboxPrevMedia.classList.remove('hidden')
     lightboxNextMedia.classList.remove('hidden')
   }
+
     // Display file type ///////////////////////
   const isFileType = (data.getAttribute('filetype') === 'img')
   if (isFileType) {
@@ -53,6 +53,7 @@ function displayLightbox (data) {
     lightboxCurrentVideo.setAttribute('data-index', currentIndex)
     lightboxCurrentVideo.classList.remove('hidden')
   }
+
   lightboxBg.classList.remove('hidden')
   main.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('role', 'dialog')
@@ -60,8 +61,6 @@ function displayLightbox (data) {
   lightboxModal.setAttribute('aria-modal', 'true')
   lightboxModal.setAttribute('aria-controls', 'modal')
   lightboxModal.setAttribute('aria-label', 'Vue rapprochée du media')
-
-
 
   // Caption ///////////////////////
   const lightboxCurrentTitleSource = data.parentElement.parentElement.getElementsByClassName('mediaCard__caption--title')[0]
@@ -147,8 +146,8 @@ lightboxEscBtn.addEventListener('click', () => {
 
 function closeLightbox () {
   lightboxBg.classList.add('hidden')
-  lightboxCurrentImg.removeAttribute('src', 'alt', 'aria-label')
-  lightboxCurrentVideo.removeAttribute('src', 'alt', 'aria-label')
+  //lightboxCurrentImg.removeAttribute('src', 'alt', 'aria-label')
+  //lightboxCurrentVideo.removeAttribute('src', 'alt', 'aria-label')
   lightboxCurrentVideo.classList.add('hidden')
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-modal', 'false')

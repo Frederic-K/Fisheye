@@ -55,7 +55,6 @@ function getPhotographerPageDOM (data) {
   photographerContactBtn.setAttribute('role', 'button')
   photographerContactBtn.setAttribute('aria-label', photographerContactMsg)
   photographerContactBtn.setAttribute('aria-haspopup', 'dialog')
-  photographerContactBtn.setAttribute('aria-controls', 'dialog')
   photographerContactBtn.textContent = 'Contactez-moi'
   photographerContactBtn.setAttribute('onclick', 'displayModal()')
 

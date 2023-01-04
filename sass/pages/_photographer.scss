@@ -23,9 +23,6 @@
                 height: 100%;
                 object-fit: cover;
                 cursor: pointer;
-                &:focus {
-                    @include focus-black;
-                }
             }
             &--video {
                 width: 100%;
@@ -60,8 +57,3 @@
         }
     }
 };
-
-.media:focus {
-    @include focus-red;
-};
-

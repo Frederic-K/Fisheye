@@ -10,10 +10,7 @@
             position: relative;
             margin: 0px;
             padding: 0px;
-            cursor: pointer;
-            &:focus {
-                @include focus-black;
-            }            
+            cursor: pointer;           
             .empty-heart {
                 position: absolute;
                 top: 13px;
