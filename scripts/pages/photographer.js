@@ -5,7 +5,7 @@
 
 async function getPhotographerId () {
   const params = (new URL(document.location)).searchParams
-  const id = params.get('id')
+  const id = parseInt(params.get('id'))
 
   return (id)
 };
@@ -16,7 +16,7 @@ async function getSelectedPhotographer () {
 
   const photographerId = await getPhotographerId()
 
-  const choosenPhotographer = photographers.filter(photographer => photographer.id == photographerId)
+  const choosenPhotographer = photographers.filter(photographer => photographer.id === photographerId)
 
   return (choosenPhotographer)
 };
@@ -42,7 +42,7 @@ async function getSelectedPhotographerMedia () {
 
   const photographerId = await getPhotographerId()
 
-  const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId == photographerId)
+  const selectedPhotographerMedias = media.filter(photographer => photographer.photographerId === photographerId)
 
   const defaultSortedMedia = selectedPhotographerMedias.sort((a, b) => b.likes - a.likes)
 
