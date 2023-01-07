@@ -33,10 +33,6 @@ async function displayPhotographerData () {
 displayPhotographerData()
 
 // Media ///////////////////////
-function valueCompare (a, b) {
-  return b - a
-};
-
 async function getSelectedPhotographerMedia () {
   const { media } = await getPhotographersData()
 
