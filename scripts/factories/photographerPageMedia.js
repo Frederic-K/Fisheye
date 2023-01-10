@@ -25,7 +25,7 @@ function getPhotographerMediaDOM (data, i) {
   const mediaCardSample = document.createElement('div')
   mediaCardSample.classList.add('mediaCard__sample')
   mediaCardSample.setAttribute('role', 'link')
-  mediaCardSample.setAttribute('tabindex', '0')
+  //mediaCardSample.setAttribute('tabindex', '0')
   mediaCardSample.setAttribute('aria-label', linkLightboxMediaTitle)
 
   function getMediaByFileTypeDOM () {
@@ -42,12 +42,13 @@ function getPhotographerMediaDOM (data, i) {
       mediaCardImg.setAttribute('data-index', index)
       mediaCardImg.setAttribute('filetype', 'img')
       mediaCardImg.setAttribute('datatype', 'media')
+      mediaCardImg.setAttribute('tabindex', '0')
       mediaCardSample.appendChild(mediaCardImg)
     } else if (video) {
       const mediaCardVideo = document.createElement('video')
       mediaCardVideo.classList.add('mediaCard__sample--video', 'media')
       mediaCardVideo.setAttribute('src', movie)
-      mediaCardVideo.setAttribute('controls', '')
+      //mediaCardVideo.setAttribute('controls', '')
       mediaCardVideo.setAttribute('date', Date.parse(date))
       mediaCardVideo.setAttribute('likes', likes)
       mediaCardVideo.setAttribute('title', title)
@@ -56,6 +57,7 @@ function getPhotographerMediaDOM (data, i) {
       mediaCardVideo.setAttribute('data-index', index)
       mediaCardVideo.setAttribute('filetype', 'vid')
       mediaCardVideo.setAttribute('datatype', 'media')
+      mediaCardVideo.setAttribute('tabindex', '0')
       mediaCardSample.appendChild(mediaCardVideo)
     } else {
       console.log("le type de fichier n'est pas reconnu")
@@ -134,6 +136,7 @@ function getPhotographerMediaDOM (data, i) {
 
   mediaCardSample.addEventListener('click', function (e) {
     displayLightbox(e.target)
+    console.log('e.target clic souris', e.target);
   })
 
   mediaCardSample.addEventListener('keydown', keyboardSelection)
@@ -141,6 +144,7 @@ function getPhotographerMediaDOM (data, i) {
   function keyboardSelection (e) {
     if (e.key === 'Enter') {
       displayLightbox(e.target)
+      console.log('e.taget keybord', e.target);
     }
   };
 
