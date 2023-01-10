@@ -24,7 +24,6 @@
         }
         &--img {
             @include profile-img;
-            overflow: hidden;
         }
         &--caption {
             display: flex;
