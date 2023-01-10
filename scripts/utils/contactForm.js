@@ -33,14 +33,14 @@ function displayModal () {
   const modalFormSendBtn = document.getElementsByClassName('modal__form--sendBtn')[0]
 
   // Log on submit ///////////////////////
-  modalFormSendBtn.addEventListener('click', function (e) {
+  /*modalFormSendBtn.addEventListener('click', function (e) {
     e.preventDefault()
     console.log(modalFormInputPrenom.value)
     console.log(modalFormInputNom.value)
     console.log(modalFormInputEmail.value)
     console.log(modalFormInputMsg.value)
     closeModal()
-  })
+  })*/
 
   // Submit ///////////////////////
   modalFormSendBtn.addEventListener('click', (e) => formSubmit(e))
@@ -54,10 +54,13 @@ function displayModal () {
 
   function formSubmit (e) {
     e.preventDefault()
-    console.log(modalFormInputPrenom.value)
-    console.log(modalFormInputNom.value)
-    console.log(modalFormInputEmail.value)
-    console.log(modalFormInputMsg.value)
+    const contact = {
+      "firstname" : modalFormInputPrenom.value,
+      "name" : modalFormInputNom.value,
+      "email" : modalFormInputEmail.value,
+      "message" : modalFormInputMsg.value
+    }
+    console.log('contact', contact);
     closeModal()
   };
 
