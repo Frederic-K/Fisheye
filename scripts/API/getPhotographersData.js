@@ -11,6 +11,7 @@ async function getPhotographersData () {
       }
     })
     .then(function (photographersData) {
+      console.log('toto', photographersData);
       return photographersData
     })
     .catch(function (error) {
